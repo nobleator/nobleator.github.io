@@ -124,17 +124,18 @@ div .name {
 	font-weight: bold;
 	width: 33%;
 	padding: 1em;
-	border-bottom: 2px solid black;
 	border-right: 2px solid black;
 }
 div .description {
 	width: 66%;
 	padding: 1em;
-	border-bottom: 2px solid black;
 }
 div .screeenshot {
 	text-align: center;
 	padding: 5em;
+}
+div .description li {
+	text-align: left;
 }
 
 /*Re-size elements based on screen width*/
