@@ -51,7 +51,7 @@ nav {
 /*Page Content*/
 /*Styling for sections*/
 div#all-page-contents {
-	padding-top: 10%;
+	padding-top: 1%;
 }
 div#home, div#projects, div#data-crunching, div#about-me {
 	margin: 10% auto;
@@ -129,10 +129,6 @@ div .name {
 div .description {
 	width: 66%;
 	padding: 1em;
-}
-div .screeenshot {
-	text-align: center;
-	padding: 5em;
 }
 div .description li {
 	text-align: left;
