@@ -68,51 +68,10 @@
 
 </svg>
 
-<!--JavaScript/JQuery for scroll animation-->
+<!--JavaScript/JQuery for scroll animation and hightlighting active page
+section icon in navbar-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-	$(document).on('click', '#nav-links a', function(event){
-		event.preventDefault();
-		$('html, body').animate({
-				scrollTop: $( $.attr(this, 'href') ).offset().top
-		}, 800);
-	});
-</script>
-<!--Javascript for hightlighting active page section icon in navbar-->
-<script>
-	$(document).ready(function() {
-		//Find locations of sections and assign to an array of positions
-		var homeOffset = $('#home').offset().top - 100,
-				projectsOffset = $('#projects').offset().top - 100,
-				dataOffset = $('#data-crunching').offset().top - 100,
-				aboutMeOffset = $('#about-me').offset().top - 100;
-		var positionsArr = [Math.round($('#home').offset().top),
-									Math.round($('#projects').offset().top),
-									Math.round($('#data-crunching').offset().top),
-									Math.round($('#about-me').offset().top)]
-		var smallest = 0;
-		$(window).scroll(function() {
-			//Find top of viewport
-			var topEdge = $(document).scrollTop();
-			//Find section closest to topEdge and apply style
-			if (topEdge > homeOffset && topEdge < projectsOffset) {
-				$('.icon').removeClass('active');
-				$('.home').addClass('active');
-			} else if (topEdge > projectsOffset && topEdge < dataOffset) {
-				$('.icon').removeClass('active');
-				$('.projects').addClass('active');
-			} else if (topEdge > dataOffset && topEdge < aboutMeOffset){
-				$('.icon').removeClass('active');
-				$('.data-crunching').addClass('active');
-			} else if (topEdge > aboutMeOffset){
-				$('.icon').removeClass('active');
-				$('.about-me').addClass('active');
-			} else {
-				$('.home').addClass('active');
-			}
-		});
-	});
-</script>
+<script type='text/javascript' src='index.js'></script>
 
 <!--Logo, Banner, and Navigation-->
 <nav>
@@ -121,9 +80,9 @@
 	</div>
 	<div id='nav-links'>
 		<a href="#home"><svg class='home icon active'><use xlink:href='#icon-home'/></svg></a>
+		<a href="#about-me"><svg class='about-me icon'><use xlink:href='#icon-me'/></svg></a>
 		<a href="#projects"><svg class='projects icon'><use xlink:href='#icon-gear'/></svg></a>
 		<a href="#data-crunching"><svg class='data-crunching icon'><use xlink:href='#icon-data'/></svg></a>
-		<a href="#about-me"><svg class='about-me icon'><use xlink:href='#icon-me'/></svg></a>
 	</div>
 </nav>
 
@@ -147,6 +106,35 @@
 				Though an engineer by trade, my mom always said I was a Renaissance man. I am currently exploring a burgeoning interest in web development, as well as various data-y enterprises, and I'm always eager to learn new things.
 			</div>
 		</div>
+	</div>
+<!--About Me-->
+	<div id='about-me'>
+		<div class='background-text'>About Me</div>
+		<svg class='background-image'><use xlink:href='#icon-me'/></svg>
+		<div class='content first' style='border: none; padding-top: 2em;'>
+			<img src='evolution.svg' />
+		</div>
+		<div class='content right second'>
+			<div class='sub name'>Resume<br /><a href='#'>Link</a></div>
+			<div class='sub description'>
+				<h3>The Hits:</h3>
+				<ul>
+					<li>
+						"Peer Mentor" (i.e., a tutor) for the college of engineering, a catch-all for lower-level math and science courses
+					</li>
+					<li>
+						Undergraduate Teaching Assistant for intro computer science courses (Python focused)
+					</li>
+					<li>
+						Systems Engineer focusing on operations research and large-scale system integration efforts
+					</li>
+					<li>
+						Next: Mars colonist eventually. Until then, building random web apps for funsies.
+					</li>
+				</ul>
+			</div>
+		</div>
+
 	</div>
 <!--Projects-->
 	<div id='projects'>
@@ -173,32 +161,7 @@
 			</div>
 		</div>
 	</div>
-<!--About Me-->
-	<div id='about-me'>
-		<div class='background-text'>About Me</div>
-		<svg class='background-image'><use xlink:href='#icon-me'/></svg>
 
-		<div class='content left first'>
-			<div class='sub name'>Resume<br /><a href='#'>Link</a></div>
-			<div class='sub description'>
-				<ul>
-					<li>
-						"Peer Mentor" (i.e., a tutor) for the college of engineering, a catch-all for lower-level math and science courses
-					</li>
-					<li>
-						Undergraduate Teaching Assistant for intro computer science courses (Python focused)
-					</li>
-					<li>
-						Systems Engineer focusing on operations research and large-scale system integration efforts
-					</li>
-					<li>
-						Next???
-					</li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
 </div>
 </body>
 

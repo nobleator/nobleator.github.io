@@ -70,10 +70,9 @@ div#home::before, div#projects::before, div#data-crunching::before, div#about-me
 .background-text {
 	font-size: 500%;
 	color: white;
-	top: 5%;
-	right: 0;
+	top: 0;
 	position: absolute;
-	padding-top: 10%;
+	padding-top: 0;
 }
 .background-image {
 	width: 100%;
@@ -92,6 +91,11 @@ div .content {
 	padding: 20px;
 	position: relative;
 	z-index: 9;
+}
+div .content img {
+	display: block;
+	margin: -10em auto 0;
+	max-width: 100%;
 }
 div .left {
 	float: left;
@@ -131,6 +135,9 @@ div .description {
 	padding: 1em;
 }
 div .description li {
+	text-align: left;
+}
+div .description h3 {
 	text-align: left;
 }
 
