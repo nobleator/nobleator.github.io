@@ -1,5 +1,33 @@
 // TODO: Convert JQuery to vanilla JS
 //JavaScript/JQuery for scroll animation
+function scrollToLocation(location, scrollDuration) {
+		console.log(location);
+		console.log(document.body.scrollTop || document.documentElement.scrollTop);
+		console.log(document.getElementById(location).offsetTop);
+		console.log(document.getElementById('home').offsetTop);
+		console.log(document.getElementById('about-me').offsetTop);
+		console.log(document.getElementById('projects').offsetTop);
+		console.log(document.getElementById('data-crunching').offsetTop);
+
+		var current = document.body.scrollTop;
+		var target = document.getElementById(location).offsetTop;
+		var diff = target - current;
+		console.log(diff);
+    //var scrollStep = -window.scrollY / (scrollDuration / 15),
+		var scrollStep = location / (scrollDuration / 15),
+      scrollInterval = setInterval(function(){
+      if ( diff < 0 ) {
+        window.scrollBy( 0, scrollStep );
+      } else if ( diff > 0 ) {
+				window.scrollBy( 0, -scrollStep );
+			}
+      else {
+				clearInterval(scrollInterval);
+			}
+    },15);
+}
+
+/*
 $(document).on('click', '#nav-links a', function(event){
 	event.preventDefault();
 	$('html, body').animate({
@@ -33,3 +61,4 @@ $(document).ready(function() {
 		}
 	});
 });
+*/
