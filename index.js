@@ -1,35 +1,25 @@
-// TODO: Convert JQuery to vanilla JS
-//JavaScript/JQuery for scroll animation
-$(document).on('click', '#nav-links a', function(event){
-	event.preventDefault();
-	$('html, body').animate({
-			scrollTop: $( $.attr(this, 'href') ).offset().top - 110
-	}, 800);
-});
+//JavaScript for scroll animation
+function scroll(element, to, duration) {
+	if (duration <= 0) {
+		return;
+	}
+	var diff = to - element.scrollTop;
+	var perTick = diff / duration * 10;
 
-// Javascript for hightlighting active page section icon in navbar
-$(document).ready(function() {
-	//Find locations of sections and assign to an array of positions
-	var homeOffset = $('#home').offset().top - 100,
-			aboutMeOffset = $('#about-me').offset().top - 100,
-			projectsOffset = $('#projects').offset().top - 100,
-			dataOffset = $('#data-crunching').offset().top - 100;
-	$(window).scroll(function() {
-		//Find top of viewport
-		var topEdge = $(document).scrollTop();
-		//Find section closest to topEdge and apply style
-		if (topEdge < homeOffset) {
-			$('.icon').removeClass('active');
-			$('.home').addClass('active');
-		} else if (topEdge > homeOffset && topEdge < aboutMeOffset) {
-			$('.icon').removeClass('active');
-			$('.about-me').addClass('active');
-		} else if (topEdge > aboutMeOffset && topEdge < projectsOffset) {
-			$('.icon').removeClass('active');
-			$('.projects').addClass('active');
+	setTimeout(function() {
+		element.scrollTop += perTick;
+		if (element.scrollTop === to) {
+			return;
 		} else {
-			$('.icon').removeClass('active');
-			$('.data-crunching').addClass('active');
+			scroll(element, to, duration - 10);
 		}
-	});
-});
+	}, 10);
+}
+
+function scrollToLocation(tag) {
+	elem = document.getElementById(tag);
+	// Offset by 110 to account for navbar height
+	scroll(document.body || document.documentElement, elem.offsetTop - 110, 800);
+}
+
+// TODO: Change colors for icons when active

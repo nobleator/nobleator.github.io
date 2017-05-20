@@ -68,21 +68,20 @@
 
 </svg>
 
-<!--JavaScript/JQuery for scroll animation and hightlighting active page
-section icon in navbar-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type='text/javascript' src='index.js'></script>
-
 <!--Logo, Banner, and Navigation-->
 <nav>
 	<div id='nav-banner'>
 		<img class='logo' src='logo.svg' /></img><span>Ben Noble</span>
 	</div>
 	<div id='nav-links'>
-		<a href="#home"><svg class='home icon active'><use xlink:href='#icon-home'/></svg></a>
-		<a href="#about-me"><svg class='about-me icon'><use xlink:href='#icon-me'/></svg></a>
-		<a href="#projects"><svg class='projects icon'><use xlink:href='#icon-gear'/></svg></a>
-		<a href="#data-crunching"><svg class='data-crunching icon'><use xlink:href='#icon-data'/></svg></a>
+		<a onclick="scrollToLocation('home');return false;" href="#home">
+			<svg class='home icon active'><use xlink:href='#icon-home'/></svg></a>
+		<a onclick="scrollToLocation('about-me');return false;" href="#about-me">
+			<svg class='about-me icon'><use xlink:href='#icon-me'/></svg></a>
+		<a onclick="scrollToLocation('projects');return false;" href="#projects">
+			<svg class='projects icon'><use xlink:href='#icon-gear'/></svg></a>
+		<a onclick="scrollToLocation('data-crunching');return false;" href="#data-crunching">
+			<svg class='data-crunching icon'><use xlink:href='#icon-data'/></svg></a>
 	</div>
 </nav>
 
@@ -175,5 +174,8 @@ section icon in navbar-->
 	</div>
 </div>
 </body>
-
+<!--JavaScript/JQuery for scroll animation and hightlighting active page
+section icon in navbar-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type='text/javascript' src='index.js'></script>
 </html>
