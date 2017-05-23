@@ -24,7 +24,7 @@ function scrollToLocation(tag) {
 
 // Change 'active' style tag depending on which section is visible
 function changeActiveIcon(pos) {
-	var navHeight = 110;
+	var navHeight = 150;
 	var homeElem = document.getElementById('home');
 	var homeElemTop = homeElem.getBoundingClientRect().top;
 	var homeElemBottom = homeElem.getBoundingClientRect().bottom;
