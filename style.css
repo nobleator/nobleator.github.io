@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	top: 0;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 100%;
+	font-size: 11pt;
 }
 
 /*Header and Navigation Bar*/
@@ -19,26 +19,132 @@ nav {
 	font-size: 150%;
 	font-family: 'Open Sans', sans-serif;
 	line-height: 2em;
+    height: 2.5em;
 	text-align: center;
 	padding: 0.5em;
 	color: #ecf0f1;
 }
-.logo {
-	vertical-align: middle;
-	max-height: 2em;
-	max-width: 2em;
-	padding-right: 1em;
-	fill: #ecf0f1;
-}
-#nav-banner span {
-	padding-left: 1em;
-	border-left: 3px solid #ecf0f1;
+.name-title {
+	padding-left: 0.25em;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-/*Page Content*/
-#content {
-	
+/*Logo styles and animations*/
+.container {
+    max-height: 2em;
+    max-width: 2em;
+    margin: 0 auto;
+    vertical-align: middle;
+    padding-right: 0.25em;
+    display: inline-block;
 }
+svg {
+    width: 100%;
+    height: 100%;
+}
+circle {
+    fill: #ecf0f1;
+    stroke: black;
+    stroke-width: 2px;
+}
+#background {
+    fill: #ecf0f1;
+}
+#center {
+    animation: explode 2.5s;
+}
+@keyframes explode {
+    0% {
+        r: 10;
+    }
+}
+#top-left, #top-right, #right-top, #right-bottom, #bottom-right, #bottom-left, #left-bottom, #left-top {
+    animation-duration: 2.5s;
+    animation-timing-function: ease;
+}
+#top-left {
+    animation-name: explode-tl;
+}
+@keyframes explode-tl {
+    0% {
+        transform: translate(30px, 60.35px);
+    }
+}
+#top-right {
+    animation-name: explode-tr;
+}
+@keyframes explode-tr {
+    0% {
+        transform: translate(-25px, 60.35px);
+    }
+}
+#right-top {
+    animation-name: explode-rt;
+}
+@keyframes explode-rt {
+    0% {
+        transform: translate(-60.35px, 25px);
+    }
+}
+#right-bottom {
+    animation-name: explode-rb;
+}
+@keyframes explode-rb {
+    0% {
+        transform: translate(-60.35px, -25px);
+    }
+}
+#bottom-right {
+    animation-name: explode-br;
+}
+@keyframes explode-br {
+    0% {
+        transform: translate(-25px, -60.35px);
+    }
+}
+#bottom-left {
+    animation-name: explode-bl;
+}
+@keyframes explode-bl {
+    0% {
+        transform: translate(25px, -60.35px);
+    }
+}
+#left-bottom {
+    animation-name: explode-lb;
+}
+@keyframes explode-lb {
+    0% {
+        transform: translate(60.35px, -25px);
+    }
+}
+#left-top {
+    animation-name: explode-lt;
+}
+@keyframes explode-lt {
+    0% {
+        transform: translate(60.35px, 25px);
+    }
+}
+
+path {
+    fill: transparent;
+    opacity: 1;
+    stroke: #e74c3c;
+    stroke-width: 10;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: draw 4s ease forwards;
+    animation-delay: 2s;
+}
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/*Page Contents*/
 .section {
     max-width: 50em;
     margin: 0 auto;
@@ -51,15 +157,17 @@ nav {
     padding: 1em;
 }
 .left {
-    font-weight: bold;
+    font-weight: lighter;
+    font-size: 13pt;
     width: 20%;
     max-width: 15em;
     text-align: right;
-    color: #e74c3c;
+    color: #c0392b;
 }
 .right {
     max-width: 35em;
     text-align: left;
+    /*line-height: 1.3em;*/
 }
 #footer {
 	font-size: 0.9em;
@@ -72,6 +180,14 @@ nav {
 }
 ul {
 	margin: 0;
+    padding-left: 1.25em;
+    list-style-type: square;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-bottom: 1.5px dashed black;
 }
 
 /*Re-size elements based on screen width*/

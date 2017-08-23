@@ -13,7 +13,29 @@
 <!--Logo, Banner, and Navigation-->
 <nav>
     <div id='nav-banner'>
-        <img class='logo' src='logo.svg' /></img><span>Ben Noble</span>
+        <div class='container'>
+            <svg viewBox='-10 -10 140.7 140.7'>
+                <g>
+                    <!--
+                    For a octagon with sides of 50 positioned in the top left corner:
+                    Sides = 50, radius = 51.316, corner angles = 35.35
+                    -->
+                    <!--<circle id='background' cx='60.35' cy='60.35' r='70'/>-->
+                    <path d='M60.35 60.35 L 35.35 0 L 0 35.35 V 85.35 L 35.35 120.7'/>
+                    <path d='M60.35 60.35 L 85.35 120.7 L 120.7 85.35 V 35.35 L 85.35 0'/>
+                    <circle id='center' cx='60.35' cy='60.35' r='7.5'/>
+                    <circle id='top-left' cx='35.35' cy='0' r='7.5'/>
+                    <circle id='top-right' cx='85.35' cy='0' r='7.5'/>
+                    <circle id='right-top' cx='120.7' cy='35.35' r='7.5'/>
+                    <circle id='right-bottom' cx='120.7' cy='85.35' r='7.5'/>
+                    <circle id='bottom-right' cx='85.35' cy='120.7' r='7.5'/>
+                    <circle id='bottom-left' cx='35.35' cy='120.7' r='7.5'/>
+                    <circle id='left-bottom' cx='0' cy='85.35' r='7.5'/>
+                    <circle id='left-top' cx='0' cy='35.35' r='7.5'/>
+                </g>
+            </svg>
+        </div>
+        <div class='name-title'>Ben Noble</div>
     </div>
 </nav>
 
@@ -22,71 +44,68 @@
 <!-- New (simplfied) sections -->
 <div id='content'>
     <div class='section'>
-        <div class='left'>Me</div>
+        <div class='left'>About</div>
         <div class='right'>
-            Though an engineer by trade, my mom always said I was a Renaissance man. I am currently exploring a burgeoning interest in web development, as well as various data-y enterprises, and I'm always eager to learn new things.
-            <br>
-            This site has been an experiment for me. Within 3 weeks I went from having no experience in web development to setting up a server and building this site (stackoverflow is my new best friend). The icons were designed by the lovely <a href='http://www.jessicakusuma.com'>Jessie Kusuma</a>, and everything else has been written by me.
+            Though an engineer by trade, my mom always said I was a Renaissance man. I am currently exploring a burgeoning interest in web development, as well as various data-y enterprises, and I'm always eager to learn new things. In my free time I enjoy playing and watching <a href='https://www.reddit.com/r/soccer/'>soccer</a>, conquering the <a href='http://www.eu4wiki.com/Europa_Universalis_4_Wiki'>world</a>, and banging my head against the desk until <a href='https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commits'>Stack Overflow</a> saves me.
         </div>
     </div>
     <div class='section'>
-        <div class='left'>My work</div>
+        <div class='left'>Work</div>
         <div class='right'>
+            Here is a summary of a few of the things I have done professionally in the past few years (just placeholders until NASA calls me up for Mars colonization, of course):
             <ul>
                 <li>
-                    "Peer Mentor" (i.e., a tutor) for the college of engineering, a catch-all for lower-level math and science courses
+                    Systems Engineer at a DC-area defense contractor with two major focuses: schedule optimization and large-scale military system integration efforts.
                 </li>
                 <li>
-                    Undergraduate Teaching Assistant for intro computer science courses (Python focused)
+                    Undergraduate Teaching Assistant (UTA) for introductory computer science courses, taught in Python. Included work with the <a href='#'>SPARC</a> program, an effort to increase capacity in computer science by changing the way we teach by emphasizing hands-on learning in the classroom. This resulted in all the UTAs giving mini-lectures on a variety of topics each class period, as well as holding office hours and running testing labs.
                 </li>
                 <li>
-                    Systems Engineer focusing on operations research and large-scale system integration efforts
+                    "Peer Mentor" (i.e., a tutor) for all for lower-level math and science courses at the university
                 </li>
                 <li>
-                    Next: Mars colonist eventually. Until then, building random web apps for funsies.
+                    Soccer referee, lifeguard, church groundskeeper, and general teenage job-haver
                 </li>
             </ul>
         </div>
     </div>
     <div class='section'>
-        <div class='left'>My profiles</div>
+        <div class='left'>Profiles</div>
         <div class='right'>
+            You can find me online here:
             <ul>
-                <li><a href='https://github.com/nobleator'>GitHub</a></li>
                 <li><a href='https://www.linkedin.com/in/benjamin-noble-3b574877/'>LinkedIn</a></li>
+                <li><a href='https://github.com/nobleator'>GitHub</a></li>
             </ul>
         </div>
     </div>
     <div class='section'>
-        <div class='left'>My projects</div>
+        <div class='left'>Projects</div>
         <div class='right'>
+            And last but not least, here are some of my side projects, things that I have been working on just because I find them interesting:
             <ul>
                 <li>
-                    <a href='https://murmuring-tundra-71478.herokuapp.com'>Decision Tool</a>: An online tool to step the user through performing decision analysis using the Analytic Hierarchy Process. Currently in development (and missing some key features like automatic data import). See <a href='https://github.com/nobleator/tool-decide'>GitHub repository</a> for changelog and planned features (and the code itself).
+                    <a href='https://murmuring-tundra-71478.herokuapp.com'>Decision Tool</a>: A single page application to step the user through performing decision analysis using the Analytic Hierarchy Process (AHP). Two options exist, an automatic version using pre-populated sample data and a manual version where the user inputs values by hand. Development paused and work migrated to NeighborGood. Written with AngularJS, Express, NodeJS.
                 </li>
                 <li>
-                    <a href='https://intense-basin-65597.herokuapp.com'>Map Guesser</a>: Multiple-choice quiz/game for maps. See <a href='https://github.com/nobleator/game-sp-maps'>GitHub repository</a> for details on the code itself.
+                    <a href='https://intense-basin-65597.herokuapp.com'>Map Guesser</a>: Multiple-choice quiz game. User selects a map title from list of multiple-choice options, is told if they are correct or not, and at the end is given a final score. Still some features not implemented, like restricting and randomizing the guesses per play (rather than using the whole database), adding difficulty levels, and saving/exporting your score. Written with AngularJS, Express, NodeJS.
                 </li>
                 <li>
-                    <a href='#'>NeighborGood</a>: [description goes here] See <a href='#'>GitHub repository</a> for details on the code itself.
+                    <b>NeighborGood</b>: An extension of the AHP decision analysis tool, with a specific application towards home and neighborhood selection. Follows the same general principle (AHP decision analysis), but includes a data aggregation tool to parse out publicly available data into a usable format. Currently in development, with the data aggregation tool incomplete, as well as some missing desired features like filters and bounds on criteria. Written with Python, Django.
                 </li>
                 <li>
-                    <a href='#'>DomFall</a>: [description goes here] See <a href='#'>GitHub repository</a> for details on the code itself.
+                    <b>DomFall</b>: Just a twinkle in my eye at this point, but I plan to build a game that mimics the everyone-in-the-same-room mechanic present in Spyfall, combined with some Eurogame card and board game design.
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class='section'>
-        <div class='left'>My data crunching</div>
-        <div class='right'>
-            Coming soon!
         </div>
     </div>
 </div>
 <div id='footer'>
     <img src='evolution.svg'>
     <br>
-    Copyright 2017 Benjamin Noble. Last updated 16 August 2017.
+    Evolution of Ben icon designed by the lovely <a href='http://www.jessicakusuma.com'>Jessie Kusuma</a>.
+    <br>
+    Copyright 2017 Benjamin Noble. Last updated 22 August 2017.
 </div>
 </body>
 <!--JavaScript for scroll animation and hightlighting active page
