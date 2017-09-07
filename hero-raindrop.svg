@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox='0 0 500 500' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id='raindrop' transform='translate(0,0)' style='stroke:none;'>
+        <path d='M100 100 l20 -100 l20 100 A30 100 0 0 1 100 100' style='fill:#034aec;'/>
+    </g>
+</svg>

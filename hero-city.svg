@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox='0 0 1910 700' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id='cityscape' transform='translate(550,150) scale(0.75)'>
+        <g class='short-office' transform='translate(500,350)' style='stroke:none;'>
+            <rect class='base' x='0' y='0' width='400' height='450' style='fill:gray;'/>
+            <rect class='corner window' x='0' y='40' width='100' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='40' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='180' y='40' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='240' y='40' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='corner window' x='300' y='40' width='100' height='80' style='fill:#e0f0fc;'/>
+            <rect class='corner window' x='0' y='180' width='100' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='180' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='180' y='180' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='240' y='180' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='corner window' x='300' y='180' width='100' height='80' style='fill:#e0f0fc;'/>
+            <rect class='corner window' x='0' y='320' width='100' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='320' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='180' y='320' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='window' x='240' y='320' width='40' height='80' style='fill:#e0f0fc;'/>
+            <rect class='corner window' x='300' y='320' width='100' height='80' style='fill:#e0f0fc;'/>
+        </g>
+        <g class='tall-office' transform='translate(30,0)' style='stroke:none;'>
+            <rect class='base' x='0' y='0' width='300' height='800' style='fill:gray;'/>
+            <rect class='top' x='0' y='0' width='300' height='40' style='fill:#bababa;'/>
+            <rect class='window' x='30' y='70' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='70' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='210' y='70' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='30' y='210' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='210' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='210' y='210' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='30' y='350' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='350' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='210' y='350' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='30' y='490' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='490' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='210' y='490' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='30' y='630' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='120' y='630' width='50' height='100' style='fill:#e0f0fc;'/>
+            <rect class='window' x='210' y='630' width='50' height='100' style='fill:#e0f0fc;'/>
+        </g>
+        <g class='church' transform='translate(1000,500)' style='stroke:none; fill:gray;'>
+            <rect class='base' x='0' y='0' width='300' height='300'/>
+            <polygon class='roof' points='0,0 75,-75 225,-75 300,0' style='fill:#b25757;'/>
+            <rect class='clocktower' x='75' y='-225' width='150' height='150'/>
+            <circle class='clock' cx='150' cy='-150' r='50' style='fill:#ffffff;'/>
+            <path class='hour-hand' d='M150 -150 h20' style='stroke:gray; stroke-width:5px; stroke-linecap:round;'/>
+            <path class='minute-hand' d='M150 -150 v-40' style='stroke:gray; stroke-width:5px; stroke-linecap:round;'/>
+            <polygon class='roof' points='75,-225 145,-300 155,-300 225,-225' style='fill:#b25757;'/>
+            <path class='cross' d='M145 -300 v-30 h-20 v-10 h20 v-20 h10 v20 h20 v10 h-20 v30' style='fill:#c0c0c0;'/>
+        </g>
+        <g class='townhouse' transform='translate(0,430)' style='stroke:none; fill:#e3dac9;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+        </g>
+        <g class='townhouse' transform='translate(200,430)' style='stroke:none; fill:#d1d1cf;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+            <polygon class='parapet' points='0,0 -10,-10 210,-10 200,0' style='fill:#ffd700;'/>
+        </g>
+        <g class='townhouse' transform='translate(400,430)' style='stroke:none; fill:#e3dac9;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+        </g>
+        <g class='townhouse' transform='translate(600,430)' style='stroke:none; fill:#d1d1cf;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+            <polygon class='parapet' points='0,0 -10,-10 210,-10 200,0' style='fill:#ffd700;'/>
+        </g>
+        <g class='townhouse' transform='translate(1100,430)' style='stroke:none; fill:#e3dac9;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+        </g>
+        <g class='townhouse' transform='translate(1300,430)' style='stroke:none; fill:#d1d1cf;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+            <polygon class='parapet' points='0,0 -10,-10 210,-10 200,0' style='fill:#ffd700;'/>
+        </g>
+        <g class='townhouse' transform='translate(1500,430)' style='stroke:none; fill:#e3dac9;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+        </g>
+        <g class='townhouse' transform='translate(1700,430)' style='stroke:none; fill:#d1d1cf;'>
+            <rect class='base' x='0' y='0' width='200' height='370'/>
+            <rect class='window' x='40' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='window' x='130' y='50' width='30' height='50' style='fill:#e0f0fc;'/>
+            <rect class='door' x='80' y='200' width='40' height='70' style='fill:#e55b5b;'/>
+            <circle class='doorknob' cx='110' cy='235' r='4'/>           
+            <polygon class='pediment outer' points='25,170 100,120 175,170' style='fill:#fffff0;'/>
+            <polygon class='pediment inner' points='50,162.5 100,135 150,162.5' style='fill:#fffff0;'/>
+            <rect class='pillar' x='50' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='pillar' x='130' y='170' width='20' height='100' style='fill:#fffff0;'/>
+            <rect class='stair' x='0' y='270' width='200' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='45' y='290' width='110' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='35' y='310' width='130' height='20' style='fill:#f9f9e5;'/>
+            <rect class='stair' x='25' y='330' width='150' height='20' style='fill:#efefde;'/>
+            <rect class='stair' x='15' y='350' width='170' height='20' style='fill:#f9f9e5;'/>
+            <polygon class='parapet' points='0,0 -10,-10 210,-10 200,0' style='fill:#ffd700;'/>
+        </g>
+    </g>
+</svg>

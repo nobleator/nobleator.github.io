@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox='0 0 1910 700' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id='sun' transform='translate(1400,-50) scale(2)' style='stroke:none;'>
+        <path d='M0 0 l7.16 9 l10.06 -5.57 l3.17 11.05 l11.43 -1.3 l-1.3 11.43 l11.05 3.17 l-5.57 10.06 l9 7.16 l-9 7.16 l5.57 10.06 l-11.05 3.17 l1.3 11.43 l-11.43 -1.3 l-3.17 11.05 l-10.06 -5.57 l-7.16 9 l-7.16 -9 l-10.06 5.57 l-3.17 -11.05 l-11.43 1.3 l1.3 -11.43 l-11.05 -3.17 l5.57 -10.06 l-9 -7.16 l9 -7.16 l-5.57 -10.06 l11.05 -3.17 l-1.3 -11.43 l11.43 1.3 l3.17 -11.05 l10.06 5.57 l7.16 -9z' style='fill:gold;'/>
+        <circle cx='0' cy='45' r='30' style='fill:#fdb813;'/>
+    </g>
+</svg>

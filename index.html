@@ -1,114 +1,132 @@
-<!DOCTYPE html>
 <html>
-
-<!-- metadata -->
-<head profile='http://www.w3.org/2005/10/profile'>
-    <title>Ben, What a Noble Guy - Home</title>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-<!--Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Bitter|Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
+<head>
+    <title>Ben, What a Noble Guy</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <link rel='stylesheet' type='text/css' href='hero.css'>
 </head>
-
-<!--Logo, Banner, and Navigation-->
-<nav>
-    <div id='nav-banner'>
-        <div class='container'>
-            <svg viewBox='-10 -10 140.7 140.7'>
-                <g>
-                    <!--
-                    For a octagon with sides of 50 positioned in the top left corner:
-                    Sides = 50, radius = 51.316, corner angles = 35.35
-                    -->
-                    <!--<circle id='background' cx='60.35' cy='60.35' r='70'/>-->
-                    <path d='M60.35 60.35 L 35.35 0 L 0 35.35 V 85.35 L 35.35 120.7'/>
-                    <path d='M60.35 60.35 L 85.35 120.7 L 120.7 85.35 V 35.35 L 85.35 0'/>
-                    <circle id='center' cx='60.35' cy='60.35' r='7.5'/>
-                    <circle id='top-left' cx='35.35' cy='0' r='7.5'/>
-                    <circle id='top-right' cx='85.35' cy='0' r='7.5'/>
-                    <circle id='right-top' cx='120.7' cy='35.35' r='7.5'/>
-                    <circle id='right-bottom' cx='120.7' cy='85.35' r='7.5'/>
-                    <circle id='bottom-right' cx='85.35' cy='120.7' r='7.5'/>
-                    <circle id='bottom-left' cx='35.35' cy='120.7' r='7.5'/>
-                    <circle id='left-bottom' cx='0' cy='85.35' r='7.5'/>
-                    <circle id='left-top' cx='0' cy='35.35' r='7.5'/>
-                </g>
-            </svg>
-        </div>
-        <div class='name-title'>Ben Noble</div>
-    </div>
-</nav>
-
-<!-- Page Contents -->
 <body>
-<!-- New (simplfied) sections -->
-<div id='content'>
-    <div class='section'>
-        <div class='left'>About</div>
-        <div class='right'>
-            Though an engineer by trade, my mom always said I was a Renaissance man. I am currently exploring a burgeoning interest in web development, as well as various data-y enterprises, and I'm always eager to learn new things. In my free time I enjoy playing and watching <a href='https://www.reddit.com/r/soccer/'>soccer</a>, conquering the <a href='http://www.eu4wiki.com/Europa_Universalis_4_Wiki'>world</a>, and banging my head against the desk until <a href='https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commits'>Stack Overflow</a> saves me.
+    <!--
+    SVG hero images, visibility changed depending on JS query (default clear) 
+    Options (not all complete):
+    Clear
+    Cloudy
+    Rain
+    Snow
+    -->
+    <div id='hero' style='position:relative;'>
+        <div id='hero-clear' class='visible'></div>
+        <div id='hero-rain' class=''></div>
+        <p id='welcome'><b>Ben Noble.</b><br>Engineer.<br>Data dude.<br>Give-me-coffee-and-I'll-get-it-done guy.</p>
+        <a id='toggle-weather' href='#' title='Toggle Weather' onclick='toggleWeather();return false;'/>Play God</a>
+        <svg id='scroll-tri' viewbox='0 0 50 50'>
+            <polygon points='0,0 40,0 20,30' fill='#e74c3c'/>
+        </svg>
+    </div>
+    <!-- Page Contents -->
+    <div id='content'>
+        <div class='section'>
+            <div class='left'>About</div>
+            <div class='right'>
+                Though an engineer by trade, my mom always said I was a Renaissance man. I am currently exploring a burgeoning interest in web development, as well as various data-y enterprises, and I'm always eager to learn new things. In my free time I enjoy playing and watching <a href='https://www.reddit.com/r/soccer/'>soccer</a>, conquering the <a href='http://www.eu4wiki.com/Europa_Universalis_4_Wiki'>world</a>, and banging my head against the desk until <a href='https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commits'>Stack Overflow</a> saves me.
+            </div>
+        </div>
+        <div class='section'>
+            <div class='left'>Work</div>
+            <div class='right'>
+                Here is a summary of a few of the things I have done professionally in the past few years (just placeholders until NASA calls me up for the Mars colonization mission, of course):
+                <ul>
+                    <li>
+                        Systems Engineer at a DC-area defense contractor with two major focuses: schedule optimization and large-scale military system integration efforts. But really I do anything that needs to be done, including munging financial data, helping write proposals, or stitching together videos.
+                    </li>
+                    <li>
+                        Undergraduate Teaching Assistant (UTA) for introductory computer science courses, taught in Python. Included work with the <a href='https://sparc.cs.gmu.edu'>SPARC</a> program, an effort to increase capacity in computer science by changing the way we teach by emphasizing hands-on learning in the classroom. This resulted in all the UTAs giving mini-lectures on a variety of topics each class period, as well as holding office hours and running testing labs.
+                    </li>
+                    <li>
+                        "Peer Mentor" (i.e., a tutor) for all for lower-level math and science courses at the university
+                    </li>
+                    <li>
+                        Soccer referee, lifeguard, church groundskeeper, and general teenage job-haver
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class='section'>
+            <div class='left'>Profiles</div>
+            <div class='right'>
+                You can find me online here:
+                <ul>
+                    <li><a href='https://www.linkedin.com/in/benjamin-noble-3b574877/'>LinkedIn</a></li>
+                    <li><a href='https://github.com/nobleator'>GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class='section'>
+            <div class='left'>Projects</div>
+            <div class='right'>
+                And last but not least, here are some of my side projects, things that I have been working on just because I find them interesting:
+                <ul>
+                    <li>
+                        <b>This site</b>: Everything on this site, including most of the graphics, was designed and created by me. Driven partially by masochism and partially an insatiable need to understand. I learned a lot more about SVGs than I ever really wanted to know.
+                        <br>
+                        Written with HTML (duh), CSS (more duh), Javascript (most duh), SVG.
+                    </li>
+                    <li>
+                        <a href='https://murmuring-tundra-71478.herokuapp.com'>Decision Tool</a>: A single page application to step the user through performing decision analysis using the Analytic Hierarchy Process (AHP). Two options exist, an automatic version using pre-populated sample data and a manual version where the user inputs values by hand. Development paused and work migrated to NeighborGood.
+                        <br>
+                        Written with AngularJS, Express, NodeJS.
+                    </li>
+                    <li>
+                        <a href='https://intense-basin-65597.herokuapp.com'>Map Guesser</a>: Multiple-choice quiz game. User selects a map title from list of multiple-choice options, is told if they are correct or not, and at the end is given a final score. Still some features not implemented, like restricting and randomizing the guesses per play (rather than using the whole database), adding difficulty levels, and saving/exporting your score.
+                        <br>
+                        Written with AngularJS, Express, NodeJS.
+                    </li>
+                    <li>
+                        <b>NeighborGood</b>: An extension of the AHP decision analysis tool, with a specific application towards home and neighborhood selection. Follows the same general principle (AHP decision analysis), but includes a data aggregation tool to parse out publicly available data into a usable format. Currently in development, with the data aggregation tool incomplete, as well as some missing desired features like filters and bounds on criteria.
+                        <br>
+                        Written with Python, Django.
+                    </li>
+                    <li>
+                        <b>DomFall</b>: Just a twinkle in my eye at this point, but I plan to build a game that mimics the everyone-in-the-same-room mechanic present in Spyfall, combined with some Eurogame card and board game design.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id='footer'>
+            <img src='evolution.svg'>
+            <br>
+            Evolution of Ben icon designed by the lovely <a href='http://www.jessicakusuma.com'>Jessie Kusuma</a>.
+            <br>
+            Copyright 2017 Benjamin Noble. Last updated 6 September 2017.
         </div>
     </div>
-    <div class='section'>
-        <div class='left'>Work</div>
-        <div class='right'>
-            Here is a summary of a few of the things I have done professionally in the past few years (just placeholders until NASA calls me up for Mars colonization, of course):
-            <ul>
-                <li>
-                    Systems Engineer at a DC-area defense contractor with two major focuses: schedule optimization and large-scale military system integration efforts.
-                </li>
-                <li>
-                    Undergraduate Teaching Assistant (UTA) for introductory computer science courses, taught in Python. Included work with the <a href='#'>SPARC</a> program, an effort to increase capacity in computer science by changing the way we teach by emphasizing hands-on learning in the classroom. This resulted in all the UTAs giving mini-lectures on a variety of topics each class period, as well as holding office hours and running testing labs.
-                </li>
-                <li>
-                    "Peer Mentor" (i.e., a tutor) for all for lower-level math and science courses at the university
-                </li>
-                <li>
-                    Soccer referee, lifeguard, church groundskeeper, and general teenage job-haver
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class='section'>
-        <div class='left'>Profiles</div>
-        <div class='right'>
-            You can find me online here:
-            <ul>
-                <li><a href='https://www.linkedin.com/in/benjamin-noble-3b574877/'>LinkedIn</a></li>
-                <li><a href='https://github.com/nobleator'>GitHub</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class='section'>
-        <div class='left'>Projects</div>
-        <div class='right'>
-            And last but not least, here are some of my side projects, things that I have been working on just because I find them interesting:
-            <ul>
-                <li>
-                    <a href='https://murmuring-tundra-71478.herokuapp.com'>Decision Tool</a>: A single page application to step the user through performing decision analysis using the Analytic Hierarchy Process (AHP). Two options exist, an automatic version using pre-populated sample data and a manual version where the user inputs values by hand. Development paused and work migrated to NeighborGood. Written with AngularJS, Express, NodeJS.
-                </li>
-                <li>
-                    <a href='https://intense-basin-65597.herokuapp.com'>Map Guesser</a>: Multiple-choice quiz game. User selects a map title from list of multiple-choice options, is told if they are correct or not, and at the end is given a final score. Still some features not implemented, like restricting and randomizing the guesses per play (rather than using the whole database), adding difficulty levels, and saving/exporting your score. Written with AngularJS, Express, NodeJS.
-                </li>
-                <li>
-                    <b>NeighborGood</b>: An extension of the AHP decision analysis tool, with a specific application towards home and neighborhood selection. Follows the same general principle (AHP decision analysis), but includes a data aggregation tool to parse out publicly available data into a usable format. Currently in development, with the data aggregation tool incomplete, as well as some missing desired features like filters and bounds on criteria. Written with Python, Django.
-                </li>
-                <li>
-                    <b>DomFall</b>: Just a twinkle in my eye at this point, but I plan to build a game that mimics the everyone-in-the-same-room mechanic present in Spyfall, combined with some Eurogame card and board game design.
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div id='footer'>
-    <img src='evolution.svg'>
-    <br>
-    Evolution of Ben icon designed by the lovely <a href='http://www.jessicakusuma.com'>Jessie Kusuma</a>.
-    <br>
-    Copyright 2017 Benjamin Noble. Last updated 22 August 2017.
-</div>
 </body>
-<!--JavaScript for scroll animation and hightlighting active page
-section icon in navbar-->
 <script type='text/javascript' src='index.js'></script>
+<!--
+ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+o                                      o                                      o
+o                                      o                                      o
+o                                      o                                      o
+o                                  ##  o  ##                                  o
+o                            ##   #  # o #  #   ##                            o
+o                      ##   #  #  #  # o #  #  #  #  #                        o
+ooooooooo             #     #  #  #  # o #  #  ####  #                ooooooooo
+o       o             # ##  #  #   ##  o  ##   #  #  #                0       o
+o       o             #  #   ##        o       #  #  #                0       o
+oooo    o              ##              o             #####            0    oooo
+o  o    o                            o   o                            0    o  o
+o  o    o                          o       o                          0    o  o
+o  o    o                          o       o                          0    o  o
+o  o    o                            o   o                            0    o  o
+oooo    o                              o                              0    oooo
+o       o                              o                              0       o
+o       o                              o                              0       o
+ooooooooo                              o                              ooooooooo
+o                                      o                                      o
+o                                      o                                      o
+o                                      o                                      o
+o                                      o                                      o
+o                                      o                                      o
+o                                      o                                      o
+ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+-->
 </html>
