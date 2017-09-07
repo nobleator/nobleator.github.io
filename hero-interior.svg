@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox='0 0 1800 1000' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id='interior' transform='translate(0,0)' style='stroke:none;'>
+        <path class='wall' d='M0 0 h1800 v1000 h-1800 v-1000z M700 100 h800 v600 h-800 v-600z' style='fill:#f0ead6; fill-rule:evenodd;'/>
+        <path class='moulding' d='M0 0 h1800 v20 h-1800 v20z' style='fill:#e74c3c;'/>
+        <g class='desk' transform='translate(0,10)'>
+            <path d='M200 700 l-20 60 v20 h600 v-20 l-20 -60z' style='fill:#670a0a;'/>
+            <rect x='300' y='780' width='30' height='210' style='fill:#670a0a;'/>
+            <rect x='640' y='780' width='30' height='210' style='fill:#670a0a;'/>
+        </g>
+        <g class='laptop' transform='translate(400,560) scale(0.75)'>
+            <!-- Screen -->
+            <rect x='20' y='0' width='320' height='180' style='fill:#999999;'/>
+            <rect class='screen' x='30' y='10' width='300' height='160' style='fill:#ecf0f1;'/>
+            <g class='logo' transform='translate(120,30)' style='stroke:black; stroke-width:2px;'>
+                <path d='M60.35 60.35 L 35.35 0 L 0 35.35 V 85.35 L 35.35 120.7' style='fill:transparent; stroke:#e74c3c; stroke-width:10;'/>
+                <path d='M60.35 60.35 L 85.35 120.7 L 120.7 85.35 V 35.35 L 85.35 0'  style='fill:transparent; stroke:#e74c3c; stroke-width:10;'/>
+                <circle id='center' cx='60.35' cy='60.35' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='top-left' cx='35.35' cy='0' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='top-right' cx='85.35' cy='0' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='right-top' cx='120.7' cy='35.35' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='right-bottom' cx='120.7' cy='85.35' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='bottom-right' cx='85.35' cy='120.7' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='bottom-left' cx='35.35' cy='120.7' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='left-bottom' cx='0' cy='85.35' r='7.5' style='fill: #ecf0f1;'/>
+                <circle id='left-top' cx='0' cy='35.35' r='7.5' style='fill: #ecf0f1;'/>
+            </g>
+            <!-- Keyboard -->
+            <path class='body' d='M20 180 l-20 60 v20 h360 v-20 l-20 -60z' style='fill:#999999;'/>
+            <polygon class='keys' points='30,190 20,220 340,220 330,190' style='fill:black;'/>
+        </g>
+        <g class='mug' transform='translate(250,635)'>
+            <!-- Steam -->
+            <g id='steam' transform='translate(10,-140) scale(2)' style='stroke:#d3d3d3; stroke-width:2px; fill:none; fill-rule:evenodd;'>
+                <path d='M10 0 c5,10 5,20 0,30 s-5,20 0,30 M10 0 c10,10 10,20 0,30 s-10,20 0,30'/>
+                <path d='M10 0 c-5,7 -5,14 0,21 s5,14 0,21 M10 0 c-10,7 -10,14 0,21 s10,14 0,21' transform='translate(5,35)'/>
+                <animate attributeName='opacity'
+                         values='0.1;0.9;0.1'
+                         dur='4s'
+                         repeatCount='indefinite'/>
+                <animateTransform attributeName='transform'
+                                  attributeType='XML'
+                                  type='translate'
+                                  from='20 -20'
+                                  to='20 -140'
+                                  dur='4s'
+                                  repeatCount='indefinite'/>
+                <animateTransform attributeName='transform'
+                                  attributeType='XML'
+                                  type='scale'
+                                  from='1.5'
+                                  to='1.75'
+                                  dur='4s'
+                                  repeatCount='indefinite'
+                                  additive='sum'/>
+                <animateTransform attributeName='transform'
+                                  attributeType='XML'
+                                  type='skewX'
+                                  values='0;5;-5;0'
+                                  dur='4s'
+                                  repeatCount='indefinite'
+                                  additive='sum'/>
+            </g>
+            <!-- Mug -->
+            <ellipse cx='40' cy='40' rx='30' ry='10' style='fill:#8b8d7a;'/>
+            <path d='M10 40 v70 a30 10 0 0 0 60 0 v-70' style='fill:#8b8d7a;'/>
+            <!-- Coffee -->
+            <ellipse cx='40' cy='40' rx='27.5' ry='5' style='fill:#6f4e37;'/>
+            <!-- Handle -->
+            <path d='M10 60 v-10 a13 10 0 0 0 0 50 v-10 M10 60 a12 10 0 0 0 0 30' style='fill:#8b8d7a; fill-rule:evenodd;'/>
+        </g>
+    </g>
+</svg>
