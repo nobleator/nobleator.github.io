@@ -23,7 +23,7 @@ body {
     left: 47.25vw;
 }
 #welcome {
-    position: relative;
+    position: absolute;
     font-size: 250%;
     font-weight: lighter;
     color: #5b5b5b;
@@ -52,7 +52,7 @@ body {
 /*Page Contents*/
 #content {
     position: relative;
-    top: 70vh;
+    top: 110vh;
 }
 .section {
     max-width: 50em;
