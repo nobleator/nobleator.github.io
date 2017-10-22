@@ -4,7 +4,7 @@ html, body {
 }
 
 /* Create versions of #hero for each type of weather, add visible class with JS */
-#hero-clear, #hero-rain {
+#hero-clear, #hero-rain, #hero-snow {
     visibility: hidden;
     z-index: -1;
     position: absolute;
@@ -52,8 +52,38 @@ html, body {
                              0 0;
     }
 }
+#hero-snow {
+    animation: snow 3s linear infinite;
+    background: url('hero-interior.svg'),
+                url('hero-snowflake.svg'),
+                url('hero-city.svg'),
+                #add4dd;
+    background-repeat: no-repeat,
+                       repeat,
+                       no-repeat,
+                       no-repeat;
+    background-size: cover,
+                     40px 40px,
+                     100% 100%,
+                     cover;
+    background-position: 0 0;
+}
+@keyframes snow {
+    50% {
+        background-position: 0 0,
+                             10px 80px,
+                             0 0,
+                             0 0;
+    }
+    100% {
+        background-position: 0 0,
+                             0px 160px,
+                             0 0,
+                             0 0;
+    }
+}
 
 /* Classes to enable toggle weather JS */
-#hero-clear.visible, #hero-rain.visible {
+#hero-clear.visible, #hero-rain.visible, #hero-snow.visible {
     visibility: visible;
 }
