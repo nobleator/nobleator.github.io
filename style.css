@@ -9,6 +9,7 @@ body {
 }
 
 #toggle-weather {
+    text-decoration: none;
     position: absolute;
     font-size: 150%;
     font-weight: normal;
@@ -96,10 +97,11 @@ li {
     padding-top: 0.5em;
 }
 a {
-    text-decoration: none;
+    text-decoration-style: dashed;
     color: black;
     font-weight: bold;
-    border-bottom: 1.5px dashed black;
+    /*text-decoration: none;
+    border-bottom: 1.5px dashed black;*/
 }
 
 /*Re-size elements based on screen width*/
