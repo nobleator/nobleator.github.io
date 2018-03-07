@@ -1,40 +1,44 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Ben, What a Noble Guy</title>
+    <title>Ben Noble</title>
     <link rel='stylesheet' type='text/css' href='style.css'>
-    <link rel='stylesheet' type='text/css' href='hero.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
+
 <body>
-    <!--
-    SVG hero images, visibility changed depending on JS query (default clear) 
-    Options (not all complete):
-    Clear
-    Cloudy
-    Rain
-    Snow
-    -->
-    <div id='hero' style='position:relative;'>
-        <div id='hero-clear' class='visible'></div>
-        <div id='hero-rain' class=''></div>
-        <div id='hero-snow' class=''></div>        
-        <p id='welcome'><b>Ben Noble.</b><br>Engineer.<br>Data dude.<br>Give-me-coffee-and-I'll-get-it-done guy.</p>
-        <!--<p id='welcome'><b>Ben Noble.</b><br>Give me coffee and I'll get it done.</p>-->
-        <a id='toggle-weather' href='#' title='Toggle Weather' onclick='toggleWeather();return false;'/>Play God</a>
-        <svg id='scroll-tri' viewbox='0 0 50 50'>
-            <polygon points='0,0 40,0 20,30' fill='#e74c3c'/>
-        </svg>
-    </div>
-    <!-- Page Contents -->
-    <div id='content'>
-        <div class='section'>
-            <div class='left'>About</div>
-            <div class='right'>
+    <nav>
+        <input id='menuToggle' type="checkbox"/>
+        <label for='menuToggle'>
+            <div id='hamburger'>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </label>
+        <ul id='menu'>
+            <a href='https://nobleator.github.io'><li>Home</li></a>
+            <li>Projects</li>
+            <ul>
+                <a href='#'><li>Cityscape</li></a>
+                <a href='http://nobleguy.me/rpv.html'><li>NeighborGood</li></a>
+                <a href='https://better-neighborgood.herokuapp.com/'><li>Race and Property Value</li></a>
+                <a href='https://intense-basin-65597.herokuapp.com/'><li>Map Game</li></a>
+            </ul>
+        </ul>
+        <div id='logo'><img src='logo.png'></div>
+    </nav>
+    <div>
+        <div>
+            <div class='header'>About</div>
+            <div>
                 Though an engineer by trade, I like to consider myself a Renaissance man. I am currently exploring a burgeoning interest in web development and I'm always eager to learn new things. My aspiration is to be a better software developer than most mathematicians, and better at math than most software developers. In my free time I enjoy playing and watching <a href='https://www.reddit.com/r/soccer/'>soccer</a>, conquering the <a href='http://www.eu4wiki.com/Europa_Universalis_4_Wiki'>world</a>, and banging my head against the desk until <a href='https://stackoverflow.com/questions/179123/how-to-modify-existing-unpushed-commits'>Stack Overflow</a> saves me.
             </div>
         </div>
-        <div class='section'>
-            <div class='left'>Work</div>
-            <div class='right'>
+        <div>
+            <div class='header'>Work</div>
+            <div>
                 Here is a summary of a few of the things I have done professionally in the past few years (just placeholders until NASA calls me up for the Mars colonization mission, of course):
                 <ul>
                     <li>
@@ -52,9 +56,9 @@
                 </ul>
             </div>
         </div>
-        <div class='section'>
-            <div class='left'>Profiles</div>
-            <div class='right'>
+        <div>
+            <div class='header'>Profiles</div>
+            <div>
                 You can find me online here:
                 <ul>
                     <li><a href='https://www.linkedin.com/in/benjamin-noble-3b574877/'>LinkedIn</a></li>
@@ -62,18 +66,25 @@
                 </ul>
             </div>
         </div>
-        <div class='section'>
-            <div class='left'>Projects</div>
-            <div class='right'>
+        <div>
+            <div class='header'>Projects</div>
+            <div>
                 And last but not least, here are some of my side projects, things that I have been working on just because I find them interesting:
                 <ul>
                     <li>
-                        <b>This site</b>: Everything on this site, including most of the graphics, was designed and created by me. Driven partially by masochism and partially an insatiable need to understand, I learned a lot more about SVGs than I ever really wanted to know.
+                        <a href='https://better-neighborgood.herokuapp.com'>NeighborGood</a>: An extension of the AHP decision analysis tool, with a specific application towards home and neighborhood selection. Follows the same general principle (AHP decision analysis), but includes a data aggregation tool to parse out publicly available data into a usable format. Currently in development, with the data aggregation tool incomplete, as well as some missing desired features like filters and bounds on criteria.
+                        <br>
+                        Built with Python, Express, NodeJS.
                     </li>
                     <li>
-                        <a href='rpv.html'>Race and Property</a>: A data visualization project to examine the relationship between ethnicity and property values. Uses data from the US Census bureau and Redfin and the Mapbox API for display. The initial map is done and viewable, but it is still a work in progress.
+                        <a href='rpv.html'>Race and Property</a>: A data visualization project to examine the relationship between ethnicity and property values. Uses data from the US Census bureau and Redfin and the Mapbox API for display. The initial map is done and viewable, but it is still a work in progress. Plans to migrate to a Jupyter Notebook.
                         <br>
                         Built with Python, Javascript.
+                    </li>
+                    <li>
+                        <b>This site</b>: Everything on this site, mostly just because I was curious.
+                        <br>
+                        Hosted with Github Pages.
                     </li>
                     <li>
                         <a href='https://murmuring-tundra-71478.herokuapp.com'>Decision Tool</a>: A single page application to step the user through performing decision analysis using the Analytic Hierarchy Process (AHP). Two options exist, an automatic version using pre-populated sample data and a manual version where the user inputs values by hand. Development paused and work migrated to NeighborGood.
@@ -85,50 +96,9 @@
                         <br>
                         Built with AngularJS, Express, NodeJS.
                     </li>
-                    <li>
-                        <a href='#'>NeighborGood</a>: An extension of the AHP decision analysis tool, with a specific application towards home and neighborhood selection. Follows the same general principle (AHP decision analysis), but includes a data aggregation tool to parse out publicly available data into a usable format. Currently in development, with the data aggregation tool incomplete, as well as some missing desired features like filters and bounds on criteria.
-                        <br>
-                        Built with Python, Express, NodeJS.
-                    </li>
                 </ul>
             </div>
         </div>
-        <div id='footer'>
-            <!--<img src='evolution.svg'>
-            <br>
-            Evolution of Ben icon designed by the lovely <a href='http://www.jessicakusuma.com'>Jessie Kusuma</a>.
-            <br>-->
-            Copyright 2017 Benjamin Noble. Last updated 21 November 2017.
-        </div>
     </div>
 </body>
-<script type='text/javascript' src='index.js'></script>
-<!--
-ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-o                                      o                                      o
-o                                      o                                      o
-o                                      o                                      o
-o                                  ##  o  ##                                  o
-o                            ##   #  # o #  #   ##                            o
-o                      ##   #  #  #  # o #  #  #  #  #                        o
-ooooooooo             #     #  #  #  # o #  #  ####  #                ooooooooo
-o       o             # ##  #  #   ##  o  ##   #  #  #                0       o
-o       o             #  #   ##        o       #  #  #                0       o
-oooo    o              ##              o             #####            0    oooo
-o  o    o                            o   o                            0    o  o
-o  o    o                          o       o                          0    o  o
-o  o    o                          o       o                          0    o  o
-o  o    o                            o   o                            0    o  o
-oooo    o                              o                              0    oooo
-o       o                              o                              0       o
-o       o                              o                              0       o
-ooooooooo                              o                              ooooooooo
-o                                      o                                      o
-o                                      o                                      o
-o                                      o                                      o
-o                                      o                                      o
-o                                      o                                      o
-o                                      o                                      o
-ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
--->
 </html>
