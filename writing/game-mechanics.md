@@ -1,4 +1,5 @@
 # Title: Game Mechanics
+## Summary: Thoughts on board game mechanics
 ## PublishedOn: 2020-06-20
 ### Content
 Engine builders

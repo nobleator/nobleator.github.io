@@ -29,6 +29,11 @@ a:focus, a:hover {
     font-weight: bold;
 }
 
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 .wrapper {
     width: 50%;
     margin: 10% auto;
@@ -44,4 +49,5 @@ a:focus, a:hover {
 
 .content-column {
     flex: 70%;
+    line-height: 1.5em;
 }

@@ -61,9 +61,9 @@ def expand_nav(elements):
 
 def execute():
     nav_list = []
-    title = None
-    link = None
-    summary = None
+    title = ""
+    link = ""
+    summary = ""
     published_on = None
 
     # Parse .md files to pull navigation bar list with summaries and ordering info
@@ -79,8 +79,9 @@ def execute():
                     for line in f.readlines():
                         if content_start:
                             # TODO: Parse markdown to HTML (e.g. lists and links)
+                            content.append("<p>")
                             content.append(line)
-                            content.append("<br>")
+                            content.append("</p>")
                         # Metadata processing
                         if "# Title: " in line:
                             title = line.partition("# Title: ")[2:][0].rstrip()
@@ -91,7 +92,18 @@ def execute():
                             published_on = line.partition("## PublishedOn: ")[2:][0].rstrip()
                         if "### Content" in line:
                             content_start = True
+                            content.append("<h1>")
+                            content.append(title)
+                            content.append("</h1>")
+                            content.append("<p>")
+                            content.append("<i>")
+                            content.append(summary)
+                            content.append("</i>")
+                            content.append("</p>")
                     element = NavElement(title, link, summary, published_on, content="".join(content))
+                    title = ""
+                    link = ""
+                    summary = ""
                     if root == ".":
                         nav_list.append(element)
                     children.append(element)
