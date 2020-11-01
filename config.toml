@@ -1,0 +1,25 @@
+baseurl = "https://nobleator.github.io/"
+title = "BN"
+author = "Ben Noble"
+languagecode = "en"
+theme = "black-and-light"
+
+pygmentsstyle       = "bw"
+pygmentscodefences  = true
+
+[params]
+    sitename = "BN"
+    disableWebFonts = false
+
+[permalinks]
+    posts = "/:year/:month/:title/"
+
+[[menu.main]]
+    name = "About"
+    url  = "/about/"
+[[menu.main]]
+    name = "Projects"
+    url  = "/projects/"
+[[menu.main]]
+    name = "Posts"
+    url  = "/posts/"
