@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>writing on BN</title>
-    <link>https://nobleator.github.io/tags/writing/</link>
+    <link>nobleator.github.io/tags/writing/</link>
     <description>Recent content in writing on BN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0400</lastBuildDate><atom:link href="nobleator.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Game Mechanics</title>
-      <link>https://nobleator.github.io/2020/10/game-mechanics/</link>
+      <link>nobleator.github.io/2020/10/game-mechanics/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0400</pubDate>
       
-      <guid>https://nobleator.github.io/2020/10/game-mechanics/</guid>
+      <guid>nobleator.github.io/2020/10/game-mechanics/</guid>
       <description>Engine builders This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is Dominion, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be Lords of Waterdeep, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resouces as other players use them.</description>
     </item>
     
