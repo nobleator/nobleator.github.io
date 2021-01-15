@@ -23,6 +23,12 @@ function initializeEventListeners() {
     document.getElementById("modifiers-vulnerable").addEventListener("change", draw);
 }
 
+var STATISTICS;
+function initializeGlobalObjects() {
+    // Note: Using this design in lieu of static functions due to lack of support in iOS and Safari
+    STATISTICS = new Statistics();
+}
+
 class Options {
     constructor(dice, hitOn, includeBlocks, blockOn, morale, criticalBlow, vicious, charge,
         sundering, attackDirection, weakened, panicked, vulnerable) {
@@ -72,30 +78,32 @@ function examples() {
 }
 
 class Statistics {
-    constructor() {  }
-    // Putting pre-computed factorials in an object to avoid expensive calculations (only including values up to 20)
-    static factorials = [1, 1, 2, 6, 24, 120, 720, 5_040, 40_320, 362_880, 3_628_800, 39_916_800, 479_001_600, 6_227_020_800, 87_178_291_200, 1_307_674_368_000, 20_922_789_888_000, 355_687_428_096_000, 6_402_373_705_728_000n, 121_645_100_408_832_000n, 2_432_902_008_176_640_000n];
+    constructor() {  
+        // Putting pre-computed factorials in an object to avoid expensive calculations (only including values up to 20)
+        this.factorials = [1, 1, 2, 6, 24, 120, 720, 5_040, 40_320, 362_880, 3_628_800, 39_916_800, 479_001_600, 6_227_020_800, 87_178_291_200, 1_307_674_368_000, 20_922_789_888_000, 355_687_428_096_000, 6_402_373_705_728_000n, 121_645_100_408_832_000n, 2_432_902_008_176_640_000n];
+    }
 
-    static factorial(x) {
+    factorial(x) {
         if (this.factorials[x] > 0) {
             return this.factorials[x];
         }
         let newFactorial = this.factorial(x - 1) * x;
+        this.factorials[x] = newFactorial;
         return newFactorial;
     }
 
-    static nCr(n, r) {
+    nCr(n, r) {
         // N choose R: C(n,r) = n!/(r!(n-r)!)
         return this.factorial(n) / (this.factorial(r) * this.factorial((n - r)));
     }
 
-    static binomial(p, n, r) {
+    binomial(p, n, r) {
         // Courtesy of https://www.omnicalculator.com/statistics/dice#how-to-calculate-dice-roll-probability
         // Binomial probability: P(X=r) = nCr * pʳ * (1-p)ⁿ⁻ʳ
         return this.nCr(n, r) * (p ** r) * (1 - p) ** (n - r);
     }
 
-    static multinomial(n, xVector, piVector) {
+    multinomial(n, xVector, piVector) {
         // Courtesy of https://online.stat.psu.edu/stat504/node/42/
         if (xVector.length === 0 || xVector.length !== piVector.length) {
             throw "Vectors must be the same non-zero length";
@@ -117,10 +125,10 @@ function probabilityOfRollingExactly(r, n, s) {
     let limit = Math.floor((r - n) / s);
     let totalProbability = 0;
     for (let k = 0; k <= limit; k++) {
-        let nCk = Statistics.nCr(n, k);
+        let nCk = STATISTICS.nCr(n, k);
         let var1 = r - (s * k) - 1;
         let var2 = (n - 1);
-        let rhs = Statistics.nCr(var1, var2);
+        let rhs = STATISTICS.nCr(var1, var2);
         totalProbability += ((-1) ** k) * nCk * rhs;
     }
     return (1 / s ** n) * totalProbability;
@@ -184,7 +192,7 @@ function calculateHits(options, hitChance) {
                 let n = numberOfMisses + numberOfHits + numberOfSixes;
                 let x = [numberOfMisses, numberOfHits, numberOfSixes];
                 let pi = [missChance, singleHitChance, criticalBlowHitChance];
-                let probability = Statistics.multinomial(n, x, pi);
+                let probability = STATISTICS.multinomial(n, x, pi);
                 let totalHits = numberOfHits + 2 * numberOfSixes;
                 let existingHitTotal = hitProbabilities.find(p => p.numberOfHits === totalHits);
                 if (existingHitTotal) {
@@ -194,7 +202,7 @@ function calculateHits(options, hitChance) {
                 }
             }
         } else {
-            let probability = Statistics.binomial(hitChance, options.dice, numberOfHits);
+            let probability = STATISTICS.binomial(hitChance, options.dice, numberOfHits);
             hitProbabilities.push({ numberOfHits: numberOfHits, probability: probability });
         }
     }
@@ -214,7 +222,7 @@ function calculateBlocks(options, hitProbabilities, blockChance) {
         hitProbabilities.forEach(hitProbability => {
             let hitsToBlock = hitProbability.numberOfHits;
             for (let blocks = hitsToBlock; blocks >= 0; blocks--) {
-                let blockProbability = Statistics.binomial(blockChance, hitsToBlock, blocks);
+                let blockProbability = STATISTICS.binomial(blockChance, hitsToBlock, blocks);
                 let unblockedHits = hitsToBlock - blocks;
                 let combinedProbability = hitProbability.probability * blockProbability;
                 exactHitTotals[unblockedHits].probability += combinedProbability;
@@ -333,6 +341,7 @@ function draw() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    initializeGlobalObjects();
     initializeEventListeners();
     setDefaults();
     draw();
