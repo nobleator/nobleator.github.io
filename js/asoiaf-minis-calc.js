@@ -105,7 +105,8 @@ class Statistics {
     }
 
     multinomial(n, xVector, piVector) {
-        // Courtesy of https://online.stat.psu.edu/stat504/node/42/
+        // Courtesy of https://web.archive.org/web/20200708191530/https://online.stat.psu.edu/stat504/node/42/
+        // New URL: https://online.stat.psu.edu/stat504/lesson/1/1.7/1.7.1
         if (xVector.length === 0 || xVector.length !== piVector.length) {
             throw "Vectors must be the same non-zero length";
         }
@@ -283,6 +284,8 @@ function calculate() {
     document.getElementById("panicProbability").innerHTML = panicProbability.toPrecision(4);
     let avgPanicWounds = ((2 + 1) * panicProbability); // D3+1 average damage
     document.getElementById("avgPanicWounds").innerHTML = avgPanicWounds.toPrecision(4);
+    let avgTotalWounds = averageWounds + avgPanicWounds;
+    document.getElementById("avgTotalWounds").innerHTML = avgTotalWounds.toPrecision(4);
 
     let labels = Array.from(Array((options.dice * 2) + 1).keys());
 
