@@ -11,10 +11,10 @@
     <title>
       
       
-         404 Page not found 
+         EML File Generation 
       
     </title>
-    <link rel="canonical" href="https://nobleator.github.io/404.html">
+    <link rel="canonical" href="https://nobleator.github.io/2021/01/eml-file-generation/">
 
     <style>
   * {
@@ -417,12 +417,103 @@
       </ul>
     </section>
 
-  <section id=not-found>
-    <a href=/>404</a>
-  </section>
+
+<section id=content>
+  <h1> EML File Generation </h1>
+
+  
+    <div id=sub-header>
+      January 2021 · 2 minute read
+    </div>
+  
+  
+
+<ul id="tags">
+  
+    <li><a href="/tags/programming">programming</a> </li>
+  
+</ul>
+
+  <hr>
+
+  <div class="entry-content">
+    <p>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.</p>
+<h2 id="invalid-eml">Invalid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: text/plain; charset=UTF-8;
+Hello World!
+</code></pre><h2 id="valid-eml">Valid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: text/plain; charset=UTF-8;
+
+Hello World!
+</code></pre><p>You can also include attachments in your EML. The <code>boundary</code> directive within the <code>Content-Type</code> header has specific constraints as well; the boundary declaration at the beginning can take any form, but each subsequent section must lead with <code>--</code>, and the closing boundary must lead and close with <code>--</code>. Otherwise, the boundary itself can take whatever form makes sense, whether using a unique identifier or a keyword related to the contents of the email. Remember to include the newlines between each section still!</p>
+<h2 id="invalid-eml-1">Invalid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: multipart/mixed; boundary=&quot;A&quot;
+
+-A
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Hello world! BTW this attachment is junk and won't render a real PDF.
+
+-A
+Content-Type: application/pdf; name=&quot;dummy.pdf&quot;
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=&quot;dummy.pdf&quot;
+
+JVBERi0xLjQNCiXk9tzfDQoxIDAgb2Jq
+
+--A--
+</code></pre><h2 id="valid-eml-1">Valid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: multipart/mixed; boundary=&quot;A&quot;
+
+--A
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Hello world! BTW this attachment is junk and won't render a real PDF.
+
+--A
+Content-Type: application/pdf; name=&quot;dummy.pdf&quot;
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=&quot;dummy.pdf&quot;
+
+JVBERi0xLjQNCiXk9tzfDQoxIDAgb2Jq
+
+--A--
+</code></pre>
+  </div>
+  <hr>
+
+  <div id=links>
+    
+      <a href="https://nobleator.github.io/2021/01/asoiaf-miniatures-calculator/">&laquo;&nbsp;ASOIAF Miniatures Calculator</a>
+    
+    
+  </div>
+</section>
+
   
 
   
 </body>
 </html>
+
 

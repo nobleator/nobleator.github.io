@@ -6,24 +6,24 @@
     <description>Recent content in programming on BN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 09 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ASOIAF Miniatures Calculator</title>
-      <link>https://nobleator.github.io/asoiaf-minis-calc/</link>
-      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      <title>EML File Generation</title>
+      <link>https://nobleator.github.io/2021/01/eml-file-generation/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0400</pubDate>
       
-      <guid>https://nobleator.github.io/asoiaf-minis-calc/</guid>
-      <description>Description This is a calculator used to graph probabilities for various attack combinations for the A Song Of Ice and Fire Miniatures Game. This is a tabletop wargame based in G.R.R. Martin&amp;rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&amp;rsquo;s troops will help.</description>
+      <guid>https://nobleator.github.io/2021/01/eml-file-generation/</guid>
+      <description>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.
+Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt;To: Bob &amp;lt;bob@example.com&amp;gt;Subject: Testing 123Date: 1 Jan 2000 12:00:00Content-Type: text/plain; charset=UTF-8;Hello World!</description>
     </item>
     
     <item>
-      <title>EML File Generation</title>
-      <link>https://nobleator.github.io/2020/10/eml-file-generation/</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0400</pubDate>
+      <title>ASOIAF Miniatures Calculator</title>
+      <link>https://nobleator.github.io/2021/01/asoiaf-miniatures-calculator/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nobleator.github.io/2020/10/eml-file-generation/</guid>
-      <description>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.
-Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt;To: Bob &amp;lt;bob@example.com&amp;gt;Subject: Testing 123Date: 1 Jan 2000 12:00:00Content-Type: text/plain; charset=UTF-8;Hello World!</description>
+      <guid>https://nobleator.github.io/2021/01/asoiaf-miniatures-calculator/</guid>
+      <description>Description This is a calculator used to graph probabilities for various attack combinations for the A Song Of Ice and Fire Miniatures Game. This is a tabletop wargame based in G.R.R. Martin&amp;rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&amp;rsquo;s troops will help.</description>
     </item>
     
   </channel>

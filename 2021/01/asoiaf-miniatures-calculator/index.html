@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Ben is a software developer with interest in the intersections between software, optimization, and financial systems">
+
+    <title>
+      
+      
+         ASOIAF Miniatures Calculator 
+      
+    </title>
+    <link rel="canonical" href="https://nobleator.github.io/2021/01/asoiaf-miniatures-calculator/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+    text-decoration-skip: ink;
+  }
+
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify { float: left; }
+  .right-justify { float:right; }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3 {
+    font-family:"Old Standard TT",serif;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, .date {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 5px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content .date {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(1) {
+    margin-right:0.5em;;
+  }
+
+  #links :nth-child(2) {
+    margin-left:0.5em;;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    *, #nav h1 a {
+      color: #FDFDFD;
+    }
+
+    body {
+      background: #121212;
+    }
+
+    pre, code {
+      background-color: #262626;
+    }
+
+    #sub-header, .date {
+      color: #BABABA;
+    }
+
+    hr {
+      background: #EBEBEB;
+    }
+  }
+</style>
+
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">BN</a></h1>
+      <ul>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/projects/">Projects</a></li>
+        
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> ASOIAF Miniatures Calculator </h1>
+
+  
+    <div id=sub-header>
+      January 2021 · 4 minute read
+    </div>
+  
+  
+
+<ul id="tags">
+  
+    <li><a href="/tags/programming">programming</a> </li>
+  
+    <li><a href="/tags/board-games">board games</a> </li>
+  
+</ul>
+
+  <hr>
+
+  <div class="entry-content">
+    <h2 id="description">Description</h2>
+<p>This is a calculator used to graph probabilities for various attack combinations for the <a href="https://asoiaf.cmon.com/">A Song Of Ice and Fire Miniatures Game</a>. This is a tabletop wargame based in G.R.R. Martin&rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&rsquo;s troops will help.</p>
+<p>The calculations used in determining how much damage to do to your opponent are simple to perform in-game, as it is simply a matter of rolling X dice, comparing to Y value, and repeat. However, there are combinations of modifiers and conditions that can skew these numbers, and I found it difficult to get a good intuitive sense of how these various effects compared to each other. Using this calculator you can explore the mathematical outcomes for different permutations and see the results for yourself.</p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Minimalist code, no importing a universal statistics library</li>
+<li>Lightweight, stateless application</li>
+<li>Learning exercise to freshen up on statistics</li>
+</ul>
+<h2 id="statistics---formulas">Statistics - Formulas</h2>
+<p>Binomial distribution<br>
+
+<span class="jsonly">
+                  
+        \(P(X=r) = {n \choose r} \cdot p ^ r \cdot (1 - p) ^ {n - r}\)
+    
+</span>
+<noscript>
+                  
+        <img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;P%28X%3dr%29%20%3d%20%7bn%20%5cchoose%20r%7d%20%5ccdot%20p%20%5e%20r%20%5ccdot%20%281%20-%20p%29%20%5e%20%7bn%20-%20r%7d" title="P(X=r) = {n \choose r} \cdot p ^ r \cdot (1 - p) ^ {n - r}" />
+    
+</noscript></p>
+<p>N choose R<br>
+
+<span class="jsonly">
+                  
+        \({n \choose r} = \frac {n!} {r! (n - r)!}\)
+    
+</span>
+<noscript>
+                  
+        <img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;%7bn%20%5cchoose%20r%7d%20%3d%20%5cfrac%20%7bn%21%7d%20%7br%21%20%28n%20-%20r%29%21%7d" title="{n \choose r} = \frac {n!} {r! (n - r)!}" />
+    
+</noscript></p>
+<p>Multinomial distribution<br>
+
+<span class="jsonly">
+                  
+        \(f(x) = \frac {n!} {x_1! x_2! ... x_n!} {\pi_1 ^ {x_1}} {\pi_2 ^ {x_2}} ... {\pi_n ^ {x_n}}\)
+    
+</span>
+<noscript>
+                  
+        <img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;f%28x%29%20%3d%20%5cfrac%20%7bn%21%7d%20%7bx_1%21%20x_2%21%20...%20x_n%21%7d%20%7b%5cpi_1%20%5e%20%7bx_1%7d%7d%20%7b%5cpi_2%20%5e%20%7bx_2%7d%7d%20...%20%7b%5cpi_n%20%5e%20%7bx_n%7d%7d" title="f(x) = \frac {n!} {x_1! x_2! ... x_n!} {\pi_1 ^ {x_1}} {\pi_2 ^ {x_2}} ... {\pi_n ^ {x_n}}" />
+    
+</noscript></p>
+<p>Re-rolling (for both attack and defense rolls)<br>
+
+<span class="jsonly">
+                  
+        \(p \prime = (1 - p)p\)
+    
+</span>
+<noscript>
+                  
+        <img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;p%20%5cprime%20%3d%20%281%20-%20p%29p" title="p \prime = (1 - p)p" />
+    
+</noscript></p>
+<h2 id="statistics---implementation">Statistics - Implementation</h2>
+<p>The statistics formulas used above are all implemented in JavaScript. There is a Statistics class that contains all the needed functions, including some pre-calculated factorials to avoid expensive computations:</p>
+<pre><code>class Statistics {
+    constructor() {  
+        this.factorials = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600, 6227020800, 87178291200, 1307674368000, 20922789888000, 355687428096000];
+    }
+
+    factorial(x) {
+        if (this.factorials[x] &gt; 0) {
+            return this.factorials[x];
+        }
+        let newFactorial = this.factorial(x - 1) * x;
+        this.factorials[x] = newFactorial;
+        return newFactorial;
+    }
+
+    nCr(n, r) {
+        return this.factorial(n) / (this.factorial(r) * this.factorial((n - r)));
+    }
+
+    binomial(p, n, r) {
+        return this.nCr(n, r) * (p ** r) * (1 - p) ** (n - r);
+    }
+
+    multinomial(n, xVector, piVector) {
+        if (xVector.length === 0 || xVector.length !== piVector.length) {
+            throw &quot;Vectors must be the same non-zero length&quot;;
+        }
+        if (xVector.reduce((a, b) =&gt; a + b, 0) !== n) {
+            throw &quot;x vector must sum to n&quot;;
+        }
+        let denominator = 1;
+        let rhs = 1;
+        xVector.forEach((x, i) =&gt; {
+            denominator *= this.factorial(x);
+            rhs *= piVector[i] ** x;
+        });
+        return (this.factorial(n) / denominator) * rhs;
+    }
+}
+</code></pre><p>These functions are then used within the rest of the app where needed in various <code>calculate*</code> functions such as this:</p>
+<pre><code>function calculateHits(options, hitChance) {
+    let hitProbabilities = [];
+    for (let numberOfHits = options.dice; numberOfHits &gt;= 0; numberOfHits--) { 
+        if (options.criticalBlow) {
+            let singleHitChance = hitChance;
+            let criticalBlowHitChance = 1 / 6;
+            singleHitChance -= criticalBlowHitChance;
+            let missChance = 1 - singleHitChance - criticalBlowHitChance;
+            let maxPossibleSixes = options.dice - numberOfHits;
+            for (let numberOfSixes = maxPossibleSixes; numberOfSixes &gt;= 0; numberOfSixes--) {
+                let numberOfMisses = options.dice - numberOfHits - numberOfSixes;
+                let n = numberOfMisses + numberOfHits + numberOfSixes;
+                let x = [numberOfMisses, numberOfHits, numberOfSixes];
+                let pi = [missChance, singleHitChance, criticalBlowHitChance];
+                let probability = STATISTICS.multinomial(n, x, pi);
+                let totalHits = numberOfHits + 2 * numberOfSixes;
+                let existingHitTotal = hitProbabilities.find(p =&gt; p.numberOfHits === totalHits);
+                if (existingHitTotal) {
+                    existingHitTotal.probability += probability;
+                } else {
+                    hitProbabilities.push({ numberOfHits: totalHits, probability: probability });
+                }
+            }
+        } else {
+            let probability = STATISTICS.binomial(hitChance, options.dice, numberOfHits);
+            hitProbabilities.push({ numberOfHits: numberOfHits, probability: probability });
+        }
+    }
+
+    hitProbabilities.sort((a, b) =&gt; a.numberOfHits - b.numberOfHits);
+    return hitProbabilities;
+}
+</code></pre><h2 id="calculator">Calculator</h2>
+<p>Any time you make a change to any of the inputs, the chart at the bottom will recalculate automatically.</p>
+<body> 
+    <script type="text/javascript" src="/js/asoiaf-minis-calc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/asoiaf-minis-calc.css">
+
+    <div>
+        <hr>
+
+        <div class="row">
+            <div class="left">
+                <div>
+                    <input type="number" id="attack-dice" min="1" max="16">
+                    <label for="attack-dice">Attack dice to roll</label>
+                </div>
+        
+                <div>
+                    <input type="number" id="attack-hit" min="1" max="6">
+                    <label for="attack-hit">Attacks hit on (e.g. for 3+ to hit, enter 3)</label>
+                </div>
+            </div>
+
+            <div class="right">
+                <div>
+                    <input type="number" id="defense-block" min="1" max="6">
+                    <label for="defense-block">Defense saves on (e.g. for 3+ to hit, enter 3)</label>
+                </div>
+        
+                <div>
+                    <input type="number" id="defense-morale" min="1" max="8">
+                    <label for="defense-morale">Morale (e.g. for 6+ to save, enter 6)</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="include-blocks" checked>
+                    <label for="include-blocks">Include blocks</label>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="left">
+                <span>Modifiers</span>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-critical-blow">
+                    <label for="modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-vicious">
+                    <label for="modifiers-vicious" title="-2 to panic test">Vicious</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-charge">
+                    <label for="modifiers-charge" title="Re-roll misses">Successful charge</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-sundering">
+                    <label for="modifiers-sundering" title="-1 to defense saves">Sundering</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="modifiers-front" name="modifiers-direction" value="modifiers-direction-front" checked>
+                    <label for="modifiers-front" title="No effect">Attack in front</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="modifiers-flank" name="modifiers-direction" value="modifiers-direction-flank">
+                    <label for="modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="modifiers-rear" name="modifiers-direction" value="modifiers-direction-rear">
+                    <label for="modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
+                </div>
+            </div>
+
+            <div class="right">
+                <span>Conditions</span>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-weakened">
+                    <label for="modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-panicked">
+                    <label for="modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="modifiers-vulnerable">
+                    <label for="modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div>
+            Average wounds: <span id="averageWounds"></span>
+        </div>
+
+        <div>
+            Probability of panic: <span id="panicProbability"></span>
+        </div>
+
+        <div>
+            Average panic wounds: <span id="avgPanicWounds"></span>
+        </div>
+
+        <div>
+            Average total wounds: <span id="avgTotalWounds"></span>
+        </div>
+
+        <div>
+            <label for="probability-chart">Probability curve:</label>
+            <div style="position: relative; height:400px; width:600px">
+                <canvas id="probability-chart" height="400" width="600"></canvas>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+    <footer>
+        <div>
+            Assumptions:
+            <ul>
+                <li>This will not re-roll hits that could be re-rolled in the hope of getting a 6 in order to combo with
+                    Critical Blow, although this technical would be a valid (if mathematically risky) strategy.</li>
+                <li>Any Charge re-rolls happen first and Weakened re-rolls happen second (this should technically
+                    trigger
+                    in order of who is the first player).</li>
+                <li>Always spend all condition tokens for re-rolls.</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+
+  </div>
+  <hr>
+
+  <div id=links>
+    
+      <a href="https://nobleator.github.io/2020/10/game-mechanics/">&laquo;&nbsp;Game Mechanics</a>
+    
+    
+      <a href="https://nobleator.github.io/2021/01/eml-file-generation/">EML File Generation&nbsp;&raquo;</a>
+    
+  </div>
+</section>
+
+  
+
+  
+    <script>renderMathInElement(document.body);</script>
+  
+</body>
+</html>
+
+
