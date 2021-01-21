@@ -13,12 +13,8 @@
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0400</pubDate>
       
       <guid>https://nobleator.github.io/2020/10/eml-file-generation/</guid>
-      <description>You need to include newlines in very particular places to successfully generate an EML file.
-Invalid EML code goes here
-Valid EML code goes here
-If you need to include attachments to your EML you can do that too.
-Invalid EML code goes here
-Valid EML code goes here</description>
+      <description>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.
+Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt;To: Bob &amp;lt;bob@example.com&amp;gt;Subject: Testing 123Date: 1 Jan 2000 12:00:00Content-Type: text/plain; charset=UTF-8;Hello World!</description>
     </item>
     
     <item>
@@ -27,7 +23,7 @@ Valid EML code goes here</description>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0400</pubDate>
       
       <guid>https://nobleator.github.io/2020/10/game-mechanics/</guid>
-      <description>Engine builders This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is Dominion, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be Lords of Waterdeep, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resouces as other players use them.</description>
+      <description>Engine builders This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is Dominion, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be Lords of Waterdeep, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resources as other players use them.</description>
     </item>
     
     <item>
