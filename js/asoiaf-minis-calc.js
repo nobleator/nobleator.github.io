@@ -253,10 +253,11 @@ function calculatePanic(options) {
         let rollProbability = probabilityOfRollingExactly(roll, 2, 6);
         panicSaveProbability += rollProbability;
     }
+    let panicFailProbability =  1 - panicSaveProbability;
     if (options.panicked) {
-        panicSaveProbability /= 2;
+        panicFailProbability *= 2;
     }
-    return 1 - panicSaveProbability;
+    return panicFailProbability;
 }
 
 function calculate() {

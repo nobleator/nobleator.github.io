@@ -6,7 +6,26 @@
     <description>Recent content in Posts on BN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Murder Mystery</title>
+      <link>https://nobleator.github.io/2021/02/sql-murder-mystery/</link>
+      <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nobleator.github.io/2021/02/sql-murder-mystery/</guid>
+      <description>Description Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it SQL Murder Mystery. It&amp;rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.
+Solution Here is the path I took while solving this mystery. Given the starting information &amp;ldquo;the crime was a ​murder​ that occurred sometime on ​Jan.</description>
+    </item>
+    
+    <item>
+      <title>Better Civilization VI AI</title>
+      <link>https://nobleator.github.io/2021/01/better-civilization-vi-ai/</link>
+      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nobleator.github.io/2021/01/better-civilization-vi-ai/</guid>
+      <description>Description In Civilization VI the difficulty scales up by granting the AI flat bonuses. This is lame. Instead, AI difficulty should scale more similar to how human players improve. The main 3 ways a human player can get better at strategic games like Civ VI are 1) knowing more about core game mechanics (i.e. not forgetting anything), 2) consistency in play (i.e. not making simple mistake), and 3) by increasing the planning horizon (i.</description>
+    </item>
+    
     <item>
       <title>EML File Generation</title>
       <link>https://nobleator.github.io/2021/01/eml-file-generation/</link>
