@@ -3,75 +3,65 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://nobleator.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2021-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2021-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/tags/programming/</loc>
+    <loc>/tags/programming/</loc>
     <lastmod>2021-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/2021/02/sql-murder-mystery/</loc>
+    <loc>/posts/sql-murder-mystery/</loc>
     <lastmod>2021-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2021-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/2021/01/better-civilization-vi-ai/</loc>
-    <lastmod>2021-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nobleator.github.io/tags/games/</loc>
-    <lastmod>2021-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nobleator.github.io/2021/01/eml-file-generation/</loc>
+    <loc>/posts/eml-file-generation/</loc>
     <lastmod>2021-01-20T00:00:00+04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/2021/01/asoiaf-miniatures-calculator/</loc>
+    <loc>/posts/asoiaf-minis-calc/</loc>
     <lastmod>2021-01-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/tags/board-games/</loc>
+    <loc>/tags/board-games/</loc>
     <lastmod>2021-01-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/2020/10/game-mechanics/</loc>
+    <loc>/posts/game-mechanics/</loc>
     <lastmod>2020-10-18T00:00:00+04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/tags/writing/</loc>
+    <loc>/tags/writing/</loc>
     <lastmod>2020-10-18T00:00:00+04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/about/</loc>
+    <loc>/about/</loc>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/categories/</loc>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>https://nobleator.github.io/projects/</loc>
+    <loc>/projects/</loc>
   </url>
   
 </urlset>

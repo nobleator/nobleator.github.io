@@ -1,45 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on BN</title>
-    <link>https://nobleator.github.io/tags/</link>
-    <description>Recent content in Tags on BN</description>
+    <title>Tags on nobleator</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on nobleator</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>programming</title>
-      <link>https://nobleator.github.io/tags/programming/</link>
+      <link>/tags/programming/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nobleator.github.io/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>games</title>
-      <link>https://nobleator.github.io/tags/games/</link>
-      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nobleator.github.io/tags/games/</guid>
+      <guid>/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>board games</title>
-      <link>https://nobleator.github.io/tags/board-games/</link>
+      <link>/tags/board-games/</link>
       <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nobleator.github.io/tags/board-games/</guid>
+      <guid>/tags/board-games/</guid>
       <description></description>
     </item>
     
     <item>
       <title>writing</title>
-      <link>https://nobleator.github.io/tags/writing/</link>
+      <link>/tags/writing/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0400</pubDate>
       
-      <guid>https://nobleator.github.io/tags/writing/</guid>
+      <guid>/tags/writing/</guid>
       <description></description>
     </item>
     
