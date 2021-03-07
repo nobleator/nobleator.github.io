@@ -1,26 +1,50 @@
 function setDefaults() {
-    document.getElementById("attack-dice").value = 4;
-    document.getElementById("attack-hit").value = 4;
-    document.getElementById("defense-block").value = 4;
-    document.getElementById("defense-morale").value = 6;
+    document.getElementById("left-attack-dice").value = 8;
+    document.getElementById("left-attack-hit").value = 2;
+    document.getElementById("left-defense-block").value = 4;
+    document.getElementById("left-defense-morale").value = 6;
+
+    document.getElementById("right-attack-dice").value = 10;
+    document.getElementById("right-attack-hit").value = 3;
+    document.getElementById("right-defense-block").value = 4;
+    document.getElementById("right-defense-morale").value = 6;
 }
 
 function initializeEventListeners() {
-    document.getElementById("attack-dice").addEventListener("change", draw);
-    document.getElementById("attack-hit").addEventListener("change", draw);
-    document.getElementById("include-blocks").addEventListener("change", draw);
-    document.getElementById("defense-block").addEventListener("change", draw);
-    document.getElementById("defense-morale").addEventListener("change", draw);
-    document.getElementById("modifiers-critical-blow").addEventListener("change", draw);
-    document.getElementById("modifiers-vicious").addEventListener("change", draw);
-    document.getElementById("modifiers-charge").addEventListener("change", draw);
-    document.getElementById("modifiers-sundering").addEventListener("change", draw);
-    document.getElementById("modifiers-front").addEventListener("change", draw);
-    document.getElementById("modifiers-flank").addEventListener("change", draw);
-    document.getElementById("modifiers-rear").addEventListener("change", draw);
-    document.getElementById("modifiers-weakened").addEventListener("change", draw);
-    document.getElementById("modifiers-panicked").addEventListener("change", draw);
-    document.getElementById("modifiers-vulnerable").addEventListener("change", draw);
+    document.getElementById("left-attack-dice").addEventListener("change", draw);
+    document.getElementById("left-attack-hit").addEventListener("change", draw);
+    document.getElementById("left-include-blocks").addEventListener("change", draw);
+    document.getElementById("left-defense-block").addEventListener("change", draw);
+    document.getElementById("left-defense-morale").addEventListener("change", draw);
+    document.getElementById("left-modifiers-critical-blow").addEventListener("change", draw);
+    document.getElementById("left-modifiers-vicious").addEventListener("change", draw);
+    document.getElementById("left-modifiers-charge").addEventListener("change", draw);
+    document.getElementById("left-modifiers-sundering").addEventListener("change", draw);
+    document.getElementById("left-modifiers-front").addEventListener("change", draw);
+    document.getElementById("left-modifiers-flank").addEventListener("change", draw);
+    document.getElementById("left-modifiers-rear").addEventListener("change", draw);
+    document.getElementById("left-modifiers-weakened").addEventListener("change", draw);
+    document.getElementById("left-modifiers-panicked").addEventListener("change", draw);
+    document.getElementById("left-modifiers-vulnerable").addEventListener("change", draw);
+
+    document.getElementById("right-attack-dice").addEventListener("change", draw);
+    document.getElementById("right-attack-hit").addEventListener("change", draw);
+    document.getElementById("right-include-blocks").addEventListener("change", draw);
+    document.getElementById("right-defense-block").addEventListener("change", draw);
+    document.getElementById("right-defense-morale").addEventListener("change", draw);
+    document.getElementById("right-modifiers-critical-blow").addEventListener("change", draw);
+    document.getElementById("right-modifiers-vicious").addEventListener("change", draw);
+    document.getElementById("right-modifiers-charge").addEventListener("change", draw);
+    document.getElementById("right-modifiers-sundering").addEventListener("change", draw);
+    document.getElementById("right-modifiers-front").addEventListener("change", draw);
+    document.getElementById("right-modifiers-flank").addEventListener("change", draw);
+    document.getElementById("right-modifiers-rear").addEventListener("change", draw);
+    document.getElementById("right-modifiers-weakened").addEventListener("change", draw);
+    document.getElementById("right-modifiers-panicked").addEventListener("change", draw);
+    document.getElementById("right-modifiers-vulnerable").addEventListener("change", draw);
+
+    document.getElementById("chart-type-at-least").addEventListener("change", draw);
+    document.getElementById("chart-type-exactly").addEventListener("change", draw);
 }
 
 var STATISTICS;
@@ -48,27 +72,27 @@ class Options {
     }
 }
 
-function getOptions() {
-    let dice = parseInt(document.getElementById("attack-dice").value);
-    let hitOn = parseInt(document.getElementById("attack-hit").value);
-    let includeBlocks = document.getElementById("include-blocks").checked;
-    let blockOn = parseInt(document.getElementById("defense-block").value);
-    let morale = parseInt(document.getElementById("defense-morale").value);
-    let criticalBlow = document.getElementById("modifiers-critical-blow").checked;
-    let vicious = document.getElementById("modifiers-vicious").checked;
-    let charge = document.getElementById("modifiers-charge").checked;
-    let sundering = document.getElementById("modifiers-sundering").checked;
+function getOptions(inputSide) {
+    let dice = parseInt(document.getElementById(`${inputSide}-attack-dice`).value);
+    let hitOn = parseInt(document.getElementById(`${inputSide}-attack-hit`).value);
+    let includeBlocks = document.getElementById(`${inputSide}-include-blocks`).checked;
+    let blockOn = parseInt(document.getElementById(`${inputSide}-defense-block`).value);
+    let morale = parseInt(document.getElementById(`${inputSide}-defense-morale`).value);
+    let criticalBlow = document.getElementById(`${inputSide}-modifiers-critical-blow`).checked;
+    let vicious = document.getElementById(`${inputSide}-modifiers-vicious`).checked;
+    let charge = document.getElementById(`${inputSide}-modifiers-charge`).checked;
+    let sundering = document.getElementById(`${inputSide}-modifiers-sundering`).checked;
     let attackDirection = "";
-    let attackDirectionInputs = document.getElementsByName("modifiers-direction");
+    let attackDirectionInputs = document.getElementsByName(`${inputSide}-modifiers-direction`);
     for (var i = 0, length = attackDirectionInputs.length; i < length; i++) {
         if (attackDirectionInputs[i].checked) {
             attackDirection = attackDirectionInputs[i].value;
             break;
         }
     }
-    let weakened = document.getElementById("modifiers-weakened").checked;
-    let panicked = document.getElementById("modifiers-panicked").checked;
-    let vulnerable = document.getElementById("modifiers-vulnerable").checked;
+    let weakened = document.getElementById(`${inputSide}-modifiers-weakened`).checked;
+    let panicked = document.getElementById(`${inputSide}-modifiers-panicked`).checked;
+    let vulnerable = document.getElementById(`${inputSide}-modifiers-vulnerable`).checked;
     return new Options(dice, hitOn, includeBlocks, blockOn, morale, criticalBlow, vicious, charge,
         sundering, attackDirection, weakened, panicked, vulnerable);
 }
@@ -260,9 +284,10 @@ function calculatePanic(options) {
     return panicFailProbability;
 }
 
-function calculate() {
+function calculate(inputSide) {
     // TODO: Pie chart with average expected hits, blocks, and panic?
-    let options = getOptions();
+    // TODO: Add Precision as ability
+    let options = getOptions(inputSide);
     let individualHitChance = calculateHitChance(options);
     let hitProbabilities = calculateHits(options, individualHitChance);
     let individualBlockChance = calculateBlockChance(options);
@@ -280,13 +305,13 @@ function calculate() {
         averageWounds += exactHit.numberOfHits * exactHit.probability;
     });
 
-    document.getElementById("averageWounds").innerHTML = averageWounds.toPrecision(4);
+    document.getElementById(`${inputSide}-averageWounds`).innerHTML = averageWounds.toPrecision(4);
     let panicProbability = calculatePanic(options);
-    document.getElementById("panicProbability").innerHTML = panicProbability.toPrecision(4);
+    document.getElementById(`${inputSide}-panicProbability`).innerHTML = panicProbability.toPrecision(4);
     let avgPanicWounds = ((2 + 1) * panicProbability); // D3+1 average damage
-    document.getElementById("avgPanicWounds").innerHTML = avgPanicWounds.toPrecision(4);
+    document.getElementById(`${inputSide}-avgPanicWounds`).innerHTML = avgPanicWounds.toPrecision(4);
     let avgTotalWounds = averageWounds + avgPanicWounds;
-    document.getElementById("avgTotalWounds").innerHTML = avgTotalWounds.toPrecision(4);
+    document.getElementById(`${inputSide}-avgTotalWounds`).innerHTML = avgTotalWounds.toPrecision(4);
 
     let labels = Array.from(Array((options.dice * 2) + 1).keys());
 
@@ -300,27 +325,57 @@ function calculate() {
 var probabilityChart;
 function draw() {
     var ctx = document.getElementById("probability-chart").getContext("2d");
-    let data = calculate();
+    let leftData = calculate("left");
+    let rightData = calculate("right");
     if (probabilityChart) {
         probabilityChart.destroy();
+    }
+
+    let chartType = "";
+    let chartTypeInputs = document.getElementsByName("chart-type");
+    for (var i = 0, length = chartTypeInputs.length; i < length; i++) {
+        if (chartTypeInputs[i].checked) {
+            chartType = chartTypeInputs[i].value;
+            break;
+        }
+    }
+
+    let datasets = [];
+
+    if (chartType === "chart-type-at-least") {
+        datasets = [{
+            label: "Unit A",
+            data: leftData.cumulativeHits.map(x => x.probability),
+            backgroundColor: "#46b5d1",
+            borderWidth: 1
+        },
+        {
+            label: "Unit B",
+            data: rightData.cumulativeHits.map(x => x.probability),
+            backgroundColor: "#e43f5a",
+            borderWidth: 1
+        }];
+    } else {
+        datasets = [{
+            label: "Unit A",
+            data: leftData.exactHits.map(x => x.probability),
+            backgroundColor: "#46b5d1",
+            borderWidth: 1
+        },
+        {
+            label: "Unit B",
+            data: rightData.exactHits.map(x => x.probability),
+            backgroundColor: "#e43f5a",
+            borderWidth: 1
+        }];
     }
 
     probabilityChart = new Chart(ctx, {
         type: "bar",
         data: {
-            labels: data.labels,
-            datasets: [{
-                label: "Probability of at least # Wounds",
-                data: data.cumulativeHits.map(x => x.probability),
-                backgroundColor: "#46b5d1",
-                borderWidth: 1
-            },
-            {
-                label: "Probability of exactly # Wounds",
-                data: data.exactHits.map(x => x.probability),
-                backgroundColor: "#e43f5a",
-                borderWidth: 1
-            }]
+            // TODO: If the left and right sides differ, this will "clip" and right-side data that doesn't fit the left side labels
+            labels: leftData.labels, 
+            datasets: datasets
         },
         options: {
             scales: {
