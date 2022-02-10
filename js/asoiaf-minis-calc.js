@@ -47,6 +47,43 @@ function initializeEventListeners() {
     document.getElementById("chart-type-exactly").addEventListener("change", draw);
 }
 
+function exportInputs() {
+    // let form = document.getElementById("inputs")
+    // let formData = new FormData(form);
+    // let value = Object.fromEntries(formData.entries());
+    // document.getElementById("testOutput").innerHTML = JSON.stringify(formData);
+
+    let formData = document.getElementById("inputs");
+    let inputElements = formData.getElementsByTagName("input");
+    let jsonObject = {};
+    for (var i = 0; i < inputElements.length; i++){
+        var inputElement = inputElements[i];
+        if (inputElement.type === "number") {
+            jsonObject[inputElement.id] = inputElement.value;
+        } else if (inputElement.type === "checkbox" || inputElement.type === "radio") {
+            jsonObject[inputElement.id] = inputElement.checked;
+        }
+    }
+    document.getElementById("testOutput").innerHTML = JSON.stringify(jsonObject);
+    // TODO: Where to send export
+    // return JSON.stringify(jsonObject);
+}
+
+function importInputs() {
+    // TODO: Where to read import
+    let json = JSON.parse(document.getElementById("testOutput").innerHTML);
+    for (var key in json) {
+        if (json.hasOwnProperty(key)) {
+            let inputElement = document.getElementById(key);
+            if (inputElement.type === "number") {
+                inputElement.value = json[key];
+            } else if (inputElement.type === "checkbox" || inputElement.type === "radio") {
+                inputElement.checked = json[key];
+            }
+        }
+    }
+}
+
 var STATISTICS;
 function initializeGlobalObjects() {
     // Note: Using this design in lieu of static functions due to lack of support in iOS and Safari

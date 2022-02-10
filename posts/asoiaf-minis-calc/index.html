@@ -276,6 +276,19 @@ $$ p \prime = (1 - p)p $$</p>
 
     <div>
         <hr>
+        
+        <div>
+            <button onclick="importInputs()">Import</button>
+            <div id="testImport">
+                Test words
+            </div>
+            <button onclick="exportInputs()">Export</button>
+            <div id="testOutput">
+
+            </div>
+        </div>
+
+        <hr>
 
         <div class="row">
             <div class="left">
@@ -289,177 +302,179 @@ $$ p \prime = (1 - p)p $$</p>
 
         <hr>
 
-        <div class="row">
-            <div class="left">
-                <div>
-                    <input type="number" id="left-attack-dice" min="1" max="16" data-theme="dark">
-                    <label for="attack-dice" title="Number of attack dice being rolled">Attack dice</label>
+        <form id="inputs">
+            <div class="row">
+                <div class="left">
+                    <div>
+                        <input type="number" name="left-attack-dice" id="left-attack-dice" min="1" max="16" data-theme="dark">
+                        <label for="left-attack-dice" title="Number of attack dice being rolled">Attack dice</label>
+                    </div>
+            
+                    <div>
+                        <input type="number" id="left-attack-hit" min="1" max="6">
+                        <label for="left-attack-hit" title="Target value for attack dice to hit">Attack hit</label>
+                    </div>
+                    
+                    <div>
+                        <input type="number" id="left-defense-block" min="1" max="6">
+                        <label for="left-defense-block" title="Target value for defensive dice to save">Defense save</label>
+                    </div>
+            
+                    <div>
+                        <input type="number" id="left-defense-morale" min="1" max="8">
+                        <label for="left-defense-morale" title="Target value for panic check to pass">Morale</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="left-include-blocks" checked>
+                        <label for="left-include-blocks">Include blocks</label>
+                    </div>
                 </div>
-        
-                <div>
-                    <input type="number" id="left-attack-hit" min="1" max="6">
-                    <label for="attack-hit" title="Target value for attack dice to hit">Attack hit</label>
-                </div>
-                
-                <div>
-                    <input type="number" id="left-defense-block" min="1" max="6">
-                    <label for="defense-block" title="Target value for defensive dice to save">Defense save</label>
-                </div>
-        
-                <div>
-                    <input type="number" id="left-defense-morale" min="1" max="8">
-                    <label for="defense-morale" title="Target value for panic check to pass">Morale</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" id="left-include-blocks" checked>
-                    <label for="include-blocks">Include blocks</label>
+    
+                <div class="right">
+                    <div>
+                        <input type="number" id="right-attack-dice" min="1" max="16">
+                        <label for="right-attack-dice" title="Number of attack dice being rolled">Attack dice</label>
+                    </div>
+            
+                    <div>
+                        <input type="number" id="right-attack-hit" min="1" max="6">
+                        <label for="right-attack-hit" title="Target value for attack dice to hit">Attack hit</label>
+                    </div>
+                    
+                    <div>
+                        <input type="number" id="right-defense-block" min="1" max="6">
+                        <label for="right-defense-block" title="Target value for defensive dice to save">Defense save</label>
+                    </div>
+            
+                    <div>
+                        <input type="number" id="right-defense-morale" min="1" max="8">
+                        <label for="right-defense-morale" title="Target value for panic check to pass">Morale</label>
+                    </div>
+    
+                    <div>
+                        <input type="checkbox" id="right-include-blocks" checked>
+                        <label for="right-include-blocks">Include blocks</label>
+                    </div>
                 </div>
             </div>
-
-            <div class="right">
-                <div>
-                    <input type="number" id="right-attack-dice" min="1" max="16">
-                    <label for="attack-dice" title="Number of attack dice being rolled">Attack dice</label>
-                </div>
+    
+            <hr>
+    
+            <div class="row">
+                <div class="left">
+                    <span>Modifiers</span>
         
-                <div>
-                    <input type="number" id="right-attack-hit" min="1" max="6">
-                    <label for="attack-hit" title="Target value for attack dice to hit">Attack hit</label>
-                </div>
-                
-                <div>
-                    <input type="number" id="right-defense-block" min="1" max="6">
-                    <label for="defense-block" title="Target value for defensive dice to save">Defense save</label>
-                </div>
+                    <div>
+                        <input type="checkbox" id="left-modifiers-critical-blow">
+                        <label for="left-modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
+                    </div>
         
-                <div>
-                    <input type="number" id="right-defense-morale" min="1" max="8">
-                    <label for="defense-morale" title="Target value for panic check to pass">Morale</label>
+                    <div>
+                        <input type="checkbox" id="left-modifiers-vicious">
+                        <label for="left-modifiers-vicious" title="-2 to panic test">Vicious</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="left-modifiers-charge">
+                        <label for="left-modifiers-charge" title="Re-roll misses">Successful charge</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="left-modifiers-sundering">
+                        <label for="left-modifiers-sundering" title="-1 to defense saves">Sundering</label>
+                    </div>
+        
+                    <div>
+                        <input type="radio" id="left-modifiers-front" name="left-modifiers-direction" value="modifiers-direction-front" checked>
+                        <label for="left-modifiers-front" title="No effect">Attack in front</label>
+                    </div>
+        
+                    <div>
+                        <input type="radio" id="left-modifiers-flank" name="left-modifiers-direction" value="modifiers-direction-flank">
+                        <label for="left-modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
+                    </div>
+        
+                    <div>
+                        <input type="radio" id="left-modifiers-rear" name="left-modifiers-direction" value="modifiers-direction-rear">
+                        <label for="left-modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
+                    </div>
+    
+                    <span>Conditions</span>
+        
+                    <div>
+                        <input type="checkbox" id="left-modifiers-weakened">
+                        <label for="left-modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="left-modifiers-panicked">
+                        <label for="left-modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="left-modifiers-vulnerable">
+                        <label for="left-modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
+                    </div>
                 </div>
-
-                <div>
-                    <input type="checkbox" id="right-include-blocks" checked>
-                    <label for="include-blocks">Include blocks</label>
+    
+                <div class="right">
+                    <span>Modifiers</span>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-critical-blow">
+                        <label for="right-modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-vicious">
+                        <label for="right-modifiers-vicious" title="-2 to panic test">Vicious</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-charge">
+                        <label for="right-modifiers-charge" title="Re-roll misses">Successful charge</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-sundering">
+                        <label for="right-modifiers-sundering" title="-1 to defense saves">Sundering</label>
+                    </div>
+        
+                    <div>
+                        <input type="radio" id="right-modifiers-front" name="right-modifiers-direction" value="modifiers-direction-front" checked>
+                        <label for="right-modifiers-front" title="No effect">Attack in front</label>
+                    </div>
+        
+                    <div>
+                        <input type="radio" id="right-modifiers-flank" name="right-modifiers-direction" value="modifiers-direction-flank">
+                        <label for="right-modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
+                    </div>
+        
+                    <div>
+                        <input type="radio" id="right-modifiers-rear" name="right-modifiers-direction" value="modifiers-direction-rear">
+                        <label for="right-modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
+                    </div>
+    
+                    <span>Conditions</span>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-weakened">
+                        <label for="right-modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-panicked">
+                        <label for="right-modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
+                    </div>
+        
+                    <div>
+                        <input type="checkbox" id="right-modifiers-vulnerable">
+                        <label for="right-modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="left">
-                <span>Modifiers</span>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-critical-blow">
-                    <label for="modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-vicious">
-                    <label for="modifiers-vicious" title="-2 to panic test">Vicious</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-charge">
-                    <label for="modifiers-charge" title="Re-roll misses">Successful charge</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-sundering">
-                    <label for="modifiers-sundering" title="-1 to defense saves">Sundering</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="left-modifiers-front" name="left-modifiers-direction" value="modifiers-direction-front" checked>
-                    <label for="modifiers-front" title="No effect">Attack in front</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="left-modifiers-flank" name="left-modifiers-direction" value="modifiers-direction-flank">
-                    <label for="modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="left-modifiers-rear" name="left-modifiers-direction" value="modifiers-direction-rear">
-                    <label for="modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
-                </div>
-
-                <span>Conditions</span>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-weakened">
-                    <label for="modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-panicked">
-                    <label for="modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="left-modifiers-vulnerable">
-                    <label for="modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
-                </div>
-            </div>
-
-            <div class="right">
-                <span>Modifiers</span>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-critical-blow">
-                    <label for="modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-vicious">
-                    <label for="modifiers-vicious" title="-2 to panic test">Vicious</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-charge">
-                    <label for="modifiers-charge" title="Re-roll misses">Successful charge</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-sundering">
-                    <label for="modifiers-sundering" title="-1 to defense saves">Sundering</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="right-modifiers-front" name="right-modifiers-direction" value="modifiers-direction-front" checked>
-                    <label for="modifiers-front" title="No effect">Attack in front</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="right-modifiers-flank" name="right-modifiers-direction" value="modifiers-direction-flank">
-                    <label for="modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
-                </div>
-    
-                <div>
-                    <input type="radio" id="right-modifiers-rear" name="right-modifiers-direction" value="modifiers-direction-rear">
-                    <label for="modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
-                </div>
-
-                <span>Conditions</span>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-weakened">
-                    <label for="modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-panicked">
-                    <label for="modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
-                </div>
-    
-                <div>
-                    <input type="checkbox" id="right-modifiers-vulnerable">
-                    <label for="modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
-                </div>
-            </div>
-        </div>
+        </form>
 
         <hr>
 
@@ -583,7 +598,7 @@ $$ p \prime = (1 - p)p $$</p>
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>
