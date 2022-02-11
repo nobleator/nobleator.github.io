@@ -13,6 +13,12 @@ input[type="number"] {
     border: 1px solid #918f87;
 }
 
+input[type="text"] {
+    border: 1px solid #918f87;
+    width: 30em;
+    height: 3em;
+}
+
 .row {
     display: flex;
 }

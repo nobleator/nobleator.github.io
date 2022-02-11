@@ -48,11 +48,6 @@ function initializeEventListeners() {
 }
 
 function exportInputs() {
-    // let form = document.getElementById("inputs")
-    // let formData = new FormData(form);
-    // let value = Object.fromEntries(formData.entries());
-    // document.getElementById("testOutput").innerHTML = JSON.stringify(formData);
-
     let formData = document.getElementById("inputs");
     let inputElements = formData.getElementsByTagName("input");
     let jsonObject = {};
@@ -64,14 +59,17 @@ function exportInputs() {
             jsonObject[inputElement.id] = inputElement.checked;
         }
     }
-    document.getElementById("testOutput").innerHTML = JSON.stringify(jsonObject);
-    // TODO: Where to send export
-    // return JSON.stringify(jsonObject);
+    document.getElementById("export").innerHTML = JSON.stringify(jsonObject, null, 2);
+}
+
+function copyExport() {
+    let exportContents = document.getElementById("export").innerHTML;
+    navigator.clipboard.writeText(exportContents);
 }
 
 function importInputs() {
-    // TODO: Where to read import
-    let json = JSON.parse(document.getElementById("testOutput").innerHTML);
+    let raw = document.getElementById("import").value;
+    let json = JSON.parse(raw);
     for (var key in json) {
         if (json.hasOwnProperty(key)) {
             let inputElement = document.getElementById(key);
