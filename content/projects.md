@@ -17,4 +17,4 @@ These are some random pieces of code that I have put together for a variety of j
 
 ## Python Tips & Tricks
 TBD
-{{< iframe "https://repl.it/@amasad/PitifulLastingWhoopingcrane?lite=true" >}}
+<!-- {{< iframe "https://repl.it/@amasad/PitifulLastingWhoopingcrane?lite=true" >}} -->

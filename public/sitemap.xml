@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2022-04-16T17:14:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2022-04-16T17:14:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/programming/</loc>
+    <lastmod>2022-04-16T17:14:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/secret-santa/</loc>
+    <lastmod>2022-04-16T17:14:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2022-04-16T17:14:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/sql-murder-mystery/</loc>
+    <lastmod>2021-03-06T12:13:55-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/eml-file-generation/</loc>
+    <lastmod>2022-02-09T20:37:51-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/asoiaf-minis-calc/</loc>
+    <lastmod>2021-03-07T08:53:59-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/board-games/</loc>
+    <lastmod>2021-03-07T08:53:59-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/game-mechanics/</loc>
+    <lastmod>2021-03-06T12:13:55-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/writing/</loc>
+    <lastmod>2021-03-06T12:13:55-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2021-02-06T11:52:12-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/projects/</loc>
+    <lastmod>2021-01-10T16:16:52-05:00</lastmod>
+  </url>
+  
+</urlset>
