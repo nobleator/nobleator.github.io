@@ -2,7 +2,7 @@
 title: "Secret Santa Assigner"
 description: "A tool to randomly assign partners for Secret Santa"
 tags: [ "programming", ]
-date: 2022-04-16T00:00:00
+date: 2022-04-17T00:00:00
 draft: false
 ---
 
