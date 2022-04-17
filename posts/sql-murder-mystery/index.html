@@ -1,265 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-    <title>SQL Murder Mystery :: nobleator</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Description Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it SQL Murder Mystery. It&amp;rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.
-Solution Here is the path I took while solving this mystery. Given the starting information &amp;ldquo;the crime was a ​murder​ that occurred sometime on ​Jan." />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<link rel="canonical" href="/posts/sql-murder-mystery/" />
-
-
-
-
-<link rel="stylesheet" href="/assets/style.css">
-
-  <link rel="stylesheet" href="/assets/red.css">
-
-
-
-
-
-
-<link rel="apple-touch-icon" href="/img/apple-touch-icon-192x192.png">
-
-  <link rel="shortcut icon" href="/favicon.ico">
-
-
-
-<meta name="twitter:card" content="summary" />
-
-  
-    <meta name="twitter:site" content="" />
-  
-    <meta name="twitter:creator" content="" />
-
-
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="SQL Murder Mystery">
-<meta property="og:description" content="Description and solution of a puzzle requiring SQL to solve" />
-<meta property="og:url" content="/posts/sql-murder-mystery/" />
-<meta property="og:site_name" content="nobleator" />
-
-  
-    <meta property="og:image" content="/favicon.ico">
-  
-
-<meta property="og:image:width" content="2048">
-<meta property="og:image:height" content="1024">
-
-
-  <meta property="article:published_time" content="2021-02-06 00:00:00 &#43;0000 UTC" />
-
-
-
-
-
-
-
-
-
-
-
-
-</head>
-<body class="red">
-
-
-<div class="container center headings--one-size">
-
-  <header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      <a href="/">
-  <div class="logo">
-    nobleator
-  </div>
-</a>
-
-    </div>
-    
-      <div class="menu-trigger">menu</div>
-    
-  </div>
-  
-    <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
-        
-          <li><a href="/about">About</a></li>
-        
-      
-        
-          <li><a href="/projects/">Projects</a></li>
-        
-      
-        
-          <li><a href="/tags/">Tags</a></li>
-        
-      
-      
-    
-
-    
-  </ul>
-
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/about">About</a></li>
-      
-    
-      
-        <li><a href="/projects/">Projects</a></li>
-      
-    
-      
-        <li><a href="/tags/">Tags</a></li>
-      
-    
-    
-  </ul>
-</nav>
-
-  
-  
-</header>
-
-
-  <div class="content">
-    
-<div class="post">
-  <h1 class="post-title">
-    <a href="/posts/sql-murder-mystery/">SQL Murder Mystery</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2021-02-06 [Updated: 2021-03-06]
-      </span>
-    
-    
-  </div>
-
-  
-  <span class="post-tags">
-    
-    #<a href="/tags/programming/">programming</a>&nbsp;
-    
-  </span>
-  
-
-  
-
-  
-
-  <div class="post-content"><div>
-        <h2 id="description">Description<a href="#description" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it <a href="https://mystery.knightlab.com">SQL Murder Mystery</a>. It&rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.</p>
-<h2 id="solution">Solution<a href="#solution" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>Here is the path I took while solving this mystery. Given the starting information &ldquo;the crime was a <strong>​murder​</strong> that occurred sometime on <strong>​Jan.15, 2018</strong>​ and that it took place in <strong>SQL City</strong>​&rdquo; combined with the available tables we can write our first query:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> crime_scene_report
-<span style="color:#66d9ef">where</span> date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;20180115&#39;</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;murder&#39;</span> <span style="color:#66d9ef">and</span> city <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SQL City&#39;</span>;
-</code></pre></div><p>Reading through the description provided in the corresponding crime_scene_report row we identify some persons of interest that we would like more information on:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> person
-<span style="color:#66d9ef">where</span> (name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%annabel%&#39;</span> <span style="color:#66d9ef">and</span> address_street_name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%franklin%&#39;</span>)
-    <span style="color:#66d9ef">or</span> address_street_name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%northwestern%&#39;</span>
-<span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> address_street_name, address_number <span style="color:#66d9ef">desc</span>; 
-</code></pre></div><p>In order to pull the interviews from the witnesses we need their IDs. Annabel Miller is simple to find, but for the person who lives on Northwestern Dr all we know is that they lived on the end. Therefore we&rsquo;ll pull the IDs for both extremes of the address number:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> interview
-<span style="color:#66d9ef">where</span> person_id <span style="color:#66d9ef">in</span> (<span style="color:#ae81ff">16371</span>, <span style="color:#ae81ff">14887</span>, <span style="color:#ae81ff">89906</span>);
-</code></pre></div><p>By cross-referencing the available interviews with the information from the crime scene report and address information, we can deduce that Annabel Miller and Morty Schapiro are our two witnesses. Let&rsquo;s start by finding all the gold members of the Get Fit Gym who checked in on the 9th with matching membership ID and license plate numbers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> get_fit_now_member m
-<span style="color:#66d9ef">join</span> get_fit_now_check_in <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">on</span> <span style="color:#66d9ef">c</span>.membership_id <span style="color:#f92672">=</span> m.id
-<span style="color:#66d9ef">join</span> person p <span style="color:#66d9ef">on</span> p.id <span style="color:#f92672">=</span> m.person_id
-<span style="color:#66d9ef">left</span> <span style="color:#66d9ef">join</span> drivers_license d <span style="color:#66d9ef">on</span> d.id <span style="color:#f92672">=</span> p.license_id
-<span style="color:#66d9ef">where</span> m.membership_status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;gold&#39;</span>
-<span style="color:#66d9ef">and</span> m.id <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;48z%&#39;</span>
-<span style="color:#66d9ef">and</span> <span style="color:#66d9ef">c</span>.check_in_date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;20180109&#39;</span>
-<span style="color:#66d9ef">and</span> d.plate_number <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%H42W%&#39;</span>;
-</code></pre></div><p>At this point we found the killer, Jeremy Bowers. Looking at the interview with him though reveals more interesting info:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> interview
-<span style="color:#66d9ef">where</span> person_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">67318</span>;
-</code></pre></div><p>We can use that information and the facebook_event_checkin table to find female attendees of the SQL Symphony Concert who drive the right kind of car:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">distinct</span> p.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> drivers_license dl
-<span style="color:#66d9ef">join</span> person p <span style="color:#66d9ef">on</span> p.license_id <span style="color:#f92672">=</span> dl.id
-<span style="color:#66d9ef">join</span> income i <span style="color:#66d9ef">on</span> i.ssn <span style="color:#f92672">=</span> p.ssn
-<span style="color:#66d9ef">join</span> facebook_event_checkin fb <span style="color:#66d9ef">on</span> fb.person_id <span style="color:#f92672">=</span> p.id
-<span style="color:#66d9ef">where</span> dl.height <span style="color:#66d9ef">between</span> <span style="color:#ae81ff">65</span> <span style="color:#66d9ef">and</span> <span style="color:#ae81ff">67</span>
-<span style="color:#66d9ef">and</span> dl.gender <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;female&#39;</span>
-<span style="color:#66d9ef">and</span> dl.hair_color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;red&#39;</span>
-<span style="color:#66d9ef">and</span> dl.car_make <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Tesla&#39;</span>
-<span style="color:#66d9ef">and</span> dl.car_model <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Model S&#39;</span>
-<span style="color:#66d9ef">and</span> fb.event_name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%SQL Symphony Concert%&#39;</span>
-<span style="color:#66d9ef">and</span> fb.date <span style="color:#66d9ef">between</span> <span style="color:#ae81ff">20171200</span> <span style="color:#66d9ef">and</span> <span style="color:#ae81ff">20171231</span>;
-</code></pre></div><p>This now gives us the true mastermind behind the murder, Miranda Priestly, which is validated by the solution table at the end.</p>
-
-      </div></div>
-
-  
-  
-<div class="pagination">
-    <div class="pagination__title">
-        <span class="pagination__title-h">Read other posts</span>
-        <hr />
-    </div>
-    <div class="pagination__buttons">
-        
-        <span class="button previous">
-            <a href="/posts/secret-santa/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Secret Santa Assigner</span>
-            </a>
-        </span>
-        
-        
-        <span class="button next">
-            <a href="/posts/eml-file-generation/">
-                <span class="button__text">EML File Generation</span>
-                <span class="button__icon">→</span>
-            </a>
-        </span>
-        
-    </div>
-</div>
-
-  
-
-  
-
-</div>
-
-  </div>
-
-  
-    <footer class="footer">
-  <div class="footer__inner">
-    
-      <div class="copyright">
-        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
-    
-        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
-      </div>
-  </div>
-</footer>
-
-<script src="/assets/main.js"></script>
-<script src="/assets/prism.js"></script>
-
-
-
-
-
-
-
-  
-</div>
-
-</body>
-</html>
+<!doctype html><html lang=en><head><title>SQL Murder Mystery :: nobleator</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Description Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it SQL Murder Mystery. It&amp;rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.
+Solution Here is the path I took while solving this mystery. Given the starting information &amp;ldquo;the crime was a ​murder​ that occurred sometime on ​Jan."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=/posts/sql-murder-mystery/><link rel=stylesheet href=/assets/style.css><link rel=stylesheet href=/assets/red.css><link rel=apple-touch-icon href=/img/apple-touch-icon-192x192.png><link rel="shortcut icon" href=/favicon.ico><meta name=twitter:card content="summary"><meta name=twitter:site content><meta name=twitter:creator content><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="SQL Murder Mystery"><meta property="og:description" content="Description and solution of a puzzle requiring SQL to solve"><meta property="og:url" content="/posts/sql-murder-mystery/"><meta property="og:site_name" content="nobleator"><meta property="og:image" content="/favicon.ico"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1024"><meta property="article:published_time" content="2021-02-06 00:00:00 +0000 UTC"></head><body class=red><div class="container center headings--one-size"><header class=header><div class=header__inner><div class=header__logo><a href=/><div class=logo>nobleator</div></a></div><div class=menu-trigger>menu</div></div><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/about>About</a></li><li><a href=/projects/>Projects</a></li><li><a href=/tags/>Tags</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/about>About</a></li><li><a href=/projects/>Projects</a></li><li><a href=/tags/>Tags</a></li></ul></nav></header><div class=content><div class=post><h1 class=post-title><a href=/posts/sql-murder-mystery/>SQL Murder Mystery</a></h1><div class=post-meta><span class=post-date>2021-02-06 [Updated: 2022-04-17]</span></div><span class=post-tags>#<a href=/tags/programming/>programming</a>&nbsp;</span><div class=post-content><div><h2 id=description>Description<a href=#description class=hanchor arialabel=Anchor>&#8983;</a></h2><p>Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it <a href=https://mystery.knightlab.com>SQL Murder Mystery</a>. It&rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.</p><h2 id=solution>Solution<a href=#solution class=hanchor arialabel=Anchor>&#8983;</a></h2><p>Here is the path I took while solving this mystery. Given the starting information &ldquo;the crime was a <strong>​murder​</strong> that occurred sometime on <strong>​Jan.15, 2018</strong>​ and that it took place in <strong>SQL City</strong>​&rdquo; combined with the available tables we can write our first query:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> crime_scene_report
+</span></span><span style=display:flex><span><span style=color:#66d9ef>where</span> date <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;20180115&#39;</span> <span style=color:#66d9ef>and</span> <span style=color:#66d9ef>type</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;murder&#39;</span> <span style=color:#66d9ef>and</span> city <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;SQL City&#39;</span>;
+</span></span></code></pre></div><p>Reading through the description provided in the corresponding crime_scene_report row we identify some persons of interest that we would like more information on:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> person
+</span></span><span style=display:flex><span><span style=color:#66d9ef>where</span> (name <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#39;%annabel%&#39;</span> <span style=color:#66d9ef>and</span> address_street_name <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#39;%franklin%&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>or</span> address_street_name <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#39;%northwestern%&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>order</span> <span style=color:#66d9ef>by</span> address_street_name, address_number <span style=color:#66d9ef>desc</span>; 
+</span></span></code></pre></div><p>In order to pull the interviews from the witnesses we need their IDs. Annabel Miller is simple to find, but for the person who lives on Northwestern Dr all we know is that they lived on the end. Therefore we&rsquo;ll pull the IDs for both extremes of the address number:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> interview
+</span></span><span style=display:flex><span><span style=color:#66d9ef>where</span> person_id <span style=color:#66d9ef>in</span> (<span style=color:#ae81ff>16371</span>, <span style=color:#ae81ff>14887</span>, <span style=color:#ae81ff>89906</span>);
+</span></span></code></pre></div><p>By cross-referencing the available interviews with the information from the crime scene report and address information, we can deduce that Annabel Miller and Morty Schapiro are our two witnesses. Let&rsquo;s start by finding all the gold members of the Get Fit Gym who checked in on the 9th with matching membership ID and license plate numbers:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> get_fit_now_member m
+</span></span><span style=display:flex><span><span style=color:#66d9ef>join</span> get_fit_now_check_in <span style=color:#66d9ef>c</span> <span style=color:#66d9ef>on</span> <span style=color:#66d9ef>c</span>.membership_id <span style=color:#f92672>=</span> m.id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>join</span> person p <span style=color:#66d9ef>on</span> p.id <span style=color:#f92672>=</span> m.person_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>left</span> <span style=color:#66d9ef>join</span> drivers_license d <span style=color:#66d9ef>on</span> d.id <span style=color:#f92672>=</span> p.license_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>where</span> m.membership_status <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;gold&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> m.id <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#39;48z%&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> <span style=color:#66d9ef>c</span>.check_in_date <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;20180109&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> d.plate_number <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#39;%H42W%&#39;</span>;
+</span></span></code></pre></div><p>At this point we found the killer, Jeremy Bowers. Looking at the interview with him though reveals more interesting info:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> interview
+</span></span><span style=display:flex><span><span style=color:#66d9ef>where</span> person_id <span style=color:#f92672>=</span> <span style=color:#ae81ff>67318</span>;
+</span></span></code></pre></div><p>We can use that information and the facebook_event_checkin table to find female attendees of the SQL Symphony Concert who drive the right kind of car:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#66d9ef>distinct</span> p.<span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> drivers_license dl
+</span></span><span style=display:flex><span><span style=color:#66d9ef>join</span> person p <span style=color:#66d9ef>on</span> p.license_id <span style=color:#f92672>=</span> dl.id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>join</span> income i <span style=color:#66d9ef>on</span> i.ssn <span style=color:#f92672>=</span> p.ssn
+</span></span><span style=display:flex><span><span style=color:#66d9ef>join</span> facebook_event_checkin fb <span style=color:#66d9ef>on</span> fb.person_id <span style=color:#f92672>=</span> p.id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>where</span> dl.height <span style=color:#66d9ef>between</span> <span style=color:#ae81ff>65</span> <span style=color:#66d9ef>and</span> <span style=color:#ae81ff>67</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> dl.gender <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;female&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> dl.hair_color <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;red&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> dl.car_make <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Tesla&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> dl.car_model <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Model S&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> fb.event_name <span style=color:#66d9ef>like</span> <span style=color:#e6db74>&#39;%SQL Symphony Concert%&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>and</span> fb.date <span style=color:#66d9ef>between</span> <span style=color:#ae81ff>20171200</span> <span style=color:#66d9ef>and</span> <span style=color:#ae81ff>20171231</span>;
+</span></span></code></pre></div><p>This now gives us the true mastermind behind the murder, Miranda Priestly, which is validated by the solution table at the end.</p></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=/posts/secret-santa/><span class=button__icon>←</span>
+<span class=button__text>Secret Santa Assigner</span></a></span>
+<span class="button next"><a href=/posts/eml-file-generation/><span class=button__text>EML File Generation</span>
+<span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><div class=footer__inner><div class=copyright><span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span></div></div></footer><script src=/assets/main.js></script>
+<script src=/assets/prism.js></script></div></body></html>
