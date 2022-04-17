@@ -6,7 +6,17 @@
     <description>Recent content in programming on nobleator</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Secret Santa Assigner</title>
+      <link>/posts/secret-santa/</link>
+      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/secret-santa/</guid>
+      <description>Description This is a tool I wrote to help plan our Secret Santa assignments each year for Christmas. There are a couple of requirements:
+ You should not be paired with your significant other You should not be paired with the same person you had last year You should not be paired with the same person who is paired with you this year  Design I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables.</description>
+    </item>
+    
     <item>
       <title>SQL Murder Mystery</title>
       <link>/posts/sql-murder-mystery/</link>
