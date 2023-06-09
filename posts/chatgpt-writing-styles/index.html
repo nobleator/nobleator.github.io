@@ -194,69 +194,32 @@
 <p>While &ldquo;AI&rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both <a href="https://openai.com/blog/chatgpt">OpenAI announced ChatGPT</a> and <a href="https://stability.ai/blog/stable-diffusion-v2-release">stability.ai announced Stable Diffusion</a> in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting <a href="https://photoai.com/">new companies</a>, firmly hitching their horses to the AI wagon, and others are writing <a href="https://web.archive.org/web/20230416091034/https://www.nytimes.com/2023/04/16/opinion/this-is-too-important-to-leave-to-microsoft-google-and-facebook.html">panicked opinion pieces</a> petitioning Congress to regulate AI.</p>
 <p>But enough about that, the ethics of AI is not the topic of this post. Rather, I&rsquo;m more interested in learning more about ChatGPT prompt engineering. AI may be inevitable, and if so crafting prompts to elicit the desired output will be akin to learning how to use Visual Studio or <a href="https://developers.google.com/search/docs/monitor-debug/search-operators">Google search operators</a>.</p>
 <p>I wanted to see how ChatGPT responded to the same core prompt, but including commands to emulate the styles of different authors. For instance, how would Mark Twain write about modern US-China trade relationships? After playing around with a few permutations, I decided to turn this concept into a small matching game.</p>
-<p>To play, simply align the author on the right with the quote on the left. All the paragraphs on the left were written by ChatGPT (v3.5) responding to the following prompt, with {author} replaced by the one of the options on on the right:</p>
+<p>To play, simply align the author on the left with the quote on the right. All the paragraphs were written by ChatGPT (v3.5) responding to the following prompt, with {author} replaced by the one of the author options on the left:</p>
 <blockquote>
 <p>Write 1 paragraph in the style of {author}. Respond to the prompt: Is human behavior driven by nature or nurture?</p>
 </blockquote>
 <h2 id="the-game">The Game<a href="#the-game" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <body> 
     <script type="text/javascript" src="/js/chatgpt-writing-styles.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"
-        integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
 
     <div>
-        <div>
-            <ul id="test">
-                <li>DFW</li>
-                <li>Tolkien</li>
-            </ul>
+        <table id="quotes-table">
+            <thead>
+                <tr>
+                    <th>Author</th>
+                    <th>Quote</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-            <ul>
-                <li>Sample A</li>
-                <li>Sample B</li>
-            </ul>
-            
-            <div style="display:flex;">
-                <table id="authors-table">
-                    <thead>
-                        <tr>
-                            <th>Column 1</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Row 1, Column 1</td>
-                        </tr>
-                        <tr>
-                            <td>Row 2, Column 1</td>
-                        </tr>
-                        <tr>
-                            <td>Row 3, Column 1</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table id="quotes-table">
-                    <thead>
-                        <tr>
-                            <th>Column 1</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Row 1, Column 1</td>
-                        </tr>
-                        <tr>
-                            <td>Row 2, Column 1</td>
-                        </tr>
-                        <tr>
-                            <td>Row 3, Column 1</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <button onclick="calculateResults()">Submit</button>
+
+    <div>
+        Results:
+        <span id="results"></span>
+    </div>
 </body>
 
 
