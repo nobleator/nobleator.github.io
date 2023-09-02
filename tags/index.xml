@@ -5,8 +5,28 @@
     <link>/tags/</link>
     <description>Recent content in Tags on nobleator</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sat, 02 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>board games</title>
+      <link>/tags/board-games/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/board-games/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>/tags/programming/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/programming/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
     <item>
       <title>ai</title>
       <link>/tags/ai/</link>
@@ -14,6 +34,7 @@
       
       <guid>/tags/ai/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -23,6 +44,7 @@
       
       <guid>/tags/ai-assist/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -32,24 +54,7 @@
       
       <guid>/tags/chatgpt/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>/tags/programming/</link>
-      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>board games</title>
-      <link>/tags/board-games/</link>
-      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/board-games/</guid>
-      <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -59,6 +64,7 @@
       
       <guid>/tags/writing/</guid>
       <description></description>
+      <content></content>
     </item>
     
   </channel>

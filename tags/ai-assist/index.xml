@@ -5,7 +5,7 @@
     <link>/tags/ai-assist/</link>
     <description>Recent content in ai-assist on nobleator</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Fri, 09 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ai-assist/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ChatGPT Writing Styles</title>
@@ -14,6 +14,39 @@
       
       <guid>/posts/chatgpt-writing-styles/</guid>
       <description>Introduction While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both OpenAI announced ChatGPT and stability.ai announced Stable Diffusion in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting new companies, firmly hitching their horses to the AI wagon, and others are writing panicked opinion pieces petitioning Congress to regulate AI.</description>
+      <content>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both &lt;a href=&#34;https://openai.com/blog/chatgpt&#34;&gt;OpenAI announced ChatGPT&lt;/a&gt; and &lt;a href=&#34;https://stability.ai/blog/stable-diffusion-v2-release&#34;&gt;stability.ai announced Stable Diffusion&lt;/a&gt; in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting &lt;a href=&#34;https://photoai.com/&#34;&gt;new companies&lt;/a&gt;, firmly hitching their horses to the AI wagon, and others are writing &lt;a href=&#34;https://web.archive.org/web/20230416091034/https://www.nytimes.com/2023/04/16/opinion/this-is-too-important-to-leave-to-microsoft-google-and-facebook.html&#34;&gt;panicked opinion pieces&lt;/a&gt; petitioning Congress to regulate AI.&lt;/p&gt;
+&lt;p&gt;But enough about that, the ethics of AI is not the topic of this post. Rather, I&amp;rsquo;m more interested in learning more about ChatGPT prompt engineering. AI may be inevitable, and if so crafting prompts to elicit the desired output will be akin to learning how to use Visual Studio or &lt;a href=&#34;https://developers.google.com/search/docs/monitor-debug/search-operators&#34;&gt;Google search operators&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I wanted to see how ChatGPT responded to the same core prompt, but including commands to emulate the styles of different authors. For instance, how would Mark Twain write about modern US-China trade relationships? After playing around with a few permutations, I decided to turn this concept into a small matching game.&lt;/p&gt;
+&lt;p&gt;To play, simply align the author on the left with the quote on the right. All the paragraphs were written by ChatGPT (v3.5) responding to the following prompt, with {author} replaced by the one of the author options on the left:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Write 1 paragraph in the style of {author}. Respond to the prompt: Is human behavior driven by nature or nurture?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-game&#34;&gt;The Game&lt;/h2&gt;
+&lt;body&gt; 
+    &lt;script type=&#34;text/javascript&#34; src=&#34;/js/chatgpt-writing-styles.js&#34;&gt;&lt;/script&gt;
+
+    &lt;div&gt;
+        &lt;table id=&#34;quotes-table&#34;&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Author&lt;/th&gt;
+                    &lt;th&gt;Quote&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;&lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+    &lt;button onclick=&#34;calculateResults()&#34;&gt;Submit&lt;/button&gt;
+
+    &lt;div&gt;
+        Results:
+        &lt;span id=&#34;results&#34;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+</content>
     </item>
     
   </channel>

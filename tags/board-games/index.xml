@@ -5,8 +5,83 @@
     <link>/tags/board-games/</link>
     <description>Recent content in board games on nobleator</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 09 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/board-games/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sat, 02 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/board-games/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Undaunted</title>
+      <link>/posts/undaunted/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/undaunted/</guid>
+      <description>Description Undaunted: Stalingrad is a legacy style boardgame within the broader Undaunted series. In many ways, Stalingrad feels like the culmination and refinement of all the ideas included within the first games. You play as a lieutenant in charge of a platoon of soldiers fighting their way through the city of Stalingard in World War II, representing your troops and the fog of war via brilliant deck-builder mechanics.
+As this is a legacy game, you and your partner choose a faction, either the Germans or the Soviets, and then you play as that faction for every scenario.</description>
+      <content>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://boardgamegeek.com/boardgame/354570/undaunted-stalingrad&#34;&gt;&lt;em&gt;Undaunted: Stalingrad&lt;/em&gt;&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Legacy_game&#34;&gt;legacy&lt;/a&gt; style boardgame within the broader Undaunted series. In many ways, &lt;em&gt;Stalingrad&lt;/em&gt; feels like the culmination and refinement of all the ideas included within the first games. You play as a lieutenant in charge of a platoon of soldiers fighting their way through the city of Stalingard in World War II, representing your troops and the fog of war via brilliant deck-builder mechanics.&lt;/p&gt;
+&lt;p&gt;As this is a legacy game, you and your partner choose a faction, either the Germans or the Soviets, and then you play as that faction for every scenario. With each match there are 3 components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The game state, which simply identifies where you are in the network of possible outcomes.&lt;/li&gt;
+&lt;li&gt;A briefing, which is a text description of the state of your platoon and the story of the battle. This will also include details that impact your deck, such as promotions or injuries.&lt;/li&gt;
+&lt;li&gt;The scenario details themselves. This includes the map for that specific battle, victory conditions, special instructions for unlocking new units, or even secret intel in order to spring a trap on your opponent.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As you progress through the game you track the results of each match on a table at the front of your faction-specific scenario book. There is a lookup table to tell you which briefing corresponds with your game state based on the victor of the prior scenario. While playing through this, I became curious what the universe of possible routes to victory existed, so I decided to map them all out in a flowchart.&lt;/p&gt;
+&lt;h2 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h2&gt;
+&lt;p&gt;If you don&amp;rsquo;t care how I made this, skip ahead.&lt;/p&gt;
+&lt;p&gt;The chart itself is built with &lt;a href=&#34;https://www.google.com&#34;&gt;MermaidJS&lt;/a&gt;. I manually transcribed the game state permutations from the scenario books into a flat file, which I then loaded into a &lt;a href=&#34;https://www.sqlite.org&#34;&gt;SQLite&lt;/a&gt; database which is included in this website&amp;rsquo;s static assets. This SQLite file is then loaded dynamically into the browser via &lt;a href=&#34;https://sql.js.org&#34;&gt;sql.js&lt;/a&gt;. This DB is then queried via JavaScript to parse out the nodes and edges and build the Mermaid input graph, along with click events and highlighting based on user input.&lt;/p&gt;
+&lt;p&gt;Goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flowchart of game states, briefings, and scenarios&lt;/li&gt;
+&lt;li&gt;Highlighted route based on specified game states&lt;/li&gt;
+&lt;li&gt;Popups with briefing details including narrative &amp;amp; upgrades&lt;/li&gt;
+&lt;li&gt;Popups with scenario map silhouettes&lt;/li&gt;
+&lt;li&gt;Consolidated narratives based on specified game states&lt;/li&gt;
+&lt;li&gt;Animation of battle maps based on specified game states&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;flowchart&#34;&gt;Flowchart&lt;/h2&gt;
+&lt;p&gt;Note that you can pan and zoom around the chart, which you will likely need as it is a large diagram. If you want to highlight a specific route, you can add a list of comma-separated game state codes in the input box, which will then highlight the associated nodes and edges.&lt;/p&gt;
+&lt;body&gt;
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js&#34;
+        integrity=&#34;sha512-n7swEtVCvXpQ7KxgpPyp0+DQQEf5vPpmzCRl14x2sp2v5LpCYCjrAx03mkBAbWwGF9eUoIk8YVcDFuJRIeYttg==&#34;
+        crossorigin=&#34;anonymous&#34;
+        referrerpolicy=&#34;no-referrer&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.4.0/mermaid.min.js&#34;
+        integrity=&#34;sha512-BudIsnV3kKODHjsLF8hfIcVW7XXhCW66WYqP9Q7LANbzL4Gfm8TSMB+Yv/llYsVON6wuntE35kLlpEmCaQcI6w==&#34;
+        crossorigin=&#34;anonymous&#34;
+        referrerpolicy=&#34;no-referrer&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.5.0/dist/svg-pan-zoom.min.js&#34;&gt;&lt;/script&gt;
+    &lt;script defer type=&#34;text/javascript&#34; src=&#34;/js/undaunted.js&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        #graphDiv {
+            max-width: none !important;
+            height: 100%;
+        }
+        .active-edge {
+            stroke: #f66;
+        }
+    &lt;/style&gt;
+    &lt;div&gt;
+        &lt;hr&gt;
+        
+        &lt;label for=&#34;hypo-game-state&#34;&gt;Game state&lt;/label&gt;
+        &lt;input id=&#34;hypo-game-state&#34; type=&#34;text&#34; style=&#34;width: 100%;&#34;/&gt;
+
+        &lt;hr&gt;
+
+        &lt;div id=&#34;graph&#34; class=&#34;mermaid&#34; style=&#34;height: 100vh;&#34;&gt;
+            &lt;span&gt;Loading...&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;hr&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+        &lt;div&gt;
+            
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+
+</content>
+    </item>
+    
     <item>
       <title>ASOIAF Miniatures Calculator</title>
       <link>/posts/asoiaf-minis-calc/</link>
@@ -14,6 +89,385 @@
       
       <guid>/posts/asoiaf-minis-calc/</guid>
       <description>Description This is a calculator used to graph probabilities for various attack combinations for the A Song Of Ice and Fire Miniatures Game. This is a tabletop wargame based in G.R.R. Martin&amp;rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&amp;rsquo;s troops will help.</description>
+      <content>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+&lt;p&gt;This is a calculator used to graph probabilities for various attack combinations for the &lt;a href=&#34;https://asoiaf.cmon.com/&#34;&gt;A Song Of Ice and Fire Miniatures Game&lt;/a&gt;. This is a tabletop wargame based in G.R.R. Martin&amp;rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&amp;rsquo;s troops will help.&lt;/p&gt;
+&lt;p&gt;The calculations used in determining how much damage to do to your opponent are simple to perform in-game, as it is simply a matter of rolling X dice, comparing to Y value, and repeat. However, there are combinations of modifiers and conditions that can skew these numbers, and I found it difficult to get a good intuitive sense of how these various effects compared to each other. Using this calculator you can explore the mathematical outcomes for different permutations and see the results for yourself.&lt;/p&gt;
+&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Minimalist code, no importing a universal statistics library&lt;/li&gt;
+&lt;li&gt;Lightweight, stateless application&lt;/li&gt;
+&lt;li&gt;Learning exercise to freshen up on statistics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;statistics---formulas&#34;&gt;Statistics - Formulas&lt;/h2&gt;
+&lt;p&gt;Binomial distribution&lt;br&gt;
+$$ P(X=r) = {n \choose r} \cdot p ^ r \cdot (1 - p) ^ {n - r} $$&lt;/p&gt;
+&lt;p&gt;N choose R&lt;br&gt;
+$$ {n \choose r} = \frac {n!} {r! (n - r)!} $$&lt;/p&gt;
+&lt;p&gt;Multinomial distribution&lt;br&gt;
+$$ f(x) = \frac {n!} {x_1! x_2! &amp;hellip; x_n!} {\pi_1 ^ {x_1}} {\pi_2 ^ {x_2}} &amp;hellip; {\pi_n ^ {x_n}} $$&lt;/p&gt;
+&lt;p&gt;Re-rolling (for both attack and defense rolls)&lt;br&gt;
+$$ p \prime = (1 - p)p $$&lt;/p&gt;
+&lt;h2 id=&#34;statistics---implementation&#34;&gt;Statistics - Implementation&lt;/h2&gt;
+&lt;p&gt;The statistics formulas used above are all implemented in JavaScript. There is a Statistics class that contains all the needed functions, including some pre-calculated factorials to avoid expensive computations:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Statistics&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;constructor&lt;/span&gt;() {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorials&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;120&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;720&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5040&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;40320&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;362880&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3628800&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ae81ff&#34;&gt;39916800&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;479001600&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;6227020800&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;87178291200&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ae81ff&#34;&gt;1307674368000&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20922789888000&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;355687428096000&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorials&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorials&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;newFactorial&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorials&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;newFactorial&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;newFactorial&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;nCr&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;)));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;binomial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;nCr&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;multinomial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;xVector&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;piVector&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;xVector&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;===&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;xVector&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!==&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;piVector&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Vectors must be the same non-zero length&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;xVector&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;reduce&lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;) =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!==&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;x vector must sum to n&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;denominator&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rhs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;xVector&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;forEach&lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;denominator&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;rhs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;piVector&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;denominator&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rhs&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These functions are then used within the rest of the app where needed in various &lt;code&gt;calculate*&lt;/code&gt; functions such as this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;calculateHits&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;hitChance&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hitProbabilities&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dice&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;) { 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;criticalBlow&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;singleHitChance&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hitChance&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;criticalBlowHitChance&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;singleHitChance&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;criticalBlowHitChance&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;missChance&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;singleHitChance&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;criticalBlowHitChance&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;maxPossibleSixes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dice&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;maxPossibleSixes&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfMisses&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dice&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfMisses&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfMisses&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;missChance&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;singleHitChance&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;criticalBlowHitChance&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;STATISTICS&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;multinomial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;n&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;pi&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;totalHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfSixes&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;existingHitTotal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hitProbabilities&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;find&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;===&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;totalHits&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;existingHitTotal&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#a6e22e&#34;&gt;existingHitTotal&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#a6e22e&#34;&gt;hitProbabilities&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;push&lt;/span&gt;({ &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;totalHits&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt; });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;STATISTICS&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;binomial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;hitChance&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dice&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#a6e22e&#34;&gt;hitProbabilities&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;push&lt;/span&gt;({ &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;probability&lt;/span&gt; });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;hitProbabilities&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;sort&lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;) =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;numberOfHits&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hitProbabilities&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;calculator&#34;&gt;Calculator&lt;/h2&gt;
+&lt;p&gt;Any time you make a change to any of the inputs, the chart at the bottom will recalculate automatically. You can compare 2 units by selecting different values on the left (Unit A) and right (Unit B) sets of inputs.&lt;/p&gt;
+&lt;body&gt; 
+    &lt;script type=&#34;text/javascript&#34; src=&#34;/js/asoiaf-minis-calc.js&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js&#34;
+        integrity=&#34;sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==&#34;
+        crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;/css/asoiaf-minis-calc.css&#34;&gt;
+
+    &lt;div&gt;
+        &lt;hr&gt;
+        
+        &lt;div&gt;
+            &lt;button onclick=&#34;importInputs()&#34;&gt;Import&lt;/button&gt;
+            &lt;input id=&#34;import&#34; type=&#34;text&#34;&gt;&lt;/input&gt;
+            &lt;button onclick=&#34;exportInputs()&#34;&gt;Export&lt;/button&gt;
+            &lt;button onclick=&#34;copyExport()&#34;&gt;Copy&lt;/button&gt;
+            &lt;pre id=&#34;export&#34;&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;div class=&#34;left&#34;&gt;
+                Unit A
+            &lt;/div&gt;
+
+            &lt;div class=&#34;right&#34;&gt;
+                Unit B
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;hr&gt;
+
+        &lt;form id=&#34;inputs&#34;&gt;
+            &lt;div class=&#34;row&#34;&gt;
+                &lt;div class=&#34;left&#34;&gt;
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; name=&#34;left-attack-dice&#34; id=&#34;left-attack-dice&#34; min=&#34;1&#34; max=&#34;16&#34; data-theme=&#34;dark&#34;&gt;
+                        &lt;label for=&#34;left-attack-dice&#34; title=&#34;Number of attack dice being rolled&#34;&gt;Attack dice&lt;/label&gt;
+                    &lt;/div&gt;
+            
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;left-attack-hit&#34; min=&#34;1&#34; max=&#34;6&#34;&gt;
+                        &lt;label for=&#34;left-attack-hit&#34; title=&#34;Target value for attack dice to hit&#34;&gt;Attack hit&lt;/label&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;left-defense-block&#34; min=&#34;1&#34; max=&#34;6&#34;&gt;
+                        &lt;label for=&#34;left-defense-block&#34; title=&#34;Target value for defensive dice to save&#34;&gt;Defense save&lt;/label&gt;
+                    &lt;/div&gt;
+            
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;left-defense-morale&#34; min=&#34;1&#34; max=&#34;8&#34;&gt;
+                        &lt;label for=&#34;left-defense-morale&#34; title=&#34;Target value for panic check to pass&#34;&gt;Morale&lt;/label&gt;
+                    &lt;/div&gt;
+    
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-include-blocks&#34; checked&gt;
+                        &lt;label for=&#34;left-include-blocks&#34;&gt;Include blocks&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+    
+                &lt;div class=&#34;right&#34;&gt;
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;right-attack-dice&#34; min=&#34;1&#34; max=&#34;16&#34;&gt;
+                        &lt;label for=&#34;right-attack-dice&#34; title=&#34;Number of attack dice being rolled&#34;&gt;Attack dice&lt;/label&gt;
+                    &lt;/div&gt;
+            
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;right-attack-hit&#34; min=&#34;1&#34; max=&#34;6&#34;&gt;
+                        &lt;label for=&#34;right-attack-hit&#34; title=&#34;Target value for attack dice to hit&#34;&gt;Attack hit&lt;/label&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;right-defense-block&#34; min=&#34;1&#34; max=&#34;6&#34;&gt;
+                        &lt;label for=&#34;right-defense-block&#34; title=&#34;Target value for defensive dice to save&#34;&gt;Defense save&lt;/label&gt;
+                    &lt;/div&gt;
+            
+                    &lt;div&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;right-defense-morale&#34; min=&#34;1&#34; max=&#34;8&#34;&gt;
+                        &lt;label for=&#34;right-defense-morale&#34; title=&#34;Target value for panic check to pass&#34;&gt;Morale&lt;/label&gt;
+                    &lt;/div&gt;
+    
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-include-blocks&#34; checked&gt;
+                        &lt;label for=&#34;right-include-blocks&#34;&gt;Include blocks&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+    
+            &lt;hr&gt;
+    
+            &lt;div class=&#34;row&#34;&gt;
+                &lt;div class=&#34;left&#34;&gt;
+                    &lt;span&gt;Modifiers&lt;/span&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-critical-blow&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-critical-blow&#34; title=&#34;Rolls of 6 count as 2 hits&#34;&gt;Critical Blow&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-vicious&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-vicious&#34; title=&#34;-2 to panic test&#34;&gt;Vicious&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-charge&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-charge&#34; title=&#34;Re-roll misses&#34;&gt;Successful charge&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-sundering&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-sundering&#34; title=&#34;-1 to defense saves&#34;&gt;Sundering&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;radio&#34; id=&#34;left-modifiers-front&#34; name=&#34;left-modifiers-direction&#34; value=&#34;modifiers-direction-front&#34; checked&gt;
+                        &lt;label for=&#34;left-modifiers-front&#34; title=&#34;No effect&#34;&gt;Attack in front&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;radio&#34; id=&#34;left-modifiers-flank&#34; name=&#34;left-modifiers-direction&#34; value=&#34;modifiers-direction-flank&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-flank&#34; title=&#34;-1 to defense saves, -1 to panic test&#34;&gt;Attack in flank&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;radio&#34; id=&#34;left-modifiers-rear&#34; name=&#34;left-modifiers-direction&#34; value=&#34;modifiers-direction-rear&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-rear&#34; title=&#34;-2 to defense saves, -2 to panic test&#34;&gt;Attack in rear&lt;/label&gt;
+                    &lt;/div&gt;
+    
+                    &lt;span&gt;Conditions&lt;/span&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-weakened&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-weakened&#34; title=&#34;Re-roll attack hits, attacker only&#34;&gt;Weakened&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-panicked&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-panicked&#34; title=&#34;Re-roll panic test, defender only&#34;&gt;Panicked&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;left-modifiers-vulnerable&#34;&gt;
+                        &lt;label for=&#34;left-modifiers-vulnerable&#34; title=&#34;Re-roll defense saves, defender only&#34;&gt;Vulnerable&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+    
+                &lt;div class=&#34;right&#34;&gt;
+                    &lt;span&gt;Modifiers&lt;/span&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-critical-blow&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-critical-blow&#34; title=&#34;Rolls of 6 count as 2 hits&#34;&gt;Critical Blow&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-vicious&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-vicious&#34; title=&#34;-2 to panic test&#34;&gt;Vicious&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-charge&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-charge&#34; title=&#34;Re-roll misses&#34;&gt;Successful charge&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-sundering&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-sundering&#34; title=&#34;-1 to defense saves&#34;&gt;Sundering&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;radio&#34; id=&#34;right-modifiers-front&#34; name=&#34;right-modifiers-direction&#34; value=&#34;modifiers-direction-front&#34; checked&gt;
+                        &lt;label for=&#34;right-modifiers-front&#34; title=&#34;No effect&#34;&gt;Attack in front&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;radio&#34; id=&#34;right-modifiers-flank&#34; name=&#34;right-modifiers-direction&#34; value=&#34;modifiers-direction-flank&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-flank&#34; title=&#34;-1 to defense saves, -1 to panic test&#34;&gt;Attack in flank&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;radio&#34; id=&#34;right-modifiers-rear&#34; name=&#34;right-modifiers-direction&#34; value=&#34;modifiers-direction-rear&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-rear&#34; title=&#34;-2 to defense saves, -2 to panic test&#34;&gt;Attack in rear&lt;/label&gt;
+                    &lt;/div&gt;
+    
+                    &lt;span&gt;Conditions&lt;/span&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-weakened&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-weakened&#34; title=&#34;Re-roll attack hits, attacker only&#34;&gt;Weakened&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-panicked&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-panicked&#34; title=&#34;Re-roll panic test, defender only&#34;&gt;Panicked&lt;/label&gt;
+                    &lt;/div&gt;
+        
+                    &lt;div&gt;
+                        &lt;input type=&#34;checkbox&#34; id=&#34;right-modifiers-vulnerable&#34;&gt;
+                        &lt;label for=&#34;right-modifiers-vulnerable&#34; title=&#34;Re-roll defense saves, defender only&#34;&gt;Vulnerable&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+
+        &lt;hr&gt;
+
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;div class=&#34;left&#34;&gt;
+                &lt;div&gt;
+                    Average wounds: &lt;span id=&#34;left-averageWounds&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+        
+                &lt;div&gt;
+                    Probability of panic: &lt;span id=&#34;left-panicProbability&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+        
+                &lt;div&gt;
+                    Average panic wounds: &lt;span id=&#34;left-avgPanicWounds&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+        
+                &lt;div&gt;
+                    Average total wounds: &lt;span id=&#34;left-avgTotalWounds&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;right&#34;&gt;
+                &lt;div&gt;
+                    Average wounds: &lt;span id=&#34;right-averageWounds&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+        
+                &lt;div&gt;
+                    Probability of panic: &lt;span id=&#34;right-panicProbability&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+        
+                &lt;div&gt;
+                    Average panic wounds: &lt;span id=&#34;right-avgPanicWounds&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+        
+                &lt;div&gt;
+                    Average total wounds: &lt;span id=&#34;right-avgTotalWounds&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;hr&gt;
+
+        &lt;div&gt;
+            Chart type:
+            &lt;div&gt;
+                &lt;input type=&#34;radio&#34; id=&#34;chart-type-at-least&#34; name=&#34;chart-type&#34; value=&#34;chart-type-at-least&#34; checked&gt;
+                &lt;label for=&#34;chart-type-at-least&#34; title=&#34;At least X wounds&#34;&gt;At least X wounds&lt;/label&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+                &lt;input type=&#34;radio&#34; id=&#34;chart-type-exactly&#34; name=&#34;chart-type&#34; value=&#34;chart-type-exactly&#34;&gt;
+                &lt;label for=&#34;chart-type-exactly&#34; title=&#34;Exactly X wounds&#34;&gt;Exactly X wounds&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+            &lt;label for=&#34;probability-chart&#34;&gt;Probability curve:&lt;/label&gt;
+            &lt;div style=&#34;position: relative; height:400px; width:600px&#34;&gt;
+                &lt;canvas id=&#34;probability-chart&#34; height=&#34;400&#34; width=&#34;600&#34;&gt;&lt;/canvas&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;hr&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+        &lt;div&gt;
+            Assumptions:
+            &lt;ul&gt;
+                &lt;li&gt;This will not re-roll hits that could be re-rolled in the hope of getting a 6 in order to combo with
+                    Critical Blow, although this technical would be a valid (if mathematically risky) strategy.&lt;/li&gt;
+                &lt;li&gt;Any Charge re-rolls happen first and Weakened re-rolls happen second (this should technically
+                    trigger
+                    in order of who is the first player).&lt;/li&gt;
+                &lt;li&gt;Always spend all condition tokens for re-rolls.&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+
+</content>
     </item>
     
     <item>
@@ -23,6 +477,29 @@
       
       <guid>/posts/game-mechanics/</guid>
       <description>Engine builders This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is Dominion, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be Lords of Waterdeep, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resources as other players use them.</description>
+      <content>&lt;h3 id=&#34;engine-builders&#34;&gt;Engine builders&lt;/h3&gt;
+&lt;p&gt;This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is &lt;em&gt;Dominion&lt;/em&gt;, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be &lt;em&gt;Lords of Waterdeep&lt;/em&gt;, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resources as other players use them.
+Other examples: &lt;em&gt;7 Wonders&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;auctions&#34;&gt;Auctions&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;A Game of Thrones: The Board Game&lt;/em&gt; has a mechanic where all players secretly bid for their position on influence tracks, then reveal their bids simultaneously. These bids drive other mechanics such as turn order, tie breakers in combat, and extra actions. This is more of a blind auction, while some other games have more &amp;ldquo;pure&amp;rdquo; auction mechanics. For instance, in &lt;em&gt;Monopoly&lt;/em&gt; when a player does not purchase a property that they have landed on it goes up for auction to all players. This is a public auction where each player can continue to raise each other, driving the price ever higher.&lt;/p&gt;
+&lt;h3 id=&#34;area-control&#34;&gt;Area control&lt;/h3&gt;
+&lt;p&gt;In games with area control each player gains points or resources depending on how much of the map they control. The classic example of this is &lt;em&gt;Risk&lt;/em&gt;, where dominance over a region begets more troops and thus more power until the entire world is conquered. Another game that uses area control to better effect is &lt;em&gt;Small World&lt;/em&gt;. Players also gain points by conquering land, but in &lt;em&gt;Small World&lt;/em&gt; the size of each race&amp;rsquo;s army is inherently limited, and there is an additional mechanic where players determine when to put their race into &amp;ldquo;decline&amp;rdquo;, where they are more vulnerable in the short term but allows them to select another race and continue their expansion.&lt;/p&gt;
+&lt;h3 id=&#34;hidden-objectives&#34;&gt;Hidden objectives&lt;/h3&gt;
+&lt;p&gt;With hidden objectives each player is striving for a slightly different approach towards victory. &lt;em&gt;Sagrada&lt;/em&gt; has a personal objective mechanic that works in exactly this way. &lt;em&gt;Lords of Waterdeep&lt;/em&gt; also has this mechanic but with a twist: public quests are in a common marketplace and are visible to everyone but are drafted by individual players and then only gain points for them. In addition, each player has a secret personal quest that they draw at the beginning of the game.&lt;/p&gt;
+&lt;h3 id=&#34;common-objectives&#34;&gt;Common objectives&lt;/h3&gt;
+&lt;p&gt;Some games have a pool of common objectives that all players work towards achieving. In &lt;em&gt;Sagrada&lt;/em&gt; all players can gain points by completing any of 3 common objectives randomly selected per game. In fact, any game with a victory point system could arguably be described as having common objectives, such as &lt;em&gt;Settlers of Catan&lt;/em&gt;, in which players gain points by building settlements and cities.&lt;/p&gt;
+&lt;h3 id=&#34;random-combat&#34;&gt;Random combat&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Risk&lt;/em&gt; is the classic example, roll a bunch of dice and see who gets better rolls. There are some other permutations of this, such as &lt;em&gt;Axis &amp;amp; Allies&lt;/em&gt;, where the combat rolls required change depending on the units in combat, or &lt;em&gt;Star Wars: Rebellion&lt;/em&gt;, which uses custom dice to alter the percentages of a given roll. &lt;em&gt;A Song of Ice &amp;amp; Fire: Tabletop Miniatures Game&lt;/em&gt; takes this to another level, with varying numbers of dice to roll, different target values, and defensive saves to block damage, all depending on the specific units engaged in combat.&lt;/p&gt;
+&lt;h3 id=&#34;deterministicgame-theory-combat&#34;&gt;Deterministic/&amp;ldquo;Game theory&amp;rdquo; combat&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;A Game of Thrones: The Board Game&lt;/em&gt; took a different approach to combat. Rather than rolling dice, combat is strictly deterministic. When 2 players enter combat they secretly choose 1 leader card from their hand and reveal simultaneously. These leaders have strength modifiers that are added to the base strength of their troops in the combat zone, but they also have text that can enhance or counter other cards specifically. In addition, once a leader is used they cannot be used again until the entire hand of leaders has been used. Therefore combat turns into an elaborate rock-paper-scissors with the opportunity to trade success in future battles for an immediate win.
+Another example of this would be &lt;em&gt;Campy Creatures&lt;/em&gt;, whose entire game is built around a similar mechanic but in a free-for-all setting rather than 1-on-1.&lt;/p&gt;
+&lt;h3 id=&#34;asymmetric-balance-and-objectives&#34;&gt;Asymmetric balance and objectives&lt;/h3&gt;
+&lt;p&gt;Most games strive for equality (at least at the start), but some games thrive off of asymmetry between players. For example, in &lt;em&gt;Star Wars: Rebellion&lt;/em&gt; one side plays as the Galactic Empire, a sprawling industrial powerhouse, and the other side plays as the upstart Rebellion. The Rebellion must survive long enough to gather support (i.e. wait out the clock), while the Empire scrambles to find the hidden Rebel base and crush it. The experiences of the 2 sides is dramatically different, which leads to questions of balance but is undoubtedly fun. With asymmetric play you can never really tell how well you or your opponent is doing, leading to nail-biting excitement for both sides throughout the entire game. Another example is Root, where each player is a different faction with entirely unique rules and playstyles. &lt;em&gt;Root&lt;/em&gt; can seem intimidating for new players, especially with a group of newbies who can&amp;rsquo;t really ask each other for clarification on a mechanic as they are so unique.&lt;/p&gt;
+&lt;h3 id=&#34;drafting-from-a-common-pool&#34;&gt;Drafting from a common pool&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Dominion&lt;/em&gt; also uses this mechanic, which forces players to make decisions based on how quickly they think other players will gobble up the resources that they desire. Sagrada is another example of this, where the die you place in your window comes from a common pool. In addition, the drafting occurs round-robin style, forcing the players to consider their position in the turn and what other players might be wanting to draft.&lt;/p&gt;
+&lt;h3 id=&#34;tragedy-of-the-commons&#34;&gt;Tragedy of the commons&lt;/h3&gt;
+&lt;p&gt;The tragedy of the commons is a common problem in the real world as well as in games. This exists when there is a common plight that effects everyone, but there is a cost for any individual who wishes to combat this negative effect. Therefore, each individual is incentivized to not put any resources towards solving the problem in the hopes that their neighbors will do so instead. In &lt;em&gt;A Game of Thrones: The Board Game&lt;/em&gt; there is a wildings mechanic that will punish the entire playing field if left unchecked, but with a high enough cost to prevent this that players will play chicken with each other. In &lt;em&gt;Settlers of Catan&lt;/em&gt; with the Cities and Knights expansion there is a similar mechanic with barbarians.&lt;/p&gt;
+</content>
     </item>
     
   </channel>
