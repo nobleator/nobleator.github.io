@@ -14,12 +14,19 @@ const initializeDatabase = async () => {
 
 const loadGraphData = () => {
     const res = db.exec(`
-    select distinct s.id || '[' || s.label || ']' 
+    with event_counts as (
+        select ne.node_id, count(ne.id) as event_count
+        from node_event ne
+        group by ne.node_id
+    )
+    select distinct s.id || '[' || s.label || (CASE WHEN sec.event_count > 0 THEN '*' ELSE '' END) || ']' 
         || (CASE WHEN e.label IS NULL THEN ' --- ' ELSE ' --- ' || '|' || e.label || '| ' END) 
-        || t.id || '[' || t.label || ']' as x
+        || t.id || '[' || t.label || (CASE WHEN tec.event_count > 0 THEN '*' ELSE '' END) || ']' as x
     from node s
     join edge e on e.source_node_id = s.id 
     join node t on e.target_node_id = t.id
+    left join event_counts sec on sec.node_id = s.id
+    left join event_counts tec on tec.node_id = t.id
     order by e.id
     `);
     // let out = '%%{init: {"flowchart": {"defaultRenderer": "elk"}, "theme": "dark" } }%%';
@@ -88,11 +95,53 @@ const getNodePairs = (nodeIds) => {
     return res.length > 0 ? res[0].values : [];
 }
 
+const getNodeEvents = (nodeId) => {
+    const query = `
+    select ne.title, ne.content
+    from node_event ne
+    where ne.node_id = ${nodeId}
+    `;
+    const res = db.exec(query);
+    const retval = [];
+    if (res.length > 0) {
+        res[0].values.forEach(v => {
+            let obj = {};
+            for (var cIdx = 0; cIdx < v.length; cIdx++) {
+                obj[res[0].columns[cIdx]] = v[cIdx];
+            }
+            retval.push(obj);
+        });
+    }
+    
+    return retval;
+}
+
 const nodeClickHandler = function() {
-    // TODO add events for each node
     // Note: Cannot use arrow function as `this` needs to refer to the element calling the handler
-    console.log(`A callback was triggered for node ID ${this.id}`);
+    const nodeId = Number(this.id.split('-')[1]);
+    const events = getNodeEvents(nodeId);
+    if (events.length > 0) {
+        const modalContents = document.getElementById("detail-modal-contents");
+        modalContents.innerHTML = "";
+        events.forEach(x => {
+            const section = document.createElement("section");
+            const header = document.createElement("h2");
+            header.innerHTML = x.title;
+            section.appendChild(header);
+            const contents = document.createElement("p");
+            contents.innerHTML = x.content;
+            section.appendChild(contents);
+            modalContents.appendChild(section);
+        });
+        const modal = document.getElementById("detail-modal");
+        modal.style.visibility = "visible";
+    }
 };
+
+const closeBtnClickHandler = function() {
+    const modal = document.getElementById("detail-modal");
+    modal.style.visibility = "hidden";
+}
 
 const drawDiagram = async (graphData) => {
     let element = document.getElementById('graph');
@@ -197,4 +246,5 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(errorHandler);
     
     document.getElementById("hypo-game-state").addEventListener("keyup", handleInputChange);
+    document.getElementById("detail-modal-close-btn").addEventListener("click", closeBtnClickHandler);
 }, false);
