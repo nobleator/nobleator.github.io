@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://nobleator.github.io/favicon.ico" />
+<title>Secret Santa Assigner | nobleator</title>
+<meta name="title" content="Secret Santa Assigner" />
+<meta name="description" content="A tool to randomly assign partners for Secret Santa" />
+<meta name="keywords" content="programming," />
+
+
+<meta property="og:title" content="Secret Santa Assigner" />
+<meta property="og:description" content="A tool to randomly assign partners for Secret Santa" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nobleator.github.io/secret-santa-assigner/" /><meta property="og:image" content="https://nobleator.github.io/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-04-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-16T00:00:00+00:00" /><meta property="og:site_name" content="nobleator" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://nobleator.github.io/images/share.png"/>
+
+<meta name="twitter:title" content="Secret Santa Assigner"/>
+<meta name="twitter:description" content="A tool to randomly assign partners for Secret Santa"/>
+
+
+
+<meta itemprop="name" content="Secret Santa Assigner">
+<meta itemprop="description" content="A tool to randomly assign partners for Secret Santa"><meta itemprop="datePublished" content="2022-04-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-04-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="205"><meta itemprop="image" content="https://nobleator.github.io/images/share.png"/>
+<meta itemprop="keywords" content="programming," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+
+<style>
+    table {
+        width: 100%;
+        min-height: 1em;
+    }
+
+    tr {
+        height: 1.65em;
+    }
+
+    td {
+        border: 2px solid #333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        td {
+            border: 2px solid #ddd;
+             
+        }
+    }
+</style></head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>nobleator</h2>
+</a>
+<nav><a href="/">Home</a>
+
+<a href="/about/">About</a>
+
+<a href="/projects/">Projects</a>
+
+
+<a href="/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Secret Santa Assigner</h1>
+<p>
+  <i>
+    <time datetime='2022-04-16' pubdate>
+      2022-04-16
+    </time>
+  </i>
+</p>
+
+<content>
+  <h2 id="description">Description</h2>
+<p>This is a tool I wrote to help plan our Secret Santa assignments each year for Christmas. There are a couple of requirements:</p>
+<ul>
+<li>You should not be paired with your significant other</li>
+<li>You should not be paired with the same person you had last year</li>
+<li>You should not be paired with the same person who is paired with you this year</li>
+</ul>
+<h2 id="design">Design</h2>
+<p>I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables. I briefly considered using a more full-featured data table tool like Ag Grid or DevExtreme, but that seemed like overkill for such a simple project.</p>
+<p>For the matching algorithm there are certainly more refined solutions involving graph theory. But for this iteration, I used a naïve brute force solution. The algorithm will iterate over each person assigning them a random selection from the eligible participants and if it encounters and error where a match is impossible then it will restart.</p>
+<p>This tool stores selections in the browser&rsquo;s local storage with a year-specific key.</p>
+<h2 id="tool">Tool</h2>
+<body> 
+    <script type="text/javascript" src="/js/secret-santa.js"></script>
+
+    <div>
+        <div>
+            <table id="participants">
+                <thead>
+                    <th>Participant</th>
+                    <th>Significant Other</th>
+                    <th>Last Year's Selection</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div style="display: flex;">
+                <button onclick="addParticipant()" style="margin: 1em;">Add row</button>
+                <button onclick="assign()" style="margin: 1em;">Assign</button>
+            </div>
+            <table id="assignments">
+                <thead>
+                    <th>Participant</th>
+                    <th>Recipient</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+</body>
+
+<h2 id="future-work">Future Work</h2>
+<p>References for possible future refinement:</p>
+<ul>
+<li><a href="https://binary-machinery.github.io/2021/02/03/secret-santa-graph.html">https://binary-machinery.github.io/2021/02/03/secret-santa-graph.html</a></li>
+<li><a href="https://math.nist.gov/~JBernal/p_t_f.pdf">https://math.nist.gov/~JBernal/p_t_f.pdf</a></li>
+</ul>
+
+</content>
+<p>
+  
+  <a href="https://nobleator.github.io/blog/programming/">#programming</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>
