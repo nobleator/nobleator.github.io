@@ -81,24 +81,10 @@ Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt; To: Bob &amp;lt;bob@ex
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nobleator.github.io/about/</guid>
-      <description>Software developer, board game buff, armchair historian.
-Tech Toolbox Here are some of the tools I enjoy using in my development work, both professionally and personally:
-.NET Core Dapper ORM Hangfire glogg SQL Server, SSMS, SSMS Boost Visual Studio, Visual Studio Code Azure DevOps Python Postgres Docker, Docker Compose Microsoft Todo Maxims The only things you can control are your effort and your attitude.
-&amp;ndash; Billy Cox
-Often the true value of a thing isn&amp;rsquo;t the thing itself, but is instead the the activity that created it.</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://nobleator.github.io/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nobleator.github.io/projects/</guid>
-      <description>GitHub
-Neighborgood Can&amp;rsquo;t decide where to live? Check this out for scientific approach to decision-making.
-Hangfire Monitor Web application that extends Hangfire to provide a monitoring service for endpoints and database queries.
-Mind Gym/Advent of Code These are some random pieces of code that I have put together for a variety of just-for-funsies.
-Python Tips &amp;amp; Tricks TBD</description>
+      <description>About Me Software developer, board game buff, armchair historian. You can find me on GitHub here and LinkedIn here. I&amp;rsquo;ve spent time working as a computer science teaching assistant, a defense contractor, and a software developer at an alternative asset management firm.
+Tech Toolbox Here are some of the tools I enjoy using in my development work, both professionally and personally.
+Languages:
+C# Python Javascript SQL (MS SQL Server, PostgreSQL, SQLite, Snowflake, and DuckDB dialects) Frameworks &amp;amp; platforms:</description>
     </item>
     
   </channel>
