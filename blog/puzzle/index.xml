@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ai on nobleator</title>
-    <link>https://nobleator.github.io/blog/ai/</link>
-    <description>Recent content in ai on nobleator</description>
+    <title>puzzle on nobleator</title>
+    <link>https://nobleator.github.io/blog/puzzle/</link>
+    <description>Recent content in puzzle on nobleator</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2023, Ben Noble.</copyright>
-    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/blog/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/blog/puzzle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prompt Injection with Gandalf</title>
       <link>https://nobleator.github.io/prompt-injection-with-gandalf/</link>
@@ -19,12 +19,13 @@ Solutions Technically you could probably solve all the lower level puzzles with 
     </item>
     
     <item>
-      <title>ChatGPT Writing Styles</title>
-      <link>https://nobleator.github.io/chatgpt-writing-styles/</link>
-      <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
+      <title>SQL Murder Mystery</title>
+      <link>https://nobleator.github.io/sql-murder-mystery/</link>
+      <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nobleator.github.io/chatgpt-writing-styles/</guid>
-      <description>Introduction While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both OpenAI announced ChatGPT and stability.ai announced Stable Diffusion in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting new companies, firmly hitching their horses to the AI wagon, and others are writing panicked opinion pieces petitioning Congress to regulate AI.</description>
+      <guid>https://nobleator.github.io/sql-murder-mystery/</guid>
+      <description>Description Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it SQL Murder Mystery. It&amp;rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.
+Solution Here is the path I took while solving this mystery. Given the starting information &amp;ldquo;the crime was a ​murder​ that occurred sometime on ​Jan.</description>
     </item>
     
   </channel>

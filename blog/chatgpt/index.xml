@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2023, Ben Noble.</copyright>
-    <lastBuildDate>Fri, 09 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/blog/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/blog/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompt Injection with Gandalf</title>
+      <link>https://nobleator.github.io/prompt-injection-with-gandalf/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0400</pubDate>
+      
+      <guid>https://nobleator.github.io/prompt-injection-with-gandalf/</guid>
+      <description>Background The company Lakera published a short puzzle to explore prompt injection in ChatGPT called Gandalf. Similar to SQL injection, prompt injection is a technique to try and force an LLM to divulge information that should be kept secret. This post is an exploration of this puzzle and documentation of the prompts I used to trick Gandalf into giving up his secrets.
+Solutions Technically you could probably solve all the lower level puzzles with the same techniques as the highest level, but that&amp;rsquo;s no fun.</description>
+    </item>
+    
     <item>
       <title>ChatGPT Writing Styles</title>
       <link>https://nobleator.github.io/chatgpt-writing-styles/</link>
