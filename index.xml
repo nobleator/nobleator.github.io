@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2023, Ben Noble.</copyright>
-    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>(Web) Paige Murder Mystery</title>
+      <link>https://nobleator.github.io/web-paige-murder-mystery/</link>
+      <pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nobleator.github.io/web-paige-murder-mystery/</guid>
+      <description>Note: Attempting to solve this puzzle on a mobile device will be frustrating.
+Alice, Bob, Charlie, and Paige were attending a conference on synergistic opportunities within AI-powered blockchain at a retreat center. It was a stormy evening, and as the attendees were headed to the hot yoga room, suddenly lightning crashed and the lights went out. There was much confusion and screaming, but eventually the backup generator kicked on. Paige was discovered shortly afterwards in the library, with a knife embedded deep in her heart.</description>
+    </item>
+    
     <item>
       <title>Prompt Injection with Gandalf</title>
       <link>https://nobleator.github.io/prompt-injection-with-gandalf/</link>
@@ -95,6 +105,16 @@ Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt; To: Bob &amp;lt;bob@ex
 Tech Toolbox Here are some of the tools I enjoy using in my development work, both professionally and personally.
 Languages:
 C# Python Javascript SQL (MS SQL Server, PostgreSQL, SQLite, Snowflake, and DuckDB dialects) Frameworks &amp;amp; platforms:</description>
+    </item>
+    
+    <item>
+      <title>Blogroll</title>
+      <link>https://nobleator.github.io/blogroll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nobleator.github.io/blogroll/</guid>
+      <description>These are the best personal blogs I have found. Most of them are related to technology, but not all. The links with &amp;ldquo;☆&amp;rdquo; are some of my favorite posts.
+Alex Miller ☆ Grid world Amit Patel Austin Henley ☆ Challenging projects every programmer should try ☆ More challenging projects every programmer should try Bartosz Ciechanowski ☆ Cameras and lenses ☆ GPS Bret Devereaux: A military history professor who examines modern media with a lens of historical realism.</description>
     </item>
     
   </channel>
