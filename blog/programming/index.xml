@@ -35,7 +35,7 @@ As this is a legacy game, you and your partner choose a faction, either the Germ
       
       <guid>https://nobleator.github.io/secret-santa-assigner/</guid>
       <description>Description This is a tool I wrote to help plan our Secret Santa assignments each year for Christmas. There are a couple of requirements:
- You should not be paired with your significant other You should not be paired with the same person you had last year You should not be paired with the same person who is paired with you this year  Design I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables.</description>
+You should not be paired with your significant other You should not be paired with the same person you had last year You should not be paired with the same person who is paired with you this year Design I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables.</description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@ Solution Here is the path I took while solving this mystery. Given the starting 
       
       <guid>https://nobleator.github.io/eml-file-generation/</guid>
       <description>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.
-Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt;To: Bob &amp;lt;bob@example.com&amp;gt;Subject: Testing 123Date: 1 Jan 2000 12:00:00Content-Type: text/plain; charset=UTF-8;Hello World!</description>
+Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt; To: Bob &amp;lt;bob@example.com&amp;gt; Subject: Testing 123 Date: 1 Jan 2000 12:00:00 Content-Type: text/plain; charset=UTF-8; Hello World!</description>
     </item>
     
     <item>
