@@ -15,7 +15,8 @@
 <meta property="og:title" content="EML File Generation" />
 <meta property="og:description" content="Some examples of valid EML files and common pitfalls" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://nobleator.github.io/eml-file-generation/" /><meta property="og:image" content="https://nobleator.github.io/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="og:url" content="https://nobleator.github.io/eml-file-generation/" />
+<meta property="og:image" content="https://nobleator.github.io/images/share.png"/>
 <meta property="article:published_time" content="2021-01-20T00:00:00+04:00" />
 <meta property="article:modified_time" content="2021-01-20T00:00:00+04:00" /><meta property="og:site_name" content="nobleator" />
 
@@ -30,10 +31,16 @@
 
 
 <meta itemprop="name" content="EML File Generation">
-<meta itemprop="description" content="Some examples of valid EML files and common pitfalls"><meta itemprop="datePublished" content="2021-01-20T00:00:00+04:00" />
+<meta itemprop="description" content="Some examples of valid EML files and common pitfalls">
+<meta itemprop="datePublished" content="2021-01-20T00:00:00+04:00" />
 <meta itemprop="dateModified" content="2021-01-20T00:00:00+04:00" />
-<meta itemprop="wordCount" content="283"><meta itemprop="image" content="https://nobleator.github.io/images/share.png"/>
+<meta itemprop="wordCount" content="283">
+<meta itemprop="image" content="https://nobleator.github.io/images/share.png"/>
+
+
+
 <meta itemprop="keywords" content="programming," />
+
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
   <style>
@@ -260,14 +267,14 @@
 <content>
   <p>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.</p>
 <h2 id="invalid-eml">Invalid EML</h2>
-<pre tabindex="0"><code>From: Alice &lt;alice@example.com&gt;
+<pre><code>From: Alice &lt;alice@example.com&gt;
 To: Bob &lt;bob@example.com&gt;
 Subject: Testing 123
 Date: 1 Jan 2000 12:00:00
 Content-Type: text/plain; charset=UTF-8;
 Hello World!
 </code></pre><h2 id="valid-eml">Valid EML</h2>
-<pre tabindex="0"><code>From: Alice &lt;alice@example.com&gt;
+<pre><code>From: Alice &lt;alice@example.com&gt;
 To: Bob &lt;bob@example.com&gt;
 Subject: Testing 123
 Date: 1 Jan 2000 12:00:00
@@ -276,45 +283,45 @@ Content-Type: text/plain; charset=UTF-8;
 Hello World!
 </code></pre><p>You can also include attachments in your EML. The <code>boundary</code> directive within the <code>Content-Type</code> header has specific constraints as well; the boundary declaration at the beginning can take any form, but each subsequent section must lead with <code>--</code>, and the closing boundary must lead and close with <code>--</code>. Otherwise, the boundary itself can take whatever form makes sense, whether using a unique identifier or a keyword related to the contents of the email. Remember to include the newlines between each section still!</p>
 <h2 id="invalid-eml-1">Invalid EML</h2>
-<pre tabindex="0"><code>From: Alice &lt;alice@example.com&gt;
+<pre><code>From: Alice &lt;alice@example.com&gt;
 To: Bob &lt;bob@example.com&gt;
 Subject: Testing 123
 Date: 1 Jan 2000 12:00:00
-Content-Type: multipart/mixed; boundary=&#34;A&#34;
+Content-Type: multipart/mixed; boundary=&quot;A&quot;
 
 -A
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 Content-Disposition: inline
 
-Hello world! BTW this attachment is junk and won&#39;t render a real PDF.
+Hello world! BTW this attachment is junk and won't render a real PDF.
 
 -A
-Content-Type: application/pdf; name=&#34;dummy.pdf&#34;
+Content-Type: application/pdf; name=&quot;dummy.pdf&quot;
 Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename=&#34;dummy.pdf&#34;
+Content-Disposition: attachment; filename=&quot;dummy.pdf&quot;
 
 JVBERi0xLjQNCiXk9tzfDQoxIDAgb2Jq
 
 --A--
 </code></pre><h2 id="valid-eml-1">Valid EML</h2>
-<pre tabindex="0"><code>From: Alice &lt;alice@example.com&gt;
+<pre><code>From: Alice &lt;alice@example.com&gt;
 To: Bob &lt;bob@example.com&gt;
 Subject: Testing 123
 Date: 1 Jan 2000 12:00:00
-Content-Type: multipart/mixed; boundary=&#34;A&#34;
+Content-Type: multipart/mixed; boundary=&quot;A&quot;
 
 --A
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 Content-Disposition: inline
 
-Hello world! BTW this attachment is junk and won&#39;t render a real PDF.
+Hello world! BTW this attachment is junk and won't render a real PDF.
 
 --A
-Content-Type: application/pdf; name=&#34;dummy.pdf&#34;
+Content-Type: application/pdf; name=&quot;dummy.pdf&quot;
 Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename=&#34;dummy.pdf&#34;
+Content-Disposition: attachment; filename=&quot;dummy.pdf&quot;
 
 JVBERi0xLjQNCiXk9tzfDQoxIDAgb2Jq
 

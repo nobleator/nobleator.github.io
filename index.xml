@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>Copyright © 2023, Ben Noble.</copyright>
-    <lastBuildDate>Thu, 02 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Everyday Heuristics</title>
+      <link>https://nobleator.github.io/everyday-heuristics/</link>
+      <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://nobleator.github.io/everyday-heuristics/</guid>
+      <description>When navigating through life you will often come across some unit translations. A common occurrence for an American might be converting the temperature in Celsius to Fahrenheit. In this post I have consolidated some of my favorite heuristics for quick, approximate calculations.
+Temperature The exact equation for converting Celsius to Fahrenheit is $$ F = (9 / 5 * C) + 32 $$
+This can be quickly approximated by the heuristic &amp;ldquo;double and add 30&amp;rdquo;, which is far easier to do in your head.</description>
+    </item>
+    
     <item>
       <title>(Web) Paige Murder Mystery</title>
       <link>https://nobleator.github.io/web-paige-murder-mystery/</link>
@@ -54,7 +65,7 @@ As this is a legacy game, you and your partner choose a faction, either the Germ
       
       <guid>https://nobleator.github.io/secret-santa-assigner/</guid>
       <description>Description This is a tool I wrote to help plan our Secret Santa assignments each year for Christmas. There are a couple of requirements:
-You should not be paired with your significant other You should not be paired with the same person you had last year You should not be paired with the same person who is paired with you this year Design I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables.</description>
+ You should not be paired with your significant other You should not be paired with the same person you had last year You should not be paired with the same person who is paired with you this year  Design I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables.</description>
     </item>
     
     <item>
@@ -74,7 +85,7 @@ Solution Here is the path I took while solving this mystery. Given the starting 
       
       <guid>https://nobleator.github.io/eml-file-generation/</guid>
       <description>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.
-Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt; To: Bob &amp;lt;bob@example.com&amp;gt; Subject: Testing 123 Date: 1 Jan 2000 12:00:00 Content-Type: text/plain; charset=UTF-8; Hello World!</description>
+Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt;To: Bob &amp;lt;bob@example.com&amp;gt;Subject: Testing 123Date: 1 Jan 2000 12:00:00Content-Type: text/plain; charset=UTF-8;Hello World!</description>
     </item>
     
     <item>
@@ -104,7 +115,7 @@ Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt; To: Bob &amp;lt;bob@ex
       <description>About Me Software developer, board game buff, armchair historian. You can find me on GitHub here and LinkedIn here. I&amp;rsquo;ve spent time working as a computer science teaching assistant, a defense contractor, and a software developer at an alternative asset management firm.
 Tech Toolbox Here are some of the tools I enjoy using in my development work, both professionally and personally.
 Languages:
-C# Python Javascript SQL (MS SQL Server, PostgreSQL, SQLite, Snowflake, and DuckDB dialects) Frameworks &amp;amp; platforms:</description>
+ C# Python Javascript SQL (MS SQL Server, PostgreSQL, SQLite, Snowflake, and DuckDB dialects)  Frameworks &amp;amp; platforms:</description>
     </item>
     
     <item>
@@ -113,8 +124,8 @@ C# Python Javascript SQL (MS SQL Server, PostgreSQL, SQLite, Snowflake, and Duck
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nobleator.github.io/blogroll/</guid>
-      <description>These are the best personal blogs I have found. Most of them are related to technology, but not all. The links with &amp;ldquo;☆&amp;rdquo; are some of my favorite posts.
-Alex Miller ☆ Grid world Amit Patel Austin Henley ☆ Challenging projects every programmer should try ☆ More challenging projects every programmer should try Bartosz Ciechanowski ☆ Cameras and lenses ☆ GPS Bret Devereaux: A military history professor who examines modern media with a lens of historical realism.</description>
+      <description>Blogs Personal These are the best personal blogs I have found. Most of them are related to technology, but not all. The links with &amp;ldquo;☆&amp;rdquo; are some of my favorite posts.
+ Alex Miller  ☆ Grid world   Amit Patel Austin Henley  ☆ Challenging projects every programmer should try ☆ More challenging projects every programmer should try   Bartosz Ciechanowski  ☆ Cameras and lenses ☆ GPS   Bret Devereaux: A military history professor who examines modern media with a lens of historical realism.</description>
     </item>
     
   </channel>
