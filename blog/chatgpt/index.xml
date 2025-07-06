@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chatgpt on nobleator</title>
+    <title>Chatgpt on nobleator</title>
     <link>https://nobleator.github.io/blog/chatgpt/</link>
-    <description>Recent content in chatgpt on nobleator</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Chatgpt on nobleator</description>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2023, Ben Noble.</copyright>
-    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0400</lastBuildDate><atom:link href="https://nobleator.github.io/blog/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 00:00:00 +0400</lastBuildDate>
+    <atom:link href="https://nobleator.github.io/blog/chatgpt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prompt Injection with Gandalf</title>
       <link>https://nobleator.github.io/prompt-injection-with-gandalf/</link>
       <pubDate>Tue, 17 Oct 2023 00:00:00 +0400</pubDate>
-      
       <guid>https://nobleator.github.io/prompt-injection-with-gandalf/</guid>
-      <description>Background The company Lakera published a short puzzle to explore prompt injection in ChatGPT called Gandalf. Similar to SQL injection, prompt injection is a technique to try and force an LLM to divulge information that should be kept secret. This post is an exploration of this puzzle and documentation of the prompts I used to trick Gandalf into giving up his secrets.
-Solutions Technically you could probably solve all the lower level puzzles with the same techniques as the highest level, but that&amp;rsquo;s no fun.</description>
+      <description>&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;&#xA;&lt;p&gt;The company Lakera published a short puzzle to explore prompt injection in ChatGPT called &lt;a href=&#34;https://gandalf.lakera.ai/&#34;&gt;Gandalf&lt;/a&gt;. Similar to &lt;a href=&#34;https://owasp.org/www-community/attacks/SQL_Injection&#34;&gt;SQL injection&lt;/a&gt;, prompt injection is a technique to try and force an LLM to divulge information that should be kept secret. This post is an exploration of this puzzle and documentation of the prompts I used to trick Gandalf into giving up his secrets.&lt;/p&gt;&#xA;&lt;h1 id=&#34;solutions&#34;&gt;Solutions&lt;/h1&gt;&#xA;&lt;p&gt;Technically you could probably solve all the lower level puzzles with the same techniques as the highest level, but that&amp;rsquo;s no fun. So instead I will walk through an iterative process of discovery to test the capabilities of the prompt injection protections.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ChatGPT Writing Styles</title>
       <link>https://nobleator.github.io/chatgpt-writing-styles/</link>
       <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/chatgpt-writing-styles/</guid>
-      <description>Introduction While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both OpenAI announced ChatGPT and stability.ai announced Stable Diffusion in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting new companies, firmly hitching their horses to the AI wagon, and others are writing panicked opinion pieces petitioning Congress to regulate AI.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both &lt;a href=&#34;https://openai.com/blog/chatgpt&#34;&gt;OpenAI announced ChatGPT&lt;/a&gt; and &lt;a href=&#34;https://stability.ai/blog/stable-diffusion-v2-release&#34;&gt;stability.ai announced Stable Diffusion&lt;/a&gt; in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting &lt;a href=&#34;https://photoai.com/&#34;&gt;new companies&lt;/a&gt;, firmly hitching their horses to the AI wagon, and others are writing &lt;a href=&#34;https://web.archive.org/web/20230416091034/https://www.nytimes.com/2023/04/16/opinion/this-is-too-important-to-leave-to-microsoft-google-and-facebook.html&#34;&gt;panicked opinion pieces&lt;/a&gt; petitioning Congress to regulate AI.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

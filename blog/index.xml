@@ -4,107 +4,87 @@
     <title>Blogs on nobleator</title>
     <link>https://nobleator.github.io/blog/</link>
     <description>Recent content in Blogs on nobleator</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2023, Ben Noble.</copyright>
-    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nobleator.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nobleator.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tax Invoice</title>
+      <link>https://nobleator.github.io/tax-invoice/</link>
+      <pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://nobleator.github.io/tax-invoice/</guid>
+      <description>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&#xA;&lt;p&gt;This project was somewhat inspired by the recent &lt;a href=&#34;https://www.crfb.org/blogs/breaking-down-one-big-beautiful-bill&#34;&gt;$2.4-3 trillion dollar addition to the US federal debt&lt;/a&gt;, as well as stumbling across an old Obama-era web site showing &lt;a href=&#34;https://web.archive.org/web/20170122032834/https://obamawhitehouse.archives.gov/2014-taxreceipt&#34;&gt;your taxpayer receipt&lt;/a&gt;. I thought it would be an interesting exercise to conceptualize the US federal budget, tax revenues, and debt/deficit as an invoice being sent to each American.&lt;/p&gt;&#xA;&lt;h2 id=&#34;data-sources&#34;&gt;Data sources&lt;/h2&gt;&#xA;&lt;p&gt;There are some surprisingly convenient, free, and unauthenticated (keyless) APIs run by the US government. I am relying on two, one for financial data and one for population data:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Everyday Heuristics</title>
       <link>https://nobleator.github.io/everyday-heuristics/</link>
       <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/everyday-heuristics/</guid>
-      <description>When navigating through life you will often come across some unit translations. A common occurrence for an American might be converting the temperature in Celsius to Fahrenheit. In this post I have consolidated some of my favorite heuristics for quick, approximate calculations.
-Temperature The exact equation for converting Celsius to Fahrenheit is $$ F = (9 / 5 * C) + 32 $$
-This can be quickly approximated by the heuristic &amp;ldquo;double and add 30&amp;rdquo;, which is far easier to do in your head.</description>
+      <description>&lt;p&gt;When navigating through life you will often come across some unit translations. A common occurrence for an American might be converting the temperature in Celsius to Fahrenheit. In this post I have consolidated some of my favorite heuristics for quick, approximate calculations.&lt;/p&gt;&#xA;&lt;h2 id=&#34;temperature&#34;&gt;Temperature&lt;/h2&gt;&#xA;&lt;p&gt;The exact equation for converting Celsius to Fahrenheit is&#xA;$$ F = (9 / 5 * C) + 32 $$&lt;/p&gt;&#xA;&lt;p&gt;This can be quickly approximated by the heuristic &amp;ldquo;double and add 30&amp;rdquo;, which is far easier to do in your head.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>(Web) Paige Murder Mystery</title>
       <link>https://nobleator.github.io/web-paige-murder-mystery/</link>
       <pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/web-paige-murder-mystery/</guid>
-      <description>Note: Attempting to solve this puzzle on a mobile device will be frustrating.
-Alice, Bob, Charlie, and Paige were attending a conference on synergistic opportunities within AI-powered blockchain at a retreat center. It was a stormy evening, and as the attendees were headed to the hot yoga room, suddenly lightning crashed and the lights went out. There was much confusion and screaming, but eventually the backup generator kicked on. Paige was discovered shortly afterwards in the library, with a knife embedded deep in her heart.</description>
+      <description>&lt;p&gt;&lt;em&gt;Note: Attempting to solve this puzzle on a mobile device will be frustrating.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Alice, Bob, Charlie, and Paige were attending a conference on synergistic opportunities within AI-powered blockchain at a retreat center. It was a stormy evening, and as the attendees were headed to the hot yoga room, suddenly lightning crashed and the lights went out. There was much confusion and screaming, but eventually the backup generator kicked on. Paige was discovered shortly afterwards in the library, with a knife embedded deep in her heart. Alice, Bob, and Charlie are the primary suspects and have been corralled for questioning.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Prompt Injection with Gandalf</title>
       <link>https://nobleator.github.io/prompt-injection-with-gandalf/</link>
       <pubDate>Tue, 17 Oct 2023 00:00:00 +0400</pubDate>
-      
       <guid>https://nobleator.github.io/prompt-injection-with-gandalf/</guid>
-      <description>Background The company Lakera published a short puzzle to explore prompt injection in ChatGPT called Gandalf. Similar to SQL injection, prompt injection is a technique to try and force an LLM to divulge information that should be kept secret. This post is an exploration of this puzzle and documentation of the prompts I used to trick Gandalf into giving up his secrets.
-Solutions Technically you could probably solve all the lower level puzzles with the same techniques as the highest level, but that&amp;rsquo;s no fun.</description>
+      <description>&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;&#xA;&lt;p&gt;The company Lakera published a short puzzle to explore prompt injection in ChatGPT called &lt;a href=&#34;https://gandalf.lakera.ai/&#34;&gt;Gandalf&lt;/a&gt;. Similar to &lt;a href=&#34;https://owasp.org/www-community/attacks/SQL_Injection&#34;&gt;SQL injection&lt;/a&gt;, prompt injection is a technique to try and force an LLM to divulge information that should be kept secret. This post is an exploration of this puzzle and documentation of the prompts I used to trick Gandalf into giving up his secrets.&lt;/p&gt;&#xA;&lt;h1 id=&#34;solutions&#34;&gt;Solutions&lt;/h1&gt;&#xA;&lt;p&gt;Technically you could probably solve all the lower level puzzles with the same techniques as the highest level, but that&amp;rsquo;s no fun. So instead I will walk through an iterative process of discovery to test the capabilities of the prompt injection protections.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Undaunted</title>
       <link>https://nobleator.github.io/undaunted/</link>
       <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/undaunted/</guid>
-      <description>Description Undaunted: Stalingrad is a legacy style boardgame within the broader Undaunted series. In many ways, Stalingrad feels like the culmination and refinement of all the ideas included within the first games. You play as a lieutenant in charge of a platoon of soldiers fighting their way through the city of Stalingard in World War II, representing your troops and the fog of war via brilliant deck-builder mechanics.
-As this is a legacy game, you and your partner choose a faction, either the Germans or the Soviets, and then you play as that faction for every scenario.</description>
+      <description>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://boardgamegeek.com/boardgame/354570/undaunted-stalingrad&#34;&gt;&lt;em&gt;Undaunted: Stalingrad&lt;/em&gt;&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Legacy_game&#34;&gt;legacy&lt;/a&gt; style boardgame within the broader Undaunted series. In many ways, &lt;em&gt;Stalingrad&lt;/em&gt; feels like the culmination and refinement of all the ideas included within the first games. You play as a lieutenant in charge of a platoon of soldiers fighting their way through the city of Stalingard in World War II, representing your troops and the fog of war via brilliant deck-builder mechanics.&lt;/p&gt;&#xA;&lt;p&gt;As this is a legacy game, you and your partner choose a faction, either the Germans or the Soviets, and then you play as that faction for every scenario. With each match there are 3 components:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ChatGPT Writing Styles</title>
       <link>https://nobleator.github.io/chatgpt-writing-styles/</link>
       <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/chatgpt-writing-styles/</guid>
-      <description>Introduction While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both OpenAI announced ChatGPT and stability.ai announced Stable Diffusion in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting new companies, firmly hitching their horses to the AI wagon, and others are writing panicked opinion pieces petitioning Congress to regulate AI.</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;While &amp;ldquo;AI&amp;rdquo; has been on startup pitch decks for several years now, the last 6 months have seen a marked acceleration. Ever since both &lt;a href=&#34;https://openai.com/blog/chatgpt&#34;&gt;OpenAI announced ChatGPT&lt;/a&gt; and &lt;a href=&#34;https://stability.ai/blog/stable-diffusion-v2-release&#34;&gt;stability.ai announced Stable Diffusion&lt;/a&gt; in November 2022, there has been a proliferation in interesting use cases with these technologies. Some people are starting &lt;a href=&#34;https://photoai.com/&#34;&gt;new companies&lt;/a&gt;, firmly hitching their horses to the AI wagon, and others are writing &lt;a href=&#34;https://web.archive.org/web/20230416091034/https://www.nytimes.com/2023/04/16/opinion/this-is-too-important-to-leave-to-microsoft-google-and-facebook.html&#34;&gt;panicked opinion pieces&lt;/a&gt; petitioning Congress to regulate AI.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Secret Santa Assigner</title>
       <link>https://nobleator.github.io/secret-santa-assigner/</link>
       <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/secret-santa-assigner/</guid>
-      <description>Description This is a tool I wrote to help plan our Secret Santa assignments each year for Christmas. There are a couple of requirements:
- You should not be paired with your significant other You should not be paired with the same person you had last year You should not be paired with the same person who is paired with you this year  Design I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables.</description>
+      <description>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&#xA;&lt;p&gt;This is a tool I wrote to help plan our Secret Santa assignments each year for Christmas. There are a couple of requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You should not be paired with your significant other&lt;/li&gt;&#xA;&lt;li&gt;You should not be paired with the same person you had last year&lt;/li&gt;&#xA;&lt;li&gt;You should not be paired with the same person who is paired with you this year&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;&#xA;&lt;p&gt;I considered using a more elaborate solution with select boxes for the significant other and last year participant columns, but those are not supported in vanilla HTML tables. I briefly considered using a more full-featured data table tool like Ag Grid or DevExtreme, but that seemed like overkill for such a simple project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>SQL Murder Mystery</title>
       <link>https://nobleator.github.io/sql-murder-mystery/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/sql-murder-mystery/</guid>
-      <description>Description Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it SQL Murder Mystery. It&amp;rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.
-Solution Here is the path I took while solving this mystery. Given the starting information &amp;ldquo;the crime was a ​murder​ that occurred sometime on ​Jan.</description>
+      <description>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&#xA;&lt;p&gt;Someone at the Northwestern University Knight Lab put together a fun little murder mystery puzzle that requires you to use SQL to solve it &lt;a href=&#34;https://mystery.knightlab.com&#34;&gt;SQL Murder Mystery&lt;/a&gt;. It&amp;rsquo;s also nice that you can run your queries directly in the browser, so no need to install anything to get going.&lt;/p&gt;&#xA;&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;&#xA;&lt;p&gt;Here is the path I took while solving this mystery. Given the starting information &amp;ldquo;the crime was a &lt;strong&gt;​murder​&lt;/strong&gt; that occurred sometime on &lt;strong&gt;​Jan.15, 2018&lt;/strong&gt;​ and that it took place in &lt;strong&gt;SQL City&lt;/strong&gt;​&amp;rdquo; combined with the available tables we can write our first query:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>EML File Generation</title>
       <link>https://nobleator.github.io/eml-file-generation/</link>
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0400</pubDate>
-      
       <guid>https://nobleator.github.io/eml-file-generation/</guid>
-      <description>EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.
-Invalid EML From: Alice &amp;lt;alice@example.com&amp;gt;To: Bob &amp;lt;bob@example.com&amp;gt;Subject: Testing 123Date: 1 Jan 2000 12:00:00Content-Type: text/plain; charset=UTF-8;Hello World!</description>
+      <description>&lt;p&gt;EML files can be a handy way to create an email message without requiring an actual mail server, as it is simply a file format. You can create these files by hand, but there are some easy mistakes to make. For instances, you need to include newlines in very particular places to successfully generate an EML file.&lt;/p&gt;&#xA;&lt;h2 id=&#34;invalid-eml&#34;&gt;Invalid EML&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;From: Alice &amp;lt;alice@example.com&amp;gt;&#xA;To: Bob &amp;lt;bob@example.com&amp;gt;&#xA;Subject: Testing 123&#xA;Date: 1 Jan 2000 12:00:00&#xA;Content-Type: text/plain; charset=UTF-8;&#xA;Hello World!&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;valid-eml&#34;&gt;Valid EML&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;From: Alice &amp;lt;alice@example.com&amp;gt;&#xA;To: Bob &amp;lt;bob@example.com&amp;gt;&#xA;Subject: Testing 123&#xA;Date: 1 Jan 2000 12:00:00&#xA;Content-Type: text/plain; charset=UTF-8;&#xA;&#xA;Hello World!&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can also include attachments in your EML. The &lt;code&gt;boundary&lt;/code&gt; directive within the &lt;code&gt;Content-Type&lt;/code&gt; header has specific constraints as well; the boundary declaration at the beginning can take any form, but each subsequent section must lead with &lt;code&gt;--&lt;/code&gt;, and the closing boundary must lead and close with &lt;code&gt;--&lt;/code&gt;. Otherwise, the boundary itself can take whatever form makes sense, whether using a unique identifier or a keyword related to the contents of the email. Remember to include the newlines between each section still!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ASOIAF Miniatures Calculator</title>
       <link>https://nobleator.github.io/asoiaf-miniatures-calculator/</link>
       <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nobleator.github.io/asoiaf-miniatures-calculator/</guid>
-      <description>Description This is a calculator used to graph probabilities for various attack combinations for the A Song Of Ice and Fire Miniatures Game. This is a tabletop wargame based in G.R.R. Martin&amp;rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&amp;rsquo;s troops will help.</description>
+      <description>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&#xA;&lt;p&gt;This is a calculator used to graph probabilities for various attack combinations for the &lt;a href=&#34;https://asoiaf.cmon.com/&#34;&gt;A Song Of Ice and Fire Miniatures Game&lt;/a&gt;. This is a tabletop wargame based in G.R.R. Martin&amp;rsquo;s fantasy world where 2-4 (usually just 2) players build armies from different factions then compete to win a certain number of victory points. There are different game modes that determine how to achieve VPs, but generally killing your opponent&amp;rsquo;s troops will help.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Game Mechanics</title>
       <link>https://nobleator.github.io/game-mechanics/</link>
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0400</pubDate>
-      
       <guid>https://nobleator.github.io/game-mechanics/</guid>
-      <description>Engine builders This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is Dominion, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be Lords of Waterdeep, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resources as other players use them.</description>
+      <description>&lt;h3 id=&#34;engine-builders&#34;&gt;Engine builders&lt;/h3&gt;&#xA;&lt;p&gt;This is a mechanic where each player builds up power over time, creating an engine that feeds itself and allows for more powerful tools to be added over time. The classic example of this is &lt;em&gt;Dominion&lt;/em&gt;, where you build your deck by drafting from a shared marketplace of cards to build their individual decks. Another example would be &lt;em&gt;Lords of Waterdeep&lt;/em&gt;, where you can build up &amp;ldquo;shops&amp;rdquo; over time which then grant you more resources as other players use them.&#xA;Other examples: &lt;em&gt;7 Wonders&lt;/em&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

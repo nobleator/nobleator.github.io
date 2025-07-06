@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tax on nobleator</title>
+    <link>https://nobleator.github.io/blog/tax/</link>
+    <description>Recent content in Tax on nobleator</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2023, Ben Noble.</copyright>
+    <lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nobleator.github.io/blog/tax/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tax Invoice</title>
+      <link>https://nobleator.github.io/tax-invoice/</link>
+      <pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://nobleator.github.io/tax-invoice/</guid>
+      <description>&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&#xA;&lt;p&gt;This project was somewhat inspired by the recent &lt;a href=&#34;https://www.crfb.org/blogs/breaking-down-one-big-beautiful-bill&#34;&gt;$2.4-3 trillion dollar addition to the US federal debt&lt;/a&gt;, as well as stumbling across an old Obama-era web site showing &lt;a href=&#34;https://web.archive.org/web/20170122032834/https://obamawhitehouse.archives.gov/2014-taxreceipt&#34;&gt;your taxpayer receipt&lt;/a&gt;. I thought it would be an interesting exercise to conceptualize the US federal budget, tax revenues, and debt/deficit as an invoice being sent to each American.&lt;/p&gt;&#xA;&lt;h2 id=&#34;data-sources&#34;&gt;Data sources&lt;/h2&gt;&#xA;&lt;p&gt;There are some surprisingly convenient, free, and unauthenticated (keyless) APIs run by the US government. I am relying on two, one for financial data and one for population data:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
