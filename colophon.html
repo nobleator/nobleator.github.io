@@ -124,6 +124,168 @@ HTML with minimal CSS.</li>
 <li>(Optional) RSS feed generation. I doubt anyone actually subscribes
 to my current RSS feed, but I think it is good practice to build in that
 support early.</li>
-</ul></main>
+</ul>
+<p>After a bit of testing I landed on 3 scripts:</p>
+<ol type="1">
+<li><code>build.ps1</code>: Pulls together the .md files in the source
+repo and converts them to .html via Pandoc.</li>
+<li><code>serve.ps1</code>: A simple helper script to run a local web
+server to test your changes as you go.</li>
+<li><code>deploy.ps1</code>: Run a build and then copy over the latest
+.html and asset files from <code>/public/</code> to a sibling GitHub
+Pages repo, then push that to master.</li>
+</ol>
+<details>
+<summary>
+build.ps1
+</summary>
+<pre class="pwsh"><code>$root = $PSScriptRoot
+$out = &quot;$root/public&quot;
+
+$svgPath = &quot;$root/assets/img/Hexaflake_Logo.svg&quot;
+$logoSvg = Get-Content -Raw -Path $svgPath
+$navFile = &quot;$root/nav.html&quot;
+$navHtml = @&quot;
+&lt;header&gt;
+&lt;a href=&#39;/&#39; id=&#39;logo&#39;$logoSvg&lt;/a&gt;
+&lt;nav&gt;
+&lt;a href=&#39;/&#39;&gt;Home&lt;/a&gt;
+&lt;a href=&#39;/blog.html&#39;&gt;Blog&lt;/a&gt;
+&lt;a href=&#39;/colophon.html&#39;&gt;Colophon&lt;/a&gt;
+&lt;a href=&#39;/blogroll.html&#39;&gt;Blogroll&lt;/a&gt;
+&lt;/nav&gt;
+&lt;button id=&#39;theme-toggle-button&#39; onclick=&quot;toggleTheme()&quot;&gt;Theme&lt;/button&gt;
+&lt;/header&gt;
+&quot;@
+$navHtml | Out-File $navFile -Encoding utf8
+
+function Get-PostMeta($mdFile) {
+    $json = pandoc $mdFile.FullName --template=&quot;$root/templates/metadata.json&quot; -t html 2&gt; $null # TeX rendering warnings will always emit here so ignoring
+    $meta = $json | ConvertFrom-Json
+    $meta | Add-Member -NotePropertyName BaseName -NotePropertyValue $mdFile.BaseName
+    return $meta
+}
+function Convert-File($mdFile, $outFile) {
+    pandoc $mdFile `
+        --standalone `
+        --template=&quot;$root/templates/page.html&quot; `
+        --include-before-body=&quot;$navFile&quot; `
+        --mathjax `
+        -o $outFile
+}
+
+if (Test-Path $out) {
+    Get-ChildItem $out -Recurse | Remove-Item -Recurse -Force
+} else {
+    New-Item $out -ItemType Directory | Out-Null
+}
+
+Copy-Item &quot;$root/assets&quot; &quot;$out/assets&quot; -Recurse
+
+$pages = Get-ChildItem &quot;$root/content/pages/*.md&quot;
+
+
+foreach ($p in $pages) {
+    Convert-File $p.FullName &quot;$out/$($p.BaseName).html&quot;
+}
+
+$posts = Get-ChildItem &quot;$root/content/posts/*.md&quot;
+$metas = $posts | ForEach-Object { Get-PostMeta $_ }
+$metas = $metas | Where-Object { $_.draft -ne &quot;true&quot; } | Sort-Object { [datetime]$_.date } -Descending
+
+foreach ($m in $metas) {
+    $srcFile = Join-Path &quot;$root/content/posts&quot; &quot;$($m.BaseName).md&quot;
+    Convert-File $srcFile &quot;$out/posts/$($m.BaseName).html&quot; $navFile
+}
+
+$links = $metas | ForEach-Object {
+        $formattedDate = ([datetime]$_.date).ToString(&#39;yyyy-MM-dd&#39;)
+        &quot;&lt;li&gt;&lt;span&gt;&lt;i&gt;&lt;time datetime=&#39;$formattedDate&#39;&gt;$formattedDate&lt;/time&gt;&lt;/i&gt;&lt;/span&gt;&lt;a href=&#39;posts/$($_.BaseName).html&#39;&gt;$($_.title)&lt;/a&gt;&lt;/li&gt;&quot;
+    }
+$blogMd = &quot;# Posts`n`n&lt;ul class=&#39;blog-posts&#39;&gt;$($links -join &#39;&#39;)&lt;/ul&gt;&quot;
+$blogMd | Out-File &quot;$root/_blog_tmp.md&quot; -Encoding utf8
+Convert-File &quot;$root/_blog_tmp.md&quot; &quot;$out/blog.html&quot;
+Remove-Item &quot;$root/_blog_tmp.md&quot;
+Remove-Item $navFile</code></pre>
+</details>
+<details>
+<summary>
+serve.ps1
+</summary>
+<pre><code>$root = $PSScriptRoot
+
+Write-Host &quot;Running fresh build...&quot;
+&amp; &quot;$root/build.ps1&quot;
+
+# start server in a background job, rooted in public/
+$serverJob = Start-Job -ScriptBlock {
+    param($dir)
+    Set-Location $dir
+    # python -m http.server 1313
+    # You may need the following on macOS:
+    python3 -m http.server 1313
+} -ArgumentList &quot;$root/public&quot;
+
+Write-Host &quot;Server running at http://localhost:1313 (job id $($serverJob.Id))&quot;
+
+try {
+    $watcher = New-Object System.IO.FileSystemWatcher
+    $watcher.Path = &quot;$root/content&quot;
+    $watcher.IncludeSubdirectories = $true
+    $watcher.Filter = &quot;*.md&quot;
+
+    Write-Host &quot;Watching for changes... Ctrl+C to stop.&quot;
+    while ($true) {
+        $result = $watcher.WaitForChanged([System.IO.WatcherChangeTypes]::All, 1000)
+        if ($result.TimedOut) { continue }
+        Write-Host &quot;Change detected: $($result.Name) - rebuilding...&quot;
+        &amp; &quot;$root/build.ps1&quot;
+    }
+}
+finally {
+    Stop-Job $serverJob
+    Remove-Job $serverJob
+}</code></pre>
+</details>
+<details>
+<summary>
+deploy.ps1
+</summary>
+<pre class="pwsh"><code>param([string]$additionalMessage) 
+
+&quot;Deploying updates for GitHub pages site&quot;
+$currentDirectory = Get-Location
+$today = Get-Date
+$message = &quot;Rebuilding site and publishing on $today&quot;
+if ($additionalMessage) {
+    $message = $message + &quot;: &quot; + $additionalMessage
+}
+
+$root = $PSScriptRoot
+Write-Host &quot;Running fresh build...&quot;
+&amp; &quot;$root/build.ps1&quot;
+
+&quot;Copying files from .\public into ..\nobleator.github.io&quot;
+if (-Not (Test-Path ..\nobleator.github.io)) {
+    throw &quot;..\nobleator.github.io must exist relative to this script!&quot;
+}
+
+Copy-Item -Path .\public\* -Destination ..\nobleator.github.io -Recurse -Force
+
+&quot;Navigating to ..\nobleator.github.io&quot;
+Set-Location ..\nobleator.github.io
+&quot;Adding changes&quot;
+git add .
+&quot;Committing changes&quot;
+git commit -m &quot;$message&quot;
+&quot;Pushing changes to master&quot;
+git push origin master
+&quot;Navigating to ${currentDirectory}&quot;
+Set-Location $currentDirectory
+
+&quot;Deployment complete&quot;</code></pre>
+</details>
+<p>And there you have it, a very simple static site built with
+Pandoc!</p></main>
         </body>
 </html>
