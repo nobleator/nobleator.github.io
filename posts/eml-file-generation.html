@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Some examples of valid EML files and
+common pitfalls">
+<head>
+    <title>EML File Generation</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <!--
+            Every hexagon below is a mathematically exact regular hexagon:
+            vertices at angles 0,60,120,180,240,300 degrees around its own
+            center, all sharing one circumradius for the black cells (r=35)
+            and one circumradius for the red cells (r=32.55). The 7 cell
+            centers sit on an exact hex grid (radius 70 from the cluster
+            center, at 60-degree steps). Because both the individual hexagons
+            and the grid they sit on share full 6-fold symmetry, rotating the
+            whole group 60 degrees about the cluster center (107.95, 139.7)
+            maps the pattern exactly onto itself - no wobble, no seam.
+          -->
+          <g id="layer1">
+
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><p>EML files can be a handy way to create an email message
+without requiring an actual mail server, as it is simply a file format.
+You can create these files by hand, but there are some easy mistakes to
+make. For instances, you need to include newlines in very particular
+places to successfully generate an EML file.</p>
+<h2 id="invalid-eml">Invalid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: text/plain; charset=UTF-8;
+Hello World!</code></pre>
+<h2 id="valid-eml">Valid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: text/plain; charset=UTF-8;
+
+Hello World!</code></pre>
+<p>You can also include attachments in your EML. The
+<code>boundary</code> directive within the <code>Content-Type</code>
+header has specific constraints as well; the boundary declaration at the
+beginning can take any form, but each subsequent section must lead with
+<code>--</code>, and the closing boundary must lead and close with
+<code>--</code>. Otherwise, the boundary itself can take whatever form
+makes sense, whether using a unique identifier or a keyword related to
+the contents of the email. Remember to include the newlines between each
+section still!</p>
+<h2 id="invalid-eml-1">Invalid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: multipart/mixed; boundary=&quot;A&quot;
+
+-A
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Hello world! BTW this attachment is junk and won&#39;t render a real PDF.
+
+-A
+Content-Type: application/pdf; name=&quot;dummy.pdf&quot;
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=&quot;dummy.pdf&quot;
+
+JVBERi0xLjQNCiXk9tzfDQoxIDAgb2Jq
+
+--A--</code></pre>
+<h2 id="valid-eml-1">Valid EML</h2>
+<pre><code>From: Alice &lt;alice@example.com&gt;
+To: Bob &lt;bob@example.com&gt;
+Subject: Testing 123
+Date: 1 Jan 2000 12:00:00
+Content-Type: multipart/mixed; boundary=&quot;A&quot;
+
+--A
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+Hello world! BTW this attachment is junk and won&#39;t render a real PDF.
+
+--A
+Content-Type: application/pdf; name=&quot;dummy.pdf&quot;
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=&quot;dummy.pdf&quot;
+
+JVBERi0xLjQNCiXk9tzfDQoxIDAgb2Jq
+
+--A--</code></pre></main>
+        </body>
+</html>

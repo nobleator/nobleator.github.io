@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Everyday heuristics for life">
+<head>
+    <title>Everyday Heuristics</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <!--
+            Every hexagon below is a mathematically exact regular hexagon:
+            vertices at angles 0,60,120,180,240,300 degrees around its own
+            center, all sharing one circumradius for the black cells (r=35)
+            and one circumradius for the red cells (r=32.55). The 7 cell
+            centers sit on an exact hex grid (radius 70 from the cluster
+            center, at 60-degree steps). Because both the individual hexagons
+            and the grid they sit on share full 6-fold symmetry, rotating the
+            whole group 60 degrees about the cluster center (107.95, 139.7)
+            maps the pattern exactly onto itself - no wobble, no seam.
+          -->
+          <g id="layer1">
+
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><p>When navigating through life you will often come across
+some unit translations. A common occurrence for an American might be
+converting the temperature in Celsius to Fahrenheit. In this post I have
+consolidated some of my favorite heuristics for quick, approximate
+calculations.</p>
+<h2 id="temperature">Temperature</h2>
+<p>The exact equation for converting Celsius to Fahrenheit is <span
+class="math display">\[ F = (9 / 5 * C) + 32 \]</span></p>
+<p>This can be quickly approximated by the heuristic “double and add
+30”, which is far easier to do in your head.</p>
+<h2 id="distance">Distance</h2>
+<p>1 yard is technically 0.9144 meters, but that is close enough to
+generally be equal to 1.</p>
+<p>5 kilometers is just above 3 miles, while 1 mile is just above 1.5
+kilometers.</p>
+<h2 id="area">Area</h2>
+<p>Soccer fields vary in size, making any reference prone to error.
+However the pitch size recommended by FIFA is <a
+href="https://publications.fifa.com/en/football-stadiums-guidelines/technical-guideline/stadium-guidelines/pitch-dimensions-and-surrounding-areas/">105
+meters by 68 meters</a>, for a total area of 7,140 square meters. Given
+that an acre is defined as <a
+href="https://www.merriam-webster.com/dictionary/acre">4,047 square
+meters</a>, we can determine: <span class="math display">\[ (105m * 68m)
+/ 4,047m^2 = 7,140m^2 / 4,047m^2 \approx 1.764 \]</span> Or in other
+words, 1 acre is a little more than half a soccer field.</p>
+<h2 id="money">Money</h2>
+<p>Given a 40 hour work-week and 52 weeks in a year, the average
+full-time worker has a little over 2000 hours worked per year. This
+makes it simple to convert an hourly rate to annual or vice versa. If
+you know your hourly rate, simply double it and add three 0’s and that
+is your annual income.</p></main>
+        </body>
+</html>

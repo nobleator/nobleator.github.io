@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Description and solution of a puzzle
+requiring SQL to solve">
+<head>
+    <title>SQL Murder Mystery</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <!--
+            Every hexagon below is a mathematically exact regular hexagon:
+            vertices at angles 0,60,120,180,240,300 degrees around its own
+            center, all sharing one circumradius for the black cells (r=35)
+            and one circumradius for the red cells (r=32.55). The 7 cell
+            centers sit on an exact hex grid (radius 70 from the cluster
+            center, at 60-degree steps). Because both the individual hexagons
+            and the grid they sit on share full 6-fold symmetry, rotating the
+            whole group 60 degrees about the cluster center (107.95, 139.7)
+            maps the pattern exactly onto itself - no wobble, no seam.
+          -->
+          <g id="layer1">
+
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><h2 id="description">Description</h2>
+<p>Someone at the Northwestern University Knight Lab put together a fun
+little murder mystery puzzle that requires you to use SQL to solve it <a
+href="https://mystery.knightlab.com">SQL Murder Mystery</a>. It’s also
+nice that you can run your queries directly in the browser, so no need
+to install anything to get going.</p>
+<h2 id="solution">Solution</h2>
+<p>Here is the path I took while solving this mystery. Given the
+starting information “the crime was a <strong>​murder​</strong> that
+occurred sometime on <strong>​Jan.15, 2018</strong>​ and that it took
+place in <strong>SQL City</strong>​” combined with the available tables
+we can write our first query:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> crime_scene_report</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> <span class="dt">date</span> <span class="op">=</span> <span class="st">&#39;20180115&#39;</span> <span class="kw">and</span> <span class="kw">type</span> <span class="op">=</span> <span class="st">&#39;murder&#39;</span> <span class="kw">and</span> city <span class="op">=</span> <span class="st">&#39;SQL City&#39;</span>;</span></code></pre></div>
+<p>Reading through the description provided in the corresponding
+crime_scene_report row we identify some persons of interest that we
+would like more information on:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> person</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> (name <span class="kw">like</span> <span class="st">&#39;%annabel%&#39;</span> <span class="kw">and</span> address_street_name <span class="kw">like</span> <span class="st">&#39;%franklin%&#39;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">or</span> address_street_name <span class="kw">like</span> <span class="st">&#39;%northwestern%&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> address_street_name, address_number <span class="kw">desc</span>; </span></code></pre></div>
+<p>In order to pull the interviews from the witnesses we need their IDs.
+Annabel Miller is simple to find, but for the person who lives on
+Northwestern Dr all we know is that they lived on the end. Therefore
+we’ll pull the IDs for both extremes of the address number:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> interview</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> person_id <span class="kw">in</span> (<span class="dv">16371</span>, <span class="dv">14887</span>, <span class="dv">89906</span>);</span></code></pre></div>
+<p>By cross-referencing the available interviews with the information
+from the crime scene report and address information, we can deduce that
+Annabel Miller and Morty Schapiro are our two witnesses. Let’s start by
+finding all the gold members of the Get Fit Gym who checked in on the
+9th with matching membership ID and license plate numbers:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> get_fit_now_member m</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">join</span> get_fit_now_check_in c <span class="kw">on</span> c.membership_id <span class="op">=</span> m.<span class="kw">id</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">join</span> person p <span class="kw">on</span> p.<span class="kw">id</span> <span class="op">=</span> m.person_id</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">left</span> <span class="kw">join</span> drivers_license d <span class="kw">on</span> d.<span class="kw">id</span> <span class="op">=</span> p.license_id</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> m.membership_status <span class="op">=</span> <span class="st">&#39;gold&#39;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> m.<span class="kw">id</span> <span class="kw">like</span> <span class="st">&#39;48z%&#39;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> c.check_in_date <span class="op">=</span> <span class="st">&#39;20180109&#39;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> d.plate_number <span class="kw">like</span> <span class="st">&#39;%H42W%&#39;</span>;</span></code></pre></div>
+<p>At this point we found the killer, Jeremy Bowers. Looking at the
+interview with him though reveals more interesting info:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> interview</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> person_id <span class="op">=</span> <span class="dv">67318</span>;</span></code></pre></div>
+<p>We can use that information and the facebook_event_checkin table to
+find female attendees of the SQL Symphony Concert who drive the right
+kind of car:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">distinct</span> p.<span class="op">*</span> <span class="kw">from</span> drivers_license dl</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">join</span> person p <span class="kw">on</span> p.license_id <span class="op">=</span> dl.<span class="kw">id</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">join</span> income i <span class="kw">on</span> i.ssn <span class="op">=</span> p.ssn</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">join</span> facebook_event_checkin fb <span class="kw">on</span> fb.person_id <span class="op">=</span> p.<span class="kw">id</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> dl.height <span class="kw">between</span> <span class="dv">65</span> <span class="kw">and</span> <span class="dv">67</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> dl.gender <span class="op">=</span> <span class="st">&#39;female&#39;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> dl.hair_color <span class="op">=</span> <span class="st">&#39;red&#39;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> dl.car_make <span class="op">=</span> <span class="st">&#39;Tesla&#39;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> dl.car_model <span class="op">=</span> <span class="st">&#39;Model S&#39;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> fb.event_name <span class="kw">like</span> <span class="st">&#39;%SQL Symphony Concert%&#39;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">and</span> fb.<span class="dt">date</span> <span class="kw">between</span> <span class="dv">20171200</span> <span class="kw">and</span> <span class="dv">20171231</span>;</span></code></pre></div>
+<p>This now gives us the true mastermind behind the murder, Miranda
+Priestly, which is validated by the solution table at the
+end.</p></main>
+        </body>
+</html>

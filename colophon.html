@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="About this site">
+<head>
+    <title>Colophon</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <!--
+            Every hexagon below is a mathematically exact regular hexagon:
+            vertices at angles 0,60,120,180,240,300 degrees around its own
+            center, all sharing one circumradius for the black cells (r=35)
+            and one circumradius for the red cells (r=32.55). The 7 cell
+            centers sit on an exact hex grid (radius 70 from the cluster
+            center, at 60-degree steps). Because both the individual hexagons
+            and the grid they sit on share full 6-fold symmetry, rotating the
+            whole group 60 degrees about the cluster center (107.95, 139.7)
+            maps the pattern exactly onto itself - no wobble, no seam.
+          -->
+          <g id="layer1">
+
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><p>I first heard about the idea of a
+<code>/colophon</code> page from <a
+href="https://slashpages.net/#colophon">Slash Pages</a>. I was not
+familiar with this word, but apparently that is the word used to define
+the section of a printed work that describes the publisher and/or
+publishing process. We can then adopt this terminology to web pages,
+describing the development process and technologies involved.</p>
+<p>I have had many iterations of this site over the years, but most of
+them have been based on <a
+href="https://docs.github.com/en/pages">GitHub Pages</a>. This is an
+offering by GitHub where you get a free personal static website at a URL
+matching your username. It is incredibly easy to use and is a perfect
+fit for a simple purpose like a personal blog.</p>
+<p>I originally started with artisanal, hand-written HTML. This was
+about as painful to maintain as you might guess. After a few years of
+that I migrated over to <a href="https://gohugo.io/">Hugo</a> (I was
+going through a bit of a phase with Go). This served me reasonably well,
+but I was always a little uneasy with the seemingly perpetual v0 nature
+of the project. This did not directly impact me at first though, so I
+put those concerns to the side. But after a while I got a new laptop and
+when I was setting up my development environment I realized I was about
+100 minor versions behind. When I finally upgraded Hugo it broke my site
+in a dozen tiny ways, and I decided it was time to revisit this project.
+I had been playing with the idea of my own static site generator for
+some time and this was the moment that pushed me over the edge.</p>
+<p>I had heard of <a href="https://pandoc.org/">Pandoc</a> before and
+was interested in trying it out but never had a compelling use-case. I
+thought this was an interesting idea: use Pandoc to hand-roll a static
+site generator. I always felt like Hugo had just a few too many bells
+and whistles for my needs. To complete this migration though I needed to
+nail down my core requirements:</p>
+<ul>
+<li>Build and deployment of the site must all be contained in 1-2 simple
+scripts that will be easy to maintain. I will often take a break for
+several months (or years) between iterations on this site, and it might
+be transparent how exactly the entire process functions.</li>
+<li>Several of my blog posts include TeX embeddings for properly
+displaying mathematical equations, and any replacement should retain
+that feature.</li>
+<li>I must be able to enrich individual posts with embedded HTML and
+JavaScript.</li>
+<li>I also need support for embedded Mermaid diagrams.</li>
+<li>Pages must be marked as draft or ready to publish. I will often
+write out the skeleton of a post idea and then reject it or simply not
+finish it. I need to be able to store those posts within the repo
+without automatically publishing.</li>
+<li>There should be some form of tagging system. Honestly I do not use
+tags as heavily as I could, primarily because the volume of posts on
+this site is pretty low. But tags are incredibly powerful as a
+search/filter tool and they should be supported within this new
+model.</li>
+<li>The output format for all pages should prioritize simple semantic
+HTML with minimal CSS.</li>
+<li>(Optional) RSS feed generation. I doubt anyone actually subscribes
+to my current RSS feed, but I think it is good practice to build in that
+support early.</li>
+</ul></main>
+        </body>
+</html>

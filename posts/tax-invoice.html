@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Generate an invoice for your US
+federal taxes">
+<head>
+    <title>Tax Invoice</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <!--
+            Every hexagon below is a mathematically exact regular hexagon:
+            vertices at angles 0,60,120,180,240,300 degrees around its own
+            center, all sharing one circumradius for the black cells (r=35)
+            and one circumradius for the red cells (r=32.55). The 7 cell
+            centers sit on an exact hex grid (radius 70 from the cluster
+            center, at 60-degree steps). Because both the individual hexagons
+            and the grid they sit on share full 6-fold symmetry, rotating the
+            whole group 60 degrees about the cluster center (107.95, 139.7)
+            maps the pattern exactly onto itself - no wobble, no seam.
+          -->
+          <g id="layer1">
+
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><h2 id="description">Description</h2>
+<p>This project was somewhat inspired by the recent <a
+href="https://www.crfb.org/blogs/breaking-down-one-big-beautiful-bill">$2.4-3
+trillion dollar addition to the US federal debt</a>, as well as
+stumbling across an old Obama-era web site showing <a
+href="https://web.archive.org/web/20170122032834/https://obamawhitehouse.archives.gov/2014-taxreceipt">your
+taxpayer receipt</a>. I thought it would be an interesting exercise to
+conceptualize the US federal budget, tax revenues, and debt/deficit as
+an invoice being sent to each American.</p>
+<h2 id="data-sources">Data sources</h2>
+<p>There are some surprisingly convenient, free, and unauthenticated
+(keyless) APIs run by the US government. I am relying on two, one for
+financial data and one for population data:</p>
+<ul>
+<li><a
+href="https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government">US
+Department of the Treasury</a></li>
+<li><a
+href="https://www.census.gov/data/developers/data-sets/popest-popproj/popest.html">US
+Census Bureau</a></li>
+</ul>
+<h2 id="methodology">Methodology</h2>
+<p>The Treasury Department provides data for both revenues and expenses
+of the federal government. In order to derive an individualized taxpayer
+invoice I made the following assumptions:</p>
+<ul>
+<li>The user provides federal income for a given tax year as input.</li>
+<li>I define a “funded ratio” as the proportion of federal expenses that
+are covered by tax revenue in a given year. This is calculated as total
+revenue divided by total expenses.</li>
+<li>The user’s share of federal revenue is calculated by dividing their
+income taxes by the total individual income taxes received in that year.
+This proportion is then used to scale down expenses. However, since
+individuals don’t pay debt directly through taxes, I allocate the debt
+burden on a simple per-capita basis.</li>
+<li>Each expense is divided into 3 categories based on funding sources:
+1) income tax, 2) other, non-individual income taxes such as corporate
+income tax, excise taxes, and customs duties, or 3) debt. To simplify
+the invoice, I exclude the portion of each expense funded by non-income
+taxes. Only the portions attributable to individual income taxes and
+debt are shown. The total of debt and individual income tax is listed
+under “Amount Due”, the income tax is “Amount Paid”, and the debt is
+aggregated into the rolling “Balance”.</li>
+</ul>
+<script type="text/javascript" src="/assets/js/invoice.js"></script>
+<link rel="stylesheet" href="/assets/css/invoice.css">
+
+<div id="spinner" class="spinner hidden"></div>
+
+<div class="form-container">
+    <h1>Generate Invoice</h1>
+    <div class="form-group"><label for="year">Year</label><input type="number" id="year" placeholder="e.g. 2023" /></div>
+    <div class="form-group"><label for="income-tax">Income Tax Paid</label><input type="number" id="income-tax" placeholder="Enter income tax paid" /></div>
+    <button class="submit-btn" onclick="generateInvoice()">Submit</button>
+</div></main>
+        </body>
+</html>
