@@ -249,6 +249,7 @@ ul.blog-posts li {
 
 ul.blog-posts li span {
     flex: 0 0 130px;
+    margin-bottom: 0.8em;
 }
 
 @media (max-width: 600px) {
