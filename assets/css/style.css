@@ -76,7 +76,6 @@ header.scrolled {
 #logo {
     grid-column: 1;
     justify-self: start;
-    opacity: 0.5;
     margin-left: 20px;
 }
 
@@ -85,7 +84,7 @@ header.scrolled {
 }
 
 .logo-hex-border, .logo-hex-core {
-    fill: #aa0000;
+    fill: #a02424;
 }
 
 header nav {

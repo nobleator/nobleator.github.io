@@ -1,2 +1,0 @@
-User-Agent: *
-Sitemap: https://nobleator.github.io/sitemap.xml
