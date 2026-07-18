@@ -252,6 +252,41 @@ ul.blog-posts li span {
     margin-bottom: 0.8em;
 }
 
+ul.blog-posts li .tags {
+    margin-left: auto;
+    flex: 0 0 auto;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-bottom: 1.5em;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 10px;
+}
+
+a.tag {
+    color: var(--helptext);
+    font-size: 0.85em;
+    font-style: italic;
+    text-decoration: none;
+    border: 0;
+}
+
+a.tag::before {
+    content: "#";
+}
+
+a.tag:hover {
+    color: var(--link-hover);
+    transition: 0.2s;
+}
+
 @media (max-width: 600px) {
     header {
         position: static;
@@ -274,6 +309,10 @@ ul.blog-posts li span {
 
     ul.blog-posts li span {
         flex: none;
+    }
+
+    ul.blog-posts li .tags {
+        margin-left: 0;
     }
 
     main, footer {
