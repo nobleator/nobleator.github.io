@@ -2,11 +2,14 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Generate an invoice for your US
+federal taxes">
 <head>
-    <title></title>
+    <title>Tax Invoice</title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/root.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 <body>
         <header>
@@ -57,22 +60,60 @@
         </nav>
         <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
         </header>
-        <main><h1 id="posts-tagged-chatgpt">Posts tagged ‘chatgpt’</h1>
-<ul class="blog-posts">
-<li>
-<span><i><time datetime='2023-10-16'>2023-10-16</time></i></span><a href='/posts/2023-10-17-prompt-injection-gandalf.html'>Prompt
-Injection with Gandalf</a><span
-class="tags"><a href='/tags/ai.html' class='tag'>ai</a>
-<a href='/tags/chatgpt.html' class='tag'>chatgpt</a>
-<a href='/tags/puzzle.html' class='tag'>puzzle</a></span>
-</li>
-<li>
-<span><i><time datetime='2023-06-09'>2023-06-09</time></i></span><a href='/posts/2023-06-09-chatgpt-writing-styles.html'>ChatGPT
-Writing Styles</a><span
-class="tags"><a href='/tags/ai.html' class='tag'>ai</a>
-<a href='/tags/chatgpt.html' class='tag'>chatgpt</a>
-<a href='/tags/ai-assist.html' class='tag'>ai-assist</a></span>
-</li>
-</ul></main>
+        <main><h2 id="description">Description</h2>
+<p>This project was somewhat inspired by the recent <a
+href="https://www.crfb.org/blogs/breaking-down-one-big-beautiful-bill">$2.4-3
+trillion dollar addition to the US federal debt</a>, as well as
+stumbling across an old Obama-era web site showing <a
+href="https://web.archive.org/web/20170122032834/https://obamawhitehouse.archives.gov/2014-taxreceipt">your
+taxpayer receipt</a>. I thought it would be an interesting exercise to
+conceptualize the US federal budget, tax revenues, and debt/deficit as
+an invoice being sent to each American.</p>
+<h2 id="data-sources">Data sources</h2>
+<p>There are some surprisingly convenient, free, and unauthenticated
+(keyless) APIs run by the US government. I am relying on two, one for
+financial data and one for population data:</p>
+<ul>
+<li><a
+href="https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government">US
+Department of the Treasury</a></li>
+<li><a
+href="https://www.census.gov/data/developers/data-sets/popest-popproj/popest.html">US
+Census Bureau</a></li>
+</ul>
+<h2 id="methodology">Methodology</h2>
+<p>The Treasury Department provides data for both revenues and expenses
+of the federal government. In order to derive an individualized taxpayer
+invoice I made the following assumptions:</p>
+<ul>
+<li>The user provides federal income for a given tax year as input.</li>
+<li>I define a “funded ratio” as the proportion of federal expenses that
+are covered by tax revenue in a given year. This is calculated as total
+revenue divided by total expenses.</li>
+<li>The user’s share of federal revenue is calculated by dividing their
+income taxes by the total individual income taxes received in that year.
+This proportion is then used to scale down expenses. However, since
+individuals don’t pay debt directly through taxes, I allocate the debt
+burden on a simple per-capita basis.</li>
+<li>Each expense is divided into 3 categories based on funding sources:
+1) income tax, 2) other, non-individual income taxes such as corporate
+income tax, excise taxes, and customs duties, or 3) debt. To simplify
+the invoice, I exclude the portion of each expense funded by non-income
+taxes. Only the portions attributable to individual income taxes and
+debt are shown. The total of debt and individual income tax is listed
+under “Amount Due”, the income tax is “Amount Paid”, and the debt is
+aggregated into the rolling “Balance”.</li>
+</ul>
+<script type="text/javascript" src="/assets/js/invoice.js"></script>
+<link rel="stylesheet" href="/assets/css/invoice.css">
+
+<div id="spinner" class="spinner hidden"></div>
+
+<div class="form-container">
+    <h1>Generate Invoice</h1>
+    <div class="form-group"><label for="year">Year</label><input type="number" id="year" placeholder="e.g. 2023" /></div>
+    <div class="form-group"><label for="income-tax">Income Tax Paid</label><input type="number" id="income-tax" placeholder="Enter income tax paid" /></div>
+    <button class="submit-btn" onclick="generateInvoice()">Submit</button>
+</div></main>
         </body>
 </html>

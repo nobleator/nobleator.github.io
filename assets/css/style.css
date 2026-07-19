@@ -9,7 +9,7 @@
     --code-color: #222;
     --blockquote-color: #222;
     --blockquote-border: #999;
-    --helptext: #777;
+    --helptext: rgb(119, 119, 119, 0.75);
     --input-bg: transparent;
     --input-color: inherit;
 }
@@ -25,7 +25,7 @@
         --code-bg: #777;
         --code-color: #ddd;
         --blockquote-color: #ccc;
-        --helptext: #aaa;
+        --helptext: rgb(170, 170, 170, 0.75);
         --input-bg: #252525;
         --input-color: #ddd;
     }
@@ -41,7 +41,7 @@
     --code-bg: #777;
     --code-color: #ddd;
     --blockquote-color: #ccc;
-    --helptext: #aaa;
+    --helptext: rgb(170, 170, 170, 0.75);
     --input-bg: #252525;
     --input-color: #ddd;
 }
@@ -134,6 +134,25 @@ button:focus-visible, .button:focus-visible {
     outline-offset: 2px;
 }
 
+.history-row {
+    display: flex;
+    align-items: baseline;
+}
+.history-timeline {
+    flex: 0 0 100px;
+    font-size: 0.8em;
+    text-align: right;
+    padding-right: 0.5em;
+    color: var(--helptext);
+    border-right: 2px solid var(--helptext);
+    align-self: stretch;
+}
+.history-detail {
+    flex: 1;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+
 main {
     max-width: 720px;
     margin: auto;
@@ -150,6 +169,14 @@ footer {
 h1, h2, h3, h4, h5, h6, strong, b {
     color: var(--heading);
 }
+
+/* h1 is 25% larger than baseline, down to 5% larger for h6 */
+h1 { font-size: clamp(1.19rem, 1.17rem + 0.1vw,   1.25rem); }
+h2 { font-size: clamp(1.15rem, 1.13rem + 0.1vw,   1.21rem); }
+h3 { font-size: clamp(1.11rem, 1.09rem + 0.1vw,   1.17rem); }
+h4 { font-size: clamp(1.07rem, 1.05rem + 0.1vw,   1.13rem); }
+h5 { font-size: clamp(1.03rem, 1.01rem + 0.1vw,   1.09rem); }
+h6 { font-size: clamp(1.00rem, 0.98rem + 0.08vw,  1.05rem); }
 
 a {
     color: inherit;

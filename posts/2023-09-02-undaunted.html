@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Undaunted: Stalingrad in flowchart
+form">
+<head>
+    <title>Undaunted</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo' alt='nobleator logo, links to homepage'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="nobleator logo"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <g id="layer1">
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><h2 id="description">Description</h2>
+<p><a
+href="https://boardgamegeek.com/boardgame/354570/undaunted-stalingrad"><em>Undaunted:
+Stalingrad</em></a> is a <a
+href="https://en.wikipedia.org/wiki/Legacy_game">legacy</a> style
+boardgame within the broader Undaunted series. In many ways,
+<em>Stalingrad</em> feels like the culmination and refinement of all the
+ideas included within the first games. You play as a lieutenant in
+charge of a platoon of soldiers fighting their way through the city of
+Stalingard in World War II, representing your troops and the fog of war
+via brilliant deck-builder mechanics.</p>
+<p>As this is a legacy game, you and your partner choose a faction,
+either the Germans or the Soviets, and then you play as that faction for
+every scenario. With each match there are 3 components:</p>
+<ol type="1">
+<li>The game state, which simply identifies where you are in the network
+of possible outcomes.</li>
+<li>A briefing, which is a text description of the state of your platoon
+and the story of the battle. This will also include details that impact
+your deck, such as promotions or injuries.</li>
+<li>The scenario details themselves. This includes the map for that
+specific battle, victory conditions, special instructions for unlocking
+new units, or even secret intel in order to spring a trap on your
+opponent.</li>
+</ol>
+<p>As you progress through the game you track the results of each match
+on a table at the front of your faction-specific scenario book. There is
+a lookup table to tell you which briefing corresponds with your game
+state based on the victor of the prior scenario. While playing through
+this, I became curious what the universe of possible routes to victory
+existed, so I decided to map them all out in a flowchart.</p>
+<h2 id="technical-details">Technical Details</h2>
+<p>If you don’t care how I made this, skip ahead.</p>
+<p>The chart itself is built with <a
+href="https://www.google.com">MermaidJS</a>. I manually transcribed the
+game state permutations from the scenario books into a flat file, which
+I then loaded into a <a href="https://www.sqlite.org">SQLite</a>
+database which is included in this website’s static assets. This SQLite
+file is then loaded dynamically into the browser via <a
+href="https://sql.js.org">sql.js</a>. This DB is then queried via
+JavaScript to parse out the nodes and edges and build the Mermaid input
+graph, along with click events and highlighting based on user input.</p>
+<p>Goals:</p>
+<ul>
+<li>Flowchart of game states, briefings, and scenarios</li>
+<li>Highlighted route based on specified game states</li>
+<li>Popups with briefing details including narrative &amp; upgrades</li>
+<li>Popups with scenario map silhouettes</li>
+<li>Consolidated narratives based on specified game states</li>
+<li>Animation of battle maps based on specified game states</li>
+</ul>
+<h2 id="flowchart">Flowchart</h2>
+<p>Note that you can pan and zoom around the chart, which you will
+likely need as it is a large diagram. If you want to highlight a
+specific route, you can add a list of comma-separated game state codes
+in the input box, which will then highlight the associated nodes and
+edges.</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"
+    integrity="sha512-n7swEtVCvXpQ7KxgpPyp0+DQQEf5vPpmzCRl14x2sp2v5LpCYCjrAx03mkBAbWwGF9eUoIk8YVcDFuJRIeYttg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.4.0/mermaid.min.js"
+    integrity="sha512-BudIsnV3kKODHjsLF8hfIcVW7XXhCW66WYqP9Q7LANbzL4Gfm8TSMB+Yv/llYsVON6wuntE35kLlpEmCaQcI6w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.5.0/dist/svg-pan-zoom.min.js"></script>
+<style>
+    #graphDiv {
+        max-width: none !important;
+        height: 100%;
+    }
+    .active-edge {
+        stroke: #f66;
+    }
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        visibility: hidden;
+        background-color: #4d4d4d ;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    }
+</style>
+<div>
+    <hr>
+    
+    <label for="hypo-game-state">Game state</label>
+    <input id="hypo-game-state" type="text" style="width: 100%;"/>
+
+    <hr>
+
+    <div class="container">
+        <div id="graph" class="mermaid" style="height: 100vh; position: relative;">
+            <span>Loading...</span>
+        </div>
+        
+        <div id="detail-modal" class="overlay">
+            <button id="detail-modal-close-btn" style="margin: 1em;">Close</button>
+            <div id="detail-modal-contents" style="margin: 2em;"></div>
+        </div>
+    </div>
+    
+    <hr>
+</div></main>
+            <script src="/assets/js/undaunted.js"></script>
+    </body>
+</html>

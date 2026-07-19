@@ -2,11 +2,13 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Everyday heuristics for life">
 <head>
-    <title></title>
+    <title>Everyday Heuristics</title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/root.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 <body>
         <header>
@@ -57,22 +59,44 @@
         </nav>
         <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
         </header>
-        <main><h1 id="posts-tagged-chatgpt">Posts tagged ‘chatgpt’</h1>
-<ul class="blog-posts">
-<li>
-<span><i><time datetime='2023-10-16'>2023-10-16</time></i></span><a href='/posts/2023-10-17-prompt-injection-gandalf.html'>Prompt
-Injection with Gandalf</a><span
-class="tags"><a href='/tags/ai.html' class='tag'>ai</a>
-<a href='/tags/chatgpt.html' class='tag'>chatgpt</a>
-<a href='/tags/puzzle.html' class='tag'>puzzle</a></span>
-</li>
-<li>
-<span><i><time datetime='2023-06-09'>2023-06-09</time></i></span><a href='/posts/2023-06-09-chatgpt-writing-styles.html'>ChatGPT
-Writing Styles</a><span
-class="tags"><a href='/tags/ai.html' class='tag'>ai</a>
-<a href='/tags/chatgpt.html' class='tag'>chatgpt</a>
-<a href='/tags/ai-assist.html' class='tag'>ai-assist</a></span>
-</li>
-</ul></main>
+        <main><p>When navigating through life you will often come across
+some unit translations. A common occurrence for an American might be
+converting the temperature in Celsius to Fahrenheit. In this post I have
+consolidated some of my favorite heuristics for quick, approximate
+calculations.</p>
+<h2 id="temperature">Temperature</h2>
+<p>The exact equation for converting Celsius to Fahrenheit is <span
+class="math display">\[ F = (9 / 5 * C) + 32 \]</span></p>
+<p>This can be quickly approximated by the heuristic “double and add
+30”, which is far easier to do in your head.</p>
+<h2 id="distance">Distance</h2>
+<p>1 yard is technically 0.9144 meters, but that is close enough to
+generally be equal to 1.</p>
+<p>5 kilometers is just above 3 miles, while 1 mile is just above 1.5
+kilometers.</p>
+<h2 id="area">Area</h2>
+<p>Soccer fields vary in size, making any reference prone to error.
+However the pitch size recommended by FIFA is <a
+href="https://publications.fifa.com/en/football-stadiums-guidelines/technical-guideline/stadium-guidelines/pitch-dimensions-and-surrounding-areas/">105
+meters by 68 meters</a>, for a total area of 7,140 square meters. Given
+that an acre is defined as <a
+href="https://www.merriam-webster.com/dictionary/acre">4,047 square
+meters</a>, we can determine: <span class="math display">\[ (105m * 68m)
+/ 4,047m^2 = 7,140m^2 / 4,047m^2 \approx 1.764 \]</span> Or in other
+words, 1 acre is a little more than half a soccer field.</p>
+<h2 id="money">Money</h2>
+<p>Given a 40 hour work-week and 52 weeks in a year, the average
+full-time worker has a little over 2000 hours worked per year. This
+makes it simple to convert an hourly rate to annual or vice versa. If
+you know your hourly rate, simply double it and add three 0’s and that
+is your annual income.</p>
+<p>Rule of 72: You can estimate how long it will take to double an
+investment by dividing 72 by your rate of return (in percent format).
+For instance, a 6% return on an investment will result in : <span
+class="math display">\[ 72 / 6 \% = 12\:years \]</span></p>
+<p>The neat thing about the rule of 72 is that it doesn’t matter what
+your actual starting number is, you are just looking at doubling
+whatever that is. This also works just as well for debts as it does for
+investments.</p></main>
         </body>
 </html>

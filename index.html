@@ -61,7 +61,7 @@
         <main><p>Hi, thanks for stopping by my little corner of the
 internet. I hope you find something here useful, inspirational, or
 entertaining!</p>
-<h3 id="purpose">Purpose</h3>
+<h1 id="purpose">Purpose</h1>
 <p>This website is intended to fulfill 5 main goals (in no particular
 priority order):</p>
 <ol type="1">
@@ -75,26 +75,46 @@ tabs)</li>
 <li>My personal writing, whether fictional, notes on software team
 productivity, board game reviews, or other hobbies</li>
 </ol>
-<h3 id="about-me">About Me</h3>
+<h1 id="about-me">About Me</h1>
 <p>Software developer, board game buff, armchair historian. You can find
 me on <a href="https://github.com/nobleator">GitHub here</a> and <a
-href="https://www.linkedin.com/in/ben-noble/">LinkedIn here</a>. I’ve
-spent time working as a computer science teaching assistant, a defense
-contractor, and a software developer at an alternative asset management
-firm.</p>
-<h3 id="tech-toolbox">Tech Toolbox</h3>
+href="https://www.linkedin.com/in/ben-noble/">LinkedIn here</a>.</p>
+<div class="history">
+<div class="history-row">
+    <div class="history-timeline">2018-present</div>
+    <div class="history-detail">
+    Software engineer at an alternative asset management firm, building tools to support the entire investment lifecycle. This includes building web applications, processing external data feeds, and establishing DevOps processes to support the software development lifecycle and satisfy audit requirements.
+    </div>
+</div>
+<div class="history-row">
+    <div class="history-timeline">2016-2018</div>
+    <div class="history-detail">
+    Defense consultant supporting the US Air Force with 2 primary focus areas:
+    <ol>
+    <li>Operational and functional modeling for satellite communication and personnel recovery systems using <a href="https://dodcio.defense.gov/DoDAF/">DODAF</a>.</li>
+    <li>Design and operation of a large mixed integer optimzation model using Python and <a href="https://www.ibm.com/products/ilog-cplex-optimization-studio">CPLEX</a> to optimize weapon system maintenance and deployment schedules.</li>
+    </div>
+</div>
+<div class="history-row">
+    <div class="history-timeline">2012-2016</div>
+    <div class="history-detail">
+    Undergraduate studies at <a href="https://www.gmu.edu/">George Mason University</a>, graduating magna cum laude with a B.S. in Systems Engineering with a concentration in Operations Research. Worked as a teaching assistant for the <a href="https://sparc.cs.gmu.edu/home.jsp">SPARC</a> project in the Department of Computer Science and as a <a href="https://cec.gmu.edu/academics/current-student-resources/peer-mentor-center">peer mentor</a> for the School of Engineering.
+    </div>
+</div>
+</div>
+<h1 id="tech-toolbox">Tech Toolbox</h1>
 <p>Here are some of the tools I enjoy using in my development work, both
 professionally and personally.</p>
 <p>Languages:</p>
 <ul>
-<li><a
-href="https://learn.microsoft.com/en-us/dotnet/csharp/">C#</a></li>
-<li><a href="TODO">F#</a></li>
-<li><a href="https://www.python.org/">Python</a><br />
-</li>
+<li><a href="https://github.com/dotnet">.NET</a> with <a
+href="https://learn.microsoft.com/en-us/dotnet/csharp/">C#</a> and <a
+href="https://learn.microsoft.com/en-us/dotnet/fsharp/what-is-fsharp">F#</a></li>
+<li><a href="https://www.python.org/">Python</a></li>
 <li>Vanilla <a
 href="https://developer.mozilla.org/en-US/docs/Web/javascript">Javascript</a>
-(and HTML)</li>
+(and HTML). React is fine too, but you can get a surprisingly long way
+with just JavaScript.</li>
 <li>SQL (<a
 href="https://www.microsoft.com/en-us/sql-server/sql-server-2022">MS SQL
 Server</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, <a
@@ -102,46 +122,39 @@ href="https://www.sqlite.org/index.html">SQLite</a>, <a
 href="https://www.snowflake.com/en/">Snowflake</a>, and <a
 href="https://duckdb.org/">DuckDB</a> dialects)</li>
 </ul>
-<p>Frameworks &amp; platforms:</p>
+<p>Applications:</p>
 <ul>
-<li><a href="https://github.com/dotnet">.NET</a><br />
-</li>
-<li><a
-href="https://learn.microsoft.com/en-us/azure/devops/?view=azure-devops">Azure
-DevOps</a></li>
-</ul>
-<p>Tools &amp; libraries:</p>
-<ul>
-<li><a href="https://github.com/dbeaver/dbeaver">DBeaver</a>: universal
-database tool</li>
-<li><a href="https://github.com/DapperLib/Dapper">Dapper</a>:
-lightweight ORM for .NET<br />
-</li>
-<li><a href="https://github.com/restsharp/RestSharp">RestSharp</a>:
-lightweight HTTP client library for .NET<br />
-</li>
-<li><a href="https://github.com/HangfireIO/Hangfire">Hangfire</a>:
-background job processing for .NET<br />
-</li>
-<li><a href="https://github.com/nickbnf/glogg">glogg</a>: log file
-explorer</li>
+<li><a href="https://github.com/dbeaver/dbeaver">DBeaver</a>: A
+universal database tool, great for supporting a variety of database
+dialects at once.</li>
 <li><a href="https://github.com/microsoft/vscode">Visual Studio
-Code</a>: flexible, cross-platform IDE<br />
-</li>
-<li><a href="https://github.com/docker">Docker &amp; Docker Compose</a>:
-container management &amp; (basic) orchestration</li>
-<li>Podman</li>
-<li><a href="https://jupyter.org/">Jupyter Notebook &amp;
-JupyterLab</a>: interactive computational documents<br />
-</li>
-<li><a href="https://git-scm.com/">Git</a>: distributed version control
-system<br />
-</li>
-<li><a href="https://obsidian.md/">Obsidian</a>: note keeping /
+Code</a>: A flexible, cross-platform IDE. I don’t love how much memory
+it consumes, and the extensions ecosystem can be a little spooky
+sometimes. But it gets the job done, and that’s says a lot.</li>
+<li><a href="https://podman.io/">Podman</a>: Container management
+system, similar to Docker but truly open source. Also, better support
+for secure rootless mode.</li>
+<li><a href="https://git-scm.com/">Git</a>: Distributed version control
+system. Table stakes these days to retain history of your work.</li>
+<li><a href="https://obsidian.md/">Obsidian</a>: Note keeping /
 knowledge management system (unfortunately not open source, but a solid
-product)</li>
+product). There is also a community plugin to use git to synchronize
+your notes across devices.</li>
+<li><a href="https://notepad-plus-plus.org/">Notepad++</a> / <a
+href="https://www.sublimetext.com/">Sublime Text</a> / <a
+href="https://orbitalquark.github.io/textadept/">Textadept</a>: I wish I
+liked vim/neovim, but the context switching between my terminal and
+every other “regular” consumer-grade application is too much overhead
+for me. I’m regularly on the hunt for an application that is 1)
+cross-platform, 2) has customizable autocomplete with support for a
+variety of programming languages, and 3) lightweight and fast, even when
+processing large files. Notepad++ is decent at this, but is
+Windows-only. Sublime Text is promising, but I would prefer an open
+source application. Maybe I really do just need to embrace vim. If you
+have any suggestions on how to live with vim in a workday still
+dominated by Outlook and Excel, please let me know.</li>
 </ul>
-<h3 id="from-around-the-web">From Around the Web</h3>
+<h1 id="from-around-the-web">From Around the Web</h1>
 <details>
 <summary>
 Games

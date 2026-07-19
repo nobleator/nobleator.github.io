@@ -2,8 +2,10 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Can you solve Paige’s mysterious
+murder?">
 <head>
-    <title></title>
+    <title>(Web) Paige Murder Mystery</title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/root.js"></script>
@@ -57,22 +59,42 @@
         </nav>
         <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
         </header>
-        <main><h1 id="posts-tagged-chatgpt">Posts tagged ‘chatgpt’</h1>
-<ul class="blog-posts">
-<li>
-<span><i><time datetime='2023-10-16'>2023-10-16</time></i></span><a href='/posts/2023-10-17-prompt-injection-gandalf.html'>Prompt
-Injection with Gandalf</a><span
-class="tags"><a href='/tags/ai.html' class='tag'>ai</a>
-<a href='/tags/chatgpt.html' class='tag'>chatgpt</a>
-<a href='/tags/puzzle.html' class='tag'>puzzle</a></span>
-</li>
-<li>
-<span><i><time datetime='2023-06-09'>2023-06-09</time></i></span><a href='/posts/2023-06-09-chatgpt-writing-styles.html'>ChatGPT
-Writing Styles</a><span
-class="tags"><a href='/tags/ai.html' class='tag'>ai</a>
-<a href='/tags/chatgpt.html' class='tag'>chatgpt</a>
-<a href='/tags/ai-assist.html' class='tag'>ai-assist</a></span>
-</li>
-</ul></main>
-        </body>
+        <main><p><em>Note: Attempting to solve this puzzle on a mobile
+device will be frustrating.</em></p>
+<p>Alice, Bob, Charlie, and Paige were attending a conference on
+synergistic opportunities within AI-powered blockchain at a retreat
+center. It was a stormy evening, and as the attendees were headed to the
+hot yoga room, suddenly lightning crashed and the lights went out. There
+was much confusion and screaming, but eventually the backup generator
+kicked on. Paige was discovered shortly afterwards in the library, with
+a knife embedded deep in her heart. Alice, Bob, and Charlie are the
+primary suspects and have been corralled for questioning.</p>
+<p>Each suspect owns a unique vehicle (bicycle, scooter, or vespa), a
+unique weapon (candlestick, knife, or bowling pin), and has a unique pet
+(hamster, goldfish, or parrot). They also all arrived at different
+times, each 30 minutes apart.</p>
+<p>The detective on-site is new to the job and takes notes in a curious,
+jumbled fashion. To make things worse, he bumped into you on his way
+here and dropped the case file. All the clues have been scattered across
+this page! All he has for you is this:</p>
+<link rel="stylesheet" href="/assets/css/murder.css">
+
+<div>
+    <p class="clue">Clue 1 of 7: The owner of the vespa arrived before the owner of the bicycle.
+    </p>
+    <!-- Clue 2 of 7: The owner of the hamster arrived after the owner of the bowling pin. -->
+
+    <select id="answer">
+        <option value="">Whodunnit?</option>
+        <option value="a">Alice</option>
+        <option value="b">Bob</option>
+        <option value="c">Charlies</option>
+    </select>
+    <button id="checkAnswer">Check answer</button>
+
+    <p>P.S. Make sure you <i>inspect</i> the page closely!</p>
+</div></main>
+            <script src="/assets/js/core.min.js"></script>
+        <script src="/assets/js/clue.js"></script>
+    </body>
 </html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A calculator for the A Song of Ice and
+Fire Miniatures Game">
+<head>
+    <title>ASOIAF Miniatures Calculator</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo' alt='nobleator logo, links to homepage'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="nobleator logo"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <g id="layer1">
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects.html'>Projects</a>-->
+        <a href='/blog.html'>Blog</a>
+        <a href='/colophon.html'>Colophon</a>
+        <a href='/blogroll.html'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><h2 id="description">Description</h2>
+<p>This is a calculator used to graph probabilities for various attack
+combinations for the <a href="https://asoiaf.cmon.com/">A Song Of Ice
+and Fire Miniatures Game</a>. This is a tabletop wargame based in G.R.R.
+Martin’s fantasy world where 2-4 (usually just 2) players build armies
+from different factions then compete to win a certain number of victory
+points. There are different game modes that determine how to achieve
+VPs, but generally killing your opponent’s troops will help.</p>
+<p>The calculations used in determining how much damage to do to your
+opponent are simple to perform in-game, as it is simply a matter of
+rolling X dice, comparing to Y value, and repeat. However, there are
+combinations of modifiers and conditions that can skew these numbers,
+and I found it difficult to get a good intuitive sense of how these
+various effects compared to each other. Using this calculator you can
+explore the mathematical outcomes for different permutations and see the
+results for yourself.</p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Minimalist code, no importing a universal statistics library</li>
+<li>Lightweight, stateless application</li>
+<li>Learning exercise to freshen up on statistics</li>
+</ul>
+<h2 id="statistics---formulas">Statistics - Formulas</h2>
+<p>Binomial distribution<br />
+<span class="math display">\[ P(X=r) = {n \choose r} \cdot p ^ r \cdot
+(1 - p) ^ {n - r} \]</span></p>
+<p>N choose R<br />
+<span class="math display">\[ {n \choose r} = \frac {n!} {r! (n - r)!}
+\]</span></p>
+<p>Multinomial distribution<br />
+<span class="math display">\[ f(x) = \frac {n!} {x_1! x_2! ... x_n!}
+{\pi_1 ^ {x_1}} {\pi_2 ^ {x_2}} ... {\pi_n ^ {x_n}} \]</span></p>
+<p>Re-rolling (for both attack and defense rolls)<br />
+<span class="math display">\[ p \prime = (1 - p)p \]</span></p>
+<h2 id="statistics---implementation">Statistics - Implementation</h2>
+<p>The statistics formulas used above are all implemented in JavaScript.
+There is a Statistics class that contains all the needed functions,
+including some pre-calculated factorials to avoid expensive
+computations:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Statistics {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">constructor</span>() {  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">factorials</span> <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">24</span><span class="op">,</span> <span class="dv">120</span><span class="op">,</span> <span class="dv">720</span><span class="op">,</span> <span class="dv">5040</span><span class="op">,</span> <span class="dv">40320</span><span class="op">,</span> <span class="dv">362880</span><span class="op">,</span> <span class="dv">3628800</span><span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="dv">39916800</span><span class="op">,</span> <span class="dv">479001600</span><span class="op">,</span> <span class="dv">6227020800</span><span class="op">,</span> <span class="dv">87178291200</span><span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="dv">1307674368000</span><span class="op">,</span> <span class="dv">20922789888000</span><span class="op">,</span> <span class="dv">355687428096000</span>]<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">factorial</span>(x) {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="kw">this</span><span class="op">.</span><span class="at">factorials</span>[x] <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">factorials</span>[x]<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> newFactorial <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">factorial</span>(x <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> x<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">factorials</span>[x] <span class="op">=</span> newFactorial<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> newFactorial<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nCr</span>(n<span class="op">,</span> r) {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">factorial</span>(n) <span class="op">/</span> (<span class="kw">this</span><span class="op">.</span><span class="fu">factorial</span>(r) <span class="op">*</span> <span class="kw">this</span><span class="op">.</span><span class="fu">factorial</span>((n <span class="op">-</span> r)))<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">binomial</span>(p<span class="op">,</span> n<span class="op">,</span> r) {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="fu">nCr</span>(n<span class="op">,</span> r) <span class="op">*</span> (p <span class="op">**</span> r) <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> p) <span class="op">**</span> (n <span class="op">-</span> r)<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">multinomial</span>(n<span class="op">,</span> xVector<span class="op">,</span> piVector) {</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (xVector<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">0</span> <span class="op">||</span> xVector<span class="op">.</span><span class="at">length</span> <span class="op">!==</span> piVector<span class="op">.</span><span class="at">length</span>) {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="st">&quot;Vectors must be the same non-zero length&quot;</span><span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (xVector<span class="op">.</span><span class="fu">reduce</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">,</span> <span class="dv">0</span>) <span class="op">!==</span> n) {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="st">&quot;x vector must sum to n&quot;</span><span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> denominator <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> rhs <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        xVector<span class="op">.</span><span class="fu">forEach</span>((x<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>            denominator <span class="op">*=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">factorial</span>(x)<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            rhs <span class="op">*=</span> piVector[i] <span class="op">**</span> x<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        })<span class="op">;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="kw">this</span><span class="op">.</span><span class="fu">factorial</span>(n) <span class="op">/</span> denominator) <span class="op">*</span> rhs<span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>These functions are then used within the rest of the app where needed
+in various <code>calculate*</code> functions such as this:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">calculateHits</span>(options<span class="op">,</span> hitChance) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> hitProbabilities <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> numberOfHits <span class="op">=</span> options<span class="op">.</span><span class="at">dice</span><span class="op">;</span> numberOfHits <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> numberOfHits<span class="op">--</span>) { </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (options<span class="op">.</span><span class="at">criticalBlow</span>) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> singleHitChance <span class="op">=</span> hitChance<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> criticalBlowHitChance <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="dv">6</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            singleHitChance <span class="op">-=</span> criticalBlowHitChance<span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> missChance <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> singleHitChance <span class="op">-</span> criticalBlowHitChance<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> maxPossibleSixes <span class="op">=</span> options<span class="op">.</span><span class="at">dice</span> <span class="op">-</span> numberOfHits<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> (<span class="kw">let</span> numberOfSixes <span class="op">=</span> maxPossibleSixes<span class="op">;</span> numberOfSixes <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> numberOfSixes<span class="op">--</span>) {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> numberOfMisses <span class="op">=</span> options<span class="op">.</span><span class="at">dice</span> <span class="op">-</span> numberOfHits <span class="op">-</span> numberOfSixes<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> n <span class="op">=</span> numberOfMisses <span class="op">+</span> numberOfHits <span class="op">+</span> numberOfSixes<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> x <span class="op">=</span> [numberOfMisses<span class="op">,</span> numberOfHits<span class="op">,</span> numberOfSixes]<span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> pi <span class="op">=</span> [missChance<span class="op">,</span> singleHitChance<span class="op">,</span> criticalBlowHitChance]<span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> probability <span class="op">=</span> STATISTICS<span class="op">.</span><span class="fu">multinomial</span>(n<span class="op">,</span> x<span class="op">,</span> pi)<span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> totalHits <span class="op">=</span> numberOfHits <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> numberOfSixes<span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                <span class="kw">let</span> existingHitTotal <span class="op">=</span> hitProbabilities<span class="op">.</span><span class="fu">find</span>(p <span class="kw">=&gt;</span> p<span class="op">.</span><span class="at">numberOfHits</span> <span class="op">===</span> totalHits)<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> (existingHitTotal) {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                    existingHitTotal<span class="op">.</span><span class="at">probability</span> <span class="op">+=</span> probability<span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                } <span class="cf">else</span> {</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                    hitProbabilities<span class="op">.</span><span class="fu">push</span>({ <span class="dt">numberOfHits</span><span class="op">:</span> totalHits<span class="op">,</span> <span class="dt">probability</span><span class="op">:</span> probability })<span class="op">;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="kw">let</span> probability <span class="op">=</span> STATISTICS<span class="op">.</span><span class="fu">binomial</span>(hitChance<span class="op">,</span> options<span class="op">.</span><span class="at">dice</span><span class="op">,</span> numberOfHits)<span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            hitProbabilities<span class="op">.</span><span class="fu">push</span>({ <span class="dt">numberOfHits</span><span class="op">:</span> numberOfHits<span class="op">,</span> <span class="dt">probability</span><span class="op">:</span> probability })<span class="op">;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    hitProbabilities<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a<span class="op">.</span><span class="at">numberOfHits</span> <span class="op">-</span> b<span class="op">.</span><span class="at">numberOfHits</span>)<span class="op">;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> hitProbabilities<span class="op">;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="calculator">Calculator</h2>
+<p>Any time you make a change to any of the inputs, the chart at the
+bottom will recalculate automatically. You can compare 2 units by
+selecting different values on the left (Unit A) and right (Unit B) sets
+of inputs.</p>
+
+<script type="text/javascript" src="/js/asoiaf-minis-calc.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+    integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/asoiaf-minis-calc.css">
+
+<div>
+    <hr>
+    
+    <div>
+        <button onclick="importInputs()">Import</button>
+        <input id="import" type="text"></input>
+        <button onclick="exportInputs()">Export</button>
+        <button onclick="copyExport()">Copy</button>
+        <pre id="export"></pre>
+    </div>
+
+    <div class="row">
+        <div class="left">
+            Unit A
+        </div>
+
+        <div class="right">
+            Unit B
+        </div>
+    </div>
+
+    <hr>
+
+    <form id="inputs">
+        <div class="row">
+            <div class="left">
+                <div>
+                    <input type="number" name="left-attack-dice" id="left-attack-dice" min="1" max="16" data-theme="dark">
+                    <label for="left-attack-dice" title="Number of attack dice being rolled">Attack dice</label>
+                </div>
+        
+                <div>
+                    <input type="number" id="left-attack-hit" min="1" max="6">
+                    <label for="left-attack-hit" title="Target value for attack dice to hit">Attack hit</label>
+                </div>
+                
+                <div>
+                    <input type="number" id="left-defense-block" min="1" max="6">
+                    <label for="left-defense-block" title="Target value for defensive dice to save">Defense save</label>
+                </div>
+        
+                <div>
+                    <input type="number" id="left-defense-morale" min="1" max="8">
+                    <label for="left-defense-morale" title="Target value for panic check to pass">Morale</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="left-include-blocks" checked>
+                    <label for="left-include-blocks">Include blocks</label>
+                </div>
+            </div>
+
+            <div class="right">
+                <div>
+                    <input type="number" id="right-attack-dice" min="1" max="16">
+                    <label for="right-attack-dice" title="Number of attack dice being rolled">Attack dice</label>
+                </div>
+        
+                <div>
+                    <input type="number" id="right-attack-hit" min="1" max="6">
+                    <label for="right-attack-hit" title="Target value for attack dice to hit">Attack hit</label>
+                </div>
+                
+                <div>
+                    <input type="number" id="right-defense-block" min="1" max="6">
+                    <label for="right-defense-block" title="Target value for defensive dice to save">Defense save</label>
+                </div>
+        
+                <div>
+                    <input type="number" id="right-defense-morale" min="1" max="8">
+                    <label for="right-defense-morale" title="Target value for panic check to pass">Morale</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="right-include-blocks" checked>
+                    <label for="right-include-blocks">Include blocks</label>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="left">
+                <span>Modifiers</span>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-critical-blow">
+                    <label for="left-modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-vicious">
+                    <label for="left-modifiers-vicious" title="-2 to panic test">Vicious</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-charge">
+                    <label for="left-modifiers-charge" title="Re-roll misses">Successful charge</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-sundering">
+                    <label for="left-modifiers-sundering" title="-1 to defense saves">Sundering</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="left-modifiers-front" name="left-modifiers-direction" value="modifiers-direction-front" checked>
+                    <label for="left-modifiers-front" title="No effect">Attack in front</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="left-modifiers-flank" name="left-modifiers-direction" value="modifiers-direction-flank">
+                    <label for="left-modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="left-modifiers-rear" name="left-modifiers-direction" value="modifiers-direction-rear">
+                    <label for="left-modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
+                </div>
+
+                <span>Conditions</span>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-weakened">
+                    <label for="left-modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-panicked">
+                    <label for="left-modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="left-modifiers-vulnerable">
+                    <label for="left-modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
+                </div>
+            </div>
+
+            <div class="right">
+                <span>Modifiers</span>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-critical-blow">
+                    <label for="right-modifiers-critical-blow" title="Rolls of 6 count as 2 hits">Critical Blow</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-vicious">
+                    <label for="right-modifiers-vicious" title="-2 to panic test">Vicious</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-charge">
+                    <label for="right-modifiers-charge" title="Re-roll misses">Successful charge</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-sundering">
+                    <label for="right-modifiers-sundering" title="-1 to defense saves">Sundering</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="right-modifiers-front" name="right-modifiers-direction" value="modifiers-direction-front" checked>
+                    <label for="right-modifiers-front" title="No effect">Attack in front</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="right-modifiers-flank" name="right-modifiers-direction" value="modifiers-direction-flank">
+                    <label for="right-modifiers-flank" title="-1 to defense saves, -1 to panic test">Attack in flank</label>
+                </div>
+    
+                <div>
+                    <input type="radio" id="right-modifiers-rear" name="right-modifiers-direction" value="modifiers-direction-rear">
+                    <label for="right-modifiers-rear" title="-2 to defense saves, -2 to panic test">Attack in rear</label>
+                </div>
+
+                <span>Conditions</span>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-weakened">
+                    <label for="right-modifiers-weakened" title="Re-roll attack hits, attacker only">Weakened</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-panicked">
+                    <label for="right-modifiers-panicked" title="Re-roll panic test, defender only">Panicked</label>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="right-modifiers-vulnerable">
+                    <label for="right-modifiers-vulnerable" title="Re-roll defense saves, defender only">Vulnerable</label>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="row">
+        <div class="left">
+            <div>
+                Average wounds: <span id="left-averageWounds"></span>
+            </div>
+    
+            <div>
+                Probability of panic: <span id="left-panicProbability"></span>
+            </div>
+    
+            <div>
+                Average panic wounds: <span id="left-avgPanicWounds"></span>
+            </div>
+    
+            <div>
+                Average total wounds: <span id="left-avgTotalWounds"></span>
+            </div>
+        </div>
+
+        <div class="right">
+            <div>
+                Average wounds: <span id="right-averageWounds"></span>
+            </div>
+    
+            <div>
+                Probability of panic: <span id="right-panicProbability"></span>
+            </div>
+    
+            <div>
+                Average panic wounds: <span id="right-avgPanicWounds"></span>
+            </div>
+    
+            <div>
+                Average total wounds: <span id="right-avgTotalWounds"></span>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+        Chart type:
+        <div>
+            <input type="radio" id="chart-type-at-least" name="chart-type" value="chart-type-at-least" checked>
+            <label for="chart-type-at-least" title="At least X wounds">At least X wounds</label>
+        </div>
+
+        <div>
+            <input type="radio" id="chart-type-exactly" name="chart-type" value="chart-type-exactly">
+            <label for="chart-type-exactly" title="Exactly X wounds">Exactly X wounds</label>
+        </div>
+    </div>
+
+    <div>
+        <label for="probability-chart">Probability curve:</label>
+        <div style="position: relative; height:400px; width:600px">
+            <canvas id="probability-chart" height="400" width="600"></canvas>
+        </div>
+    </div>
+
+    <hr>
+</div>
+<footer>
+    <div>
+        Assumptions:
+        <ul>
+            <li>This will not re-roll hits that could be re-rolled in the hope of getting a 6 in order to combo with
+                Critical Blow, although this technically would be a valid (if mathematically risky) strategy.</li>
+            <li>Any Charge re-rolls happen first and Weakened re-rolls happen second (this should technically
+                trigger
+                in order of who is the first player).</li>
+            <li>Always spend all condition tokens for re-rolls.</li>
+        </ul>
+    </div>
+</footer></main>
+        </body>
+</html>
