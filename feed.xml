@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>nobleator</title>
+<link>https://nobleator.github.io</link>
+<description>nobleator's personal blog</description>
+<lastBuildDate>Sun, 19 Jul 2026 16:44:10 GMT</lastBuildDate>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://nobleator.github.io/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+<title>Tax Invoice</title>
+<link>https://nobleator.github.io/posts/2025-07-05-tax-invoice.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2025-07-05-tax-invoice.html</guid>
+<pubDate>Sat, 05 Jul 2025 00:00:00 GMT</pubDate>
+<description>Generate an invoice for your US federal taxes</description>
+</item>
+<item>
+<title>Everyday Heuristics</title>
+<link>https://nobleator.github.io/posts/2024-04-28-everyday-heuristics.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2024-04-28-everyday-heuristics.html</guid>
+<pubDate>Sun, 28 Apr 2024 00:00:00 GMT</pubDate>
+<description>Everyday heuristics for life</description>
+</item>
+<item>
+<title>(Web) Paige Murder Mystery</title>
+<link>https://nobleator.github.io/posts/2023-11-02-murder.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2023-11-02-murder.html</guid>
+<pubDate>Thu, 02 Nov 2023 00:00:00 GMT</pubDate>
+<description>Can you solve Paige’s mysterious murder?</description>
+</item>
+<item>
+<title>Prompt Injection with Gandalf</title>
+<link>https://nobleator.github.io/posts/2023-10-17-prompt-injection-gandalf.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2023-10-17-prompt-injection-gandalf.html</guid>
+<pubDate>Mon, 16 Oct 2023 16:00:00 GMT</pubDate>
+<description>Solving an LLM prompt injection puzzle</description>
+</item>
+<item>
+<title>Undaunted</title>
+<link>https://nobleator.github.io/posts/2023-09-02-undaunted.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2023-09-02-undaunted.html</guid>
+<pubDate>Sat, 02 Sep 2023 00:00:00 GMT</pubDate>
+<description>Undaunted: Stalingrad in flowchart form</description>
+</item>
+<item>
+<title>ChatGPT Writing Styles</title>
+<link>https://nobleator.github.io/posts/2023-06-09-chatgpt-writing-styles.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2023-06-09-chatgpt-writing-styles.html</guid>
+<pubDate>Fri, 09 Jun 2023 00:00:00 GMT</pubDate>
+<description>Match ChatGPT writing samples to an author’s style</description>
+</item>
+<item>
+<title>Secret Santa Assigner</title>
+<link>https://nobleator.github.io/posts/2022-04-16-secret-santa.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2022-04-16-secret-santa.html</guid>
+<pubDate>Sat, 16 Apr 2022 00:00:00 GMT</pubDate>
+<description>A tool to randomly assign partners for Secret
+Santa</description>
+</item>
+<item>
+<title>SQL Murder Mystery</title>
+<link>https://nobleator.github.io/posts/2021-02-06-sql-murder-mystery.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2021-02-06-sql-murder-mystery.html</guid>
+<pubDate>Sat, 06 Feb 2021 00:00:00 GMT</pubDate>
+<description>Description and solution of a puzzle requiring SQL
+to solve</description>
+</item>
+<item>
+<title>EML File Generation</title>
+<link>https://nobleator.github.io/posts/2021-01-20-eml-file-generation.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2021-01-20-eml-file-generation.html</guid>
+<pubDate>Tue, 19 Jan 2021 15:00:00 GMT</pubDate>
+<description>Some examples of valid EML files and common
+pitfalls</description>
+</item>
+<item>
+<title>ASOIAF Miniatures Calculator</title>
+<link>https://nobleator.github.io/posts/2021-01-09-asoiaf-minis-calc.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2021-01-09-asoiaf-minis-calc.html</guid>
+<pubDate>Sat, 09 Jan 2021 00:00:00 GMT</pubDate>
+<description>A calculator for the A Song of Ice and Fire
+Miniatures Game</description>
+</item>
+<item>
+<title>Game Mechanics</title>
+<link>https://nobleator.github.io/posts/2020-10-18-game-mechanics.html</link>
+<guid isPermaLink='true'>https://nobleator.github.io/posts/2020-10-18-game-mechanics.html</guid>
+<pubDate>Sat, 17 Oct 2020 16:00:00 GMT</pubDate>
+<description>A brief analysis of select board game mechanics</description>
+</item>
+</channel>
+</rss>

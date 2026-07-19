@@ -131,13 +131,16 @@ build.ps1
 </summary>
 <pre class="pwsh"><code>$root = $PSScriptRoot
 $out = &quot;$root/public&quot;
+$staticDir = &quot;$root/static&quot;
+
+$siteUrl = &quot;https://nobleator.github.io&quot;
 
 $svgPath = &quot;$root/assets/img/Hexaflake_Logo.svg&quot;
 $logoSvg = Get-Content -Raw -Path $svgPath
 $navFile = &quot;$root/nav.html&quot;
 $navHtml = @&quot;
 &lt;header&gt;
-&lt;a href=&#39;/&#39; id=&#39;logo&#39;$logoSvg&lt;/a&gt;
+&lt;a href=&#39;/&#39; id=&#39;logo&#39; alt=&#39;nobleator logo, links to homepage&#39;$logoSvg&lt;/a&gt;
 &lt;nav&gt;
 &lt;a href=&#39;/&#39;&gt;Home&lt;/a&gt;
 &lt;a href=&#39;/blog.html&#39;&gt;Blog&lt;/a&gt;
@@ -164,6 +167,46 @@ function Convert-File($mdFile, $outFile) {
         -o $outFile
 }
 
+function Get-TagSlug($tag) {
+    return ($tag.ToLower() -replace &#39;[^a-z0-9]+&#39;, &#39;-&#39;).Trim(&#39;-&#39;)
+}
+
+function Format-PostList($postMetas) {
+    $links = $postMetas | ForEach-Object {
+        $formattedDate = ([datetime]$_.date).ToString(&#39;yyyy-MM-dd&#39;)
+        $tagLinks = (@($_.tags) | ForEach-Object {
+            &quot;&lt;a href=&#39;/tags/$(Get-TagSlug $_).html&#39; class=&#39;tag&#39;&gt;$_&lt;/a&gt;&quot;
+        }) -join &#39; &#39;
+        &quot;&lt;li&gt;&lt;span&gt;&lt;i&gt;&lt;time datetime=&#39;$formattedDate&#39;&gt;$formattedDate&lt;/time&gt;&lt;/i&gt;&lt;/span&gt;&lt;a href=&#39;/posts/$($_.BaseName).html&#39;&gt;$($_.title)&lt;/a&gt;&lt;span class=&#39;tags&#39;&gt;$tagLinks&lt;/span&gt;&lt;/li&gt;&quot;
+    }
+    return $links -join &#39;&#39;
+}
+
+function Format-RssItem($m) {
+    $link = &quot;$siteUrl/posts/$($m.BaseName).html&quot;
+    $postDate = [datetime]::SpecifyKind([datetime]$m.date, [DateTimeKind]::Utc)
+    $pubDate = $postDate.ToString(&#39;R&#39;)
+    $title = [System.Security.SecurityElement]::Escape($m.title)
+    $desc = if ($m.description) { [System.Security.SecurityElement]::Escape($m.description) } else { $title }
+    return @&quot;
+&lt;item&gt;
+&lt;title&gt;$title&lt;/title&gt;
+&lt;link&gt;$link&lt;/link&gt;
+&lt;guid isPermaLink=&#39;true&#39;&gt;$link&lt;/guid&gt;
+&lt;pubDate&gt;$pubDate&lt;/pubDate&gt;
+&lt;description&gt;$desc&lt;/description&gt;
+&lt;/item&gt;
+&quot;@
+}
+
+function Get-GitLastModified($filePath) {
+    $gitDate = git -C $root log -1 --format=%cd --date=short -- $filePath 2&gt;$null
+    if ([string]::IsNullOrWhiteSpace($gitDate)) {
+        return (Get-Item $filePath).LastWriteTime.ToString(&#39;yyyy-MM-dd&#39;)
+    }
+    return $gitDate
+}
+
 if (Test-Path $out) {
     Get-ChildItem $out -Recurse | Remove-Item -Recurse -Force
 } else {
@@ -172,31 +215,100 @@ if (Test-Path $out) {
 
 Copy-Item &quot;$root/assets&quot; &quot;$out/assets&quot; -Recurse
 
-$pages = Get-ChildItem &quot;$root/content/pages/*.md&quot;
+$sitemapEntries = [System.Collections.Generic.List[string]]::new()
+$today = (Get-Date).ToString(&#39;yyyy-MM-dd&#39;)
+$sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/&lt;/loc&gt;&lt;lastmod&gt;$today&lt;/lastmod&gt;&lt;/url&gt;&quot;)
 
+$pages = Get-ChildItem &quot;$root/content/pages/*.md&quot;
 
 foreach ($p in $pages) {
     Convert-File $p.FullName &quot;$out/$($p.BaseName).html&quot;
+    $lastmod = Get-GitLastModified $p.FullName
+    $sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/$($p.BaseName).html&lt;/loc&gt;&lt;lastmod&gt;$lastmod&lt;/lastmod&gt;&lt;/url&gt;&quot;)
 }
 
 $posts = Get-ChildItem &quot;$root/content/posts/*.md&quot;
 $metas = $posts | ForEach-Object { Get-PostMeta $_ }
 $metas = $metas | Where-Object { $_.draft -ne &quot;true&quot; } | Sort-Object { [datetime]$_.date } -Descending
 
+$postDates = @{}
 foreach ($m in $metas) {
     $srcFile = Join-Path &quot;$root/content/posts&quot; &quot;$($m.BaseName).md&quot;
-    Convert-File $srcFile &quot;$out/posts/$($m.BaseName).html&quot; $navFile
+    Convert-File $srcFile &quot;$out/posts/$($m.BaseName).html&quot;
+    $postDates[$m.BaseName] = Get-GitLastModified $srcFile
+    $sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/posts/$($m.BaseName).html&lt;/loc&gt;&lt;lastmod&gt;$($postDates[$m.BaseName])&lt;/lastmod&gt;&lt;/url&gt;&quot;)
 }
 
-$links = $metas | ForEach-Object {
-        $formattedDate = ([datetime]$_.date).ToString(&#39;yyyy-MM-dd&#39;)
-        &quot;&lt;li&gt;&lt;span&gt;&lt;i&gt;&lt;time datetime=&#39;$formattedDate&#39;&gt;$formattedDate&lt;/time&gt;&lt;/i&gt;&lt;/span&gt;&lt;a href=&#39;posts/$($_.BaseName).html&#39;&gt;$($_.title)&lt;/a&gt;&lt;/li&gt;&quot;
-    }
-$blogMd = &quot;# Posts`n`n&lt;ul class=&#39;blog-posts&#39;&gt;$($links -join &#39;&#39;)&lt;/ul&gt;&quot;
+$allTags = $metas | ForEach-Object { @($_.tags) } | Where-Object { $_ } | Sort-Object -Unique
+
+$tagCloud = ($allTags | ForEach-Object {
+    &quot;&lt;a href=&#39;/tags/$(Get-TagSlug $_).html&#39; class=&#39;tag&#39;&gt;$_&lt;/a&gt;&quot;
+}) -join &#39; &#39;
+
+$blogMd = &quot;# Posts`n`n&lt;div class=&#39;tag-cloud&#39;&gt;$tagCloud&lt;/div&gt;`n`n&lt;ul class=&#39;blog-posts&#39;&gt;$(Format-PostList $metas)&lt;/ul&gt;&quot;
 $blogMd | Out-File &quot;$root/_blog_tmp.md&quot; -Encoding utf8
 Convert-File &quot;$root/_blog_tmp.md&quot; &quot;$out/blog.html&quot;
 Remove-Item &quot;$root/_blog_tmp.md&quot;
-Remove-Item $navFile</code></pre>
+
+$latestPostDate = if ($postDates.Count -gt 0) {
+    ($postDates.Values | ForEach-Object { [datetime]$_ } | Sort-Object -Descending | Select-Object -First 1).ToString(&#39;yyyy-MM-dd&#39;)
+} else {
+    $today
+}
+$sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/blog.html&lt;/loc&gt;&lt;lastmod&gt;$latestPostDate&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+
+if (!(Test-Path &quot;$out/tags&quot;)) {
+    New-Item &quot;$out/tags&quot; -ItemType Directory | Out-Null
+}
+
+foreach ($tag in $allTags) {
+    $slug = Get-TagSlug $tag
+    $taggedMetas = $metas | Where-Object { @($_.tags) -contains $tag }
+    $tagMd = &quot;# Posts tagged &#39;$tag&#39;`n`n&lt;ul class=&#39;blog-posts&#39;&gt;$(Format-PostList $taggedMetas)&lt;/ul&gt;&quot;
+    $tagMd | Out-File &quot;$root/_tag_tmp.md&quot; -Encoding utf8
+    Convert-File &quot;$root/_tag_tmp.md&quot; &quot;$out/tags/$slug.html&quot;
+    Remove-Item &quot;$root/_tag_tmp.md&quot;
+    $tagLatest = ($taggedMetas | ForEach-Object { [datetime]$postDates[$_.BaseName] } | Sort-Object -Descending | Select-Object -First 1).ToString(&#39;yyyy-MM-dd&#39;)
+    $sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/tags/$slug.html&lt;/loc&gt;&lt;lastmod&gt;$tagLatest&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+}
+
+Remove-Item $navFile
+
+$sitemapXml = @&quot;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+$($sitemapEntries -join &quot;`n&quot;)
+&lt;/urlset&gt;
+&quot;@
+$sitemapXml | Out-File &quot;$out/sitemap.xml&quot; -Encoding utf8
+
+$rssItems = ($metas | ForEach-Object { Format-RssItem $_ }) -join &quot;`n&quot;
+$feedXml = @&quot;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;rss version=&quot;2.0&quot;&gt;
+&lt;channel&gt;
+&lt;title&gt;nobleator&lt;/title&gt;
+&lt;link&gt;$siteUrl&lt;/link&gt;
+&lt;description&gt;nobleator&#39;s personal blog&lt;/description&gt;
+&lt;lastBuildDate&gt;$((Get-Date).ToUniversalTime().ToString(&#39;R&#39;))&lt;/lastBuildDate&gt;
+&lt;atom:link xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; href=&quot;$siteUrl/feed.xml&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot; /&gt;
+$rssItems
+&lt;/channel&gt;
+&lt;/rss&gt;
+&quot;@
+$feedXml | Out-File &quot;$out/feed.xml&quot; -Encoding utf8
+
+foreach ($f in @(&quot;robots.txt&quot;, &quot;security.txt&quot;)) {
+    $srcPath = Join-Path $staticDir $f
+    if (Test-Path $srcPath) {
+        Copy-Item $srcPath (Join-Path $out $f) -Force
+    }
+}
+
+if (Test-Path &quot;$out/security.txt&quot;) {
+    New-Item &quot;$out/.well-known&quot; -ItemType Directory -Force | Out-Null
+    Copy-Item &quot;$out/security.txt&quot; &quot;$out/.well-known/security.txt&quot; -Force
+}</code></pre>
 </details>
 <details>
 <summary>
