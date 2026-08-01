@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="About this site">
+<head>
+    <title>Colophon</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo' alt='nobleator logo, links to homepage'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="nobleator logo"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <g id="layer1">
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects/'>Projects</a>-->
+        <a href='/blog/'>Blog</a>
+        <a href='/colophon/'>Colophon</a>
+        <a href='/blogroll/'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><p>I first heard about the idea of a
+<code>/colophon</code> page from <a
+href="https://slashpages.net/#colophon">Slash Pages</a>. I was not
+familiar with this concept, but apparently that is the term used to
+define the section of a printed work that describes the publisher and/or
+publishing process. We can of course adopt this to web pages, describing
+the development process and technologies involved.</p>
+<p>I have had many iterations of this site over the years, but most of
+them have been based on <a
+href="https://docs.github.com/en/pages">GitHub Pages</a>. This is an
+offering by GitHub where you get a free personal static website at a URL
+matching your username. It is incredibly easy to use and is a perfect
+fit for a simple purpose like a personal blog.</p>
+<p>I originally started with artisanal, hand-written HTML. This was
+about as painful to maintain as you might guess. After a few years of
+that I migrated over to <a href="https://gohugo.io/">Hugo</a> (I was
+going through a bit of a phase with Go). This served me reasonably well,
+but I was always a little uneasy with the seemingly perpetual v0 nature
+of the project. This did not directly impact me at first though, so I
+put those concerns to the side. But after a while I got a new laptop and
+when I was setting up my development environment I realized I was about
+100 minor versions behind. When I finally upgraded Hugo it broke my site
+in a dozen tiny ways, and I decided it was time to revisit this project.
+I had been playing with the idea of my own static site generator for
+some time and this was the moment that pushed me over the edge.</p>
+<p>I had heard of <a href="https://pandoc.org/">Pandoc</a> before and
+was interested in trying it out but never had a compelling use-case. I
+thought this was an interesting idea: use Pandoc to hand-roll a static
+site generator. I always felt like Hugo had just a few too many bells
+and whistles for my needs. To complete this migration though I needed to
+nail down my core requirements:</p>
+<ul>
+<li>Build and deployment of the site must all be contained in 1-2 simple
+scripts that will be easy to maintain. I will often take a break for
+several months (or years) between iterations on this site, and it might
+be transparent how exactly the entire process functions.</li>
+<li>Several of my blog posts include TeX embeddings for properly
+displaying mathematical equations, and any replacement should retain
+that feature.</li>
+<li>I must be able to enrich individual posts with embedded HTML and
+JavaScript.</li>
+<li>I also need support for embedded Mermaid diagrams.</li>
+<li>Pages must be marked as draft or ready to publish. I will often
+write out the skeleton of a post idea and then reject it or simply not
+finish it. I need to be able to store those posts within the repo
+without automatically publishing.</li>
+<li>There should be some form of tagging system. Honestly I do not use
+tags as heavily as I could, primarily because the volume of posts on
+this site is pretty low. But tags are incredibly powerful as a
+search/filter tool and they should be supported within this new
+model.</li>
+<li>The output format for all pages should prioritize simple semantic
+HTML with minimal CSS.</li>
+<li>(Optional) RSS feed generation. I doubt anyone actually subscribes
+to my current RSS feed, but I think it is good practice to build in that
+support early.</li>
+</ul>
+<p>After a bit of testing I landed on 3 scripts:</p>
+<ol type="1">
+<li><code>build.ps1</code>: Pulls together the .md files in the source
+repo and converts them to <code>index.html</code> files in corresponding
+directories via Pandoc. Note: generating <code>/slug/index.html</code>
+allows you to use <code>example.com/slug/</code> as your URL rather than
+<code>example.com/slug.html</code>.</li>
+<li><code>serve.ps1</code>: A simple helper script to run a local web
+server to test your changes as you go.</li>
+<li><code>deploy.ps1</code>: Run a build and then copy over the latest
+.html and asset files from <code>/public/</code> to a sibling GitHub
+Pages repo, then push that to master.</li>
+</ol>
+<details>
+<summary>
+build.ps1
+</summary>
+<pre class="pwsh"><code>$root = $PSScriptRoot
+$out = &quot;$root/public&quot;
+$staticDir = &quot;$root/static&quot;
+
+$siteUrl = &quot;https://nobleator.github.io&quot;
+
+$svgPath = &quot;$root/assets/img/Hexaflake_Logo.svg&quot;
+$logoSvg = Get-Content -Raw -Path $svgPath
+$navFile = &quot;$root/nav.html&quot;
+$navHtml = @&quot;
+&lt;header&gt;
+&lt;a href=&#39;/&#39; id=&#39;logo&#39; alt=&#39;nobleator logo, links to homepage&#39;$logoSvg&lt;/a&gt;
+&lt;nav&gt;
+&lt;a href=&#39;/&#39;&gt;Home&lt;/a&gt;
+&lt;a href=&#39;/blog/&#39;&gt;Blog&lt;/a&gt;
+&lt;a href=&#39;/colophon/&#39;&gt;Colophon&lt;/a&gt;
+&lt;a href=&#39;/blogroll/&#39;&gt;Blogroll&lt;/a&gt;
+&lt;/nav&gt;
+&lt;button id=&#39;theme-toggle-button&#39; onclick=&quot;toggleTheme()&quot;&gt;Theme&lt;/button&gt;
+&lt;/header&gt;
+&quot;@
+$navHtml | Out-File $navFile -Encoding utf8
+
+function Get-PostMeta($mdFile) {
+    $json = pandoc $mdFile.FullName --template=&quot;$root/templates/metadata.json&quot; -t html 2&gt; $null # TeX rendering warnings will always emit here so ignoring
+    $meta = $json | ConvertFrom-Json
+    $meta | Add-Member -NotePropertyName BaseName -NotePropertyValue $mdFile.BaseName
+    return $meta
+}
+function Convert-File($mdFile, $outFile) {
+    pandoc $mdFile `
+        --standalone `
+        --template=&quot;$root/templates/page.html&quot; `
+        --include-before-body=&quot;$navFile&quot; `
+        --mathjax `
+        -o $outFile
+}
+
+function Publish-CleanUrlPage($mdFile, [string]$outDir, [string]$slug) {
+    if ($slug -eq &#39;index&#39;) {
+        Convert-File $mdFile &quot;$outDir/index.html&quot;
+        return &#39;/&#39;
+    } else {
+        $pageDir = &quot;$outDir/$slug&quot;
+        New-Item $pageDir -ItemType Directory -ErrorAction Stop | Out-Null
+        Convert-File $mdFile &quot;$pageDir/index.html&quot;
+        return &quot;/$slug/&quot;
+    }
+}
+
+function Get-TagSlug($tag) {
+    return ($tag.ToLower() -replace &#39;[^a-z0-9]+&#39;, &#39;-&#39;).Trim(&#39;-&#39;)
+}
+
+function Format-PostList($postMetas) {
+    $links = $postMetas | ForEach-Object {
+        $formattedDate = ([datetime]$_.date).ToString(&#39;yyyy-MM-dd&#39;)
+        $tagLinks = (@($_.tags) | ForEach-Object {
+            &quot;&lt;a href=&#39;/tags/$(Get-TagSlug $_)/&#39; class=&#39;tag&#39;&gt;$_&lt;/a&gt;&quot;
+        }) -join &#39; &#39;
+        &quot;&lt;li&gt;&lt;span&gt;&lt;i&gt;&lt;time datetime=&#39;$formattedDate&#39;&gt;$formattedDate&lt;/time&gt;&lt;/i&gt;&lt;/span&gt;&lt;a href=&#39;/posts/$($_.BaseName)/&#39;&gt;$($_.title)&lt;/a&gt;&lt;span class=&#39;tags&#39;&gt;$tagLinks&lt;/span&gt;&lt;/li&gt;&quot;
+    }
+    return $links -join &#39;&#39;
+}
+
+function Format-RssItem($m) {
+    $link = &quot;$siteUrl/posts/$($m.BaseName)/&quot;
+    $postDate = [datetime]::SpecifyKind([datetime]$m.date, [DateTimeKind]::Utc)
+    $pubDate = $postDate.ToString(&#39;R&#39;)
+    $title = [System.Security.SecurityElement]::Escape($m.title)
+    $desc = if ($m.description) { [System.Security.SecurityElement]::Escape($m.description) } else { $title }
+    return @&quot;
+&lt;item&gt;
+&lt;title&gt;$title&lt;/title&gt;
+&lt;link&gt;$link&lt;/link&gt;
+&lt;guid isPermaLink=&#39;true&#39;&gt;$link&lt;/guid&gt;
+&lt;pubDate&gt;$pubDate&lt;/pubDate&gt;
+&lt;description&gt;$desc&lt;/description&gt;
+&lt;/item&gt;
+&quot;@
+}
+
+function Get-GitLastModified($filePath) {
+    $gitDate = git -C $root log -1 --format=%cd --date=short -- $filePath 2&gt;$null
+    if ([string]::IsNullOrWhiteSpace($gitDate)) {
+        return (Get-Item $filePath).LastWriteTime.ToString(&#39;yyyy-MM-dd&#39;)
+    }
+    return $gitDate
+}
+
+if (Test-Path $out) {
+    Get-ChildItem $out -Recurse | Remove-Item -Recurse -Force
+} else {
+    New-Item $out -ItemType Directory | Out-Null
+}
+
+Copy-Item &quot;$root/assets&quot; &quot;$out/assets&quot; -Recurse
+
+$sitemapEntries = [System.Collections.Generic.List[string]]::new()
+$today = (Get-Date).ToString(&#39;yyyy-MM-dd&#39;)
+$sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/&lt;/loc&gt;&lt;lastmod&gt;$today&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+
+$pages = Get-ChildItem &quot;$root/content/pages/*.md&quot;
+
+foreach ($p in $pages) {
+    $urlPath = Publish-CleanUrlPage $p.FullName $out $p.BaseName
+    $lastmod = Get-GitLastModified $p.FullName
+    if ($p.BaseName -ne &#39;index&#39;) {
+        $sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl$urlPath&lt;/loc&gt;&lt;lastmod&gt;$lastmod&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+    }
+}
+
+$posts = Get-ChildItem &quot;$root/content/posts/*.md&quot;
+$metas = $posts | ForEach-Object { Get-PostMeta $_ }
+$metas = $metas | Where-Object { $_.draft -ne &quot;true&quot; } | Sort-Object { [datetime]$_.date } -Descending
+
+New-Item &quot;$out/posts&quot; -ItemType Directory -ErrorAction Stop | Out-Null
+
+$postDates = @{}
+foreach ($m in $metas) {
+    $srcFile = Join-Path &quot;$root/content/posts&quot; &quot;$($m.BaseName).md&quot;
+    $urlPath = Publish-CleanUrlPage $srcFile &quot;$out/posts&quot; $m.BaseName
+    $postDates[$m.BaseName] = Get-GitLastModified $srcFile
+    $sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/posts$urlPath&lt;/loc&gt;&lt;lastmod&gt;$($postDates[$m.BaseName])&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+}
+
+$allTags = $metas | ForEach-Object { @($_.tags) } | Where-Object { $_ } | Sort-Object -Unique
+
+$tagCloud = ($allTags | ForEach-Object {
+    &quot;&lt;a href=&#39;/tags/$(Get-TagSlug $_)/&#39; class=&#39;tag&#39;&gt;$_&lt;/a&gt;&quot;
+}) -join &#39; &#39;
+
+$blogMd = &quot;# Posts`n`n&lt;div class=&#39;tag-cloud&#39;&gt;$tagCloud&lt;/div&gt;`n`n&lt;ul class=&#39;blog-posts&#39;&gt;$(Format-PostList $metas)&lt;/ul&gt;&quot;
+$blogMd | Out-File &quot;$root/_blog_tmp.md&quot; -Encoding utf8
+New-Item &quot;$out/blog&quot; -ItemType Directory -ErrorAction Stop | Out-Null
+Convert-File &quot;$root/_blog_tmp.md&quot; &quot;$out/blog/index.html&quot;
+Remove-Item &quot;$root/_blog_tmp.md&quot;
+
+$latestPostDate = if ($postDates.Count -gt 0) {
+    ($postDates.Values | ForEach-Object { [datetime]$_ } | Sort-Object -Descending | Select-Object -First 1).ToString(&#39;yyyy-MM-dd&#39;)
+} else {
+    $today
+}
+$sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/blog/&lt;/loc&gt;&lt;lastmod&gt;$latestPostDate&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+
+if (!(Test-Path &quot;$out/tags&quot;)) {
+    New-Item &quot;$out/tags&quot; -ItemType Directory | Out-Null
+}
+
+foreach ($tag in $allTags) {
+    $slug = Get-TagSlug $tag
+    $taggedMetas = $metas | Where-Object { @($_.tags) -contains $tag }
+    $tagMd = &quot;# Posts tagged &#39;$tag&#39;`n`n&lt;ul class=&#39;blog-posts&#39;&gt;$(Format-PostList $taggedMetas)&lt;/ul&gt;&quot;
+    $tagMd | Out-File &quot;$root/_tag_tmp.md&quot; -Encoding utf8
+    New-Item &quot;$out/tags/$slug&quot; -ItemType Directory -ErrorAction Stop | Out-Null
+    Convert-File &quot;$root/_tag_tmp.md&quot; &quot;$out/tags/$slug/index.html&quot;
+    Remove-Item &quot;$root/_tag_tmp.md&quot;
+    $tagLatest = ($taggedMetas | ForEach-Object { [datetime]$postDates[$_.BaseName] } | Sort-Object -Descending | Select-Object -First 1).ToString(&#39;yyyy-MM-dd&#39;)
+    $sitemapEntries.Add(&quot;&lt;url&gt;&lt;loc&gt;$siteUrl/tags/$slug/&lt;/loc&gt;&lt;lastmod&gt;$tagLatest&lt;/lastmod&gt;&lt;/url&gt;&quot;)
+}
+
+Remove-Item $navFile
+
+$sitemapXml = @&quot;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+$($sitemapEntries -join &quot;`n&quot;)
+&lt;/urlset&gt;
+&quot;@
+$sitemapXml | Out-File &quot;$out/sitemap.xml&quot; -Encoding utf8
+
+$rssItems = ($metas | ForEach-Object { Format-RssItem $_ }) -join &quot;`n&quot;
+$feedXml = @&quot;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;rss version=&quot;2.0&quot;&gt;
+&lt;channel&gt;
+&lt;title&gt;nobleator&lt;/title&gt;
+&lt;link&gt;$siteUrl&lt;/link&gt;
+&lt;description&gt;nobleator&#39;s personal blog&lt;/description&gt;
+&lt;lastBuildDate&gt;$((Get-Date).ToUniversalTime().ToString(&#39;R&#39;))&lt;/lastBuildDate&gt;
+&lt;atom:link xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; href=&quot;$siteUrl/feed.xml&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot; /&gt;
+$rssItems
+&lt;/channel&gt;
+&lt;/rss&gt;
+&quot;@
+$feedXml | Out-File &quot;$out/feed.xml&quot; -Encoding utf8
+
+foreach ($f in @(&quot;robots.txt&quot;, &quot;security.txt&quot;)) {
+    $srcPath = Join-Path $staticDir $f
+    if (Test-Path $srcPath) {
+        Copy-Item $srcPath (Join-Path $out $f) -Force
+    }
+}
+
+if (Test-Path &quot;$out/security.txt&quot;) {
+    New-Item &quot;$out/.well-known&quot; -ItemType Directory -ErrorAction Stop | Out-Null
+    Copy-Item &quot;$out/security.txt&quot; &quot;$out/.well-known/security.txt&quot; -Force
+}</code></pre>
+</details>
+<details>
+<summary>
+serve.ps1
+</summary>
+<pre><code>$root = $PSScriptRoot
+
+Write-Host &quot;Running fresh build...&quot;
+&amp; &quot;$root/build.ps1&quot;
+
+# start server in a background job, rooted in public/
+$serverJob = Start-Job -ScriptBlock {
+    param($dir)
+    Set-Location $dir
+    # python -m http.server 1313
+    # You may need the following on macOS:
+    python3 -m http.server 1313
+} -ArgumentList &quot;$root/public&quot;
+
+Write-Host &quot;Server running at http://localhost:1313 (job id $($serverJob.Id))&quot;
+
+try {
+    $watcher = New-Object System.IO.FileSystemWatcher
+    $watcher.Path = &quot;$root/content&quot;
+    $watcher.IncludeSubdirectories = $true
+    $watcher.Filter = &quot;*.md&quot;
+
+    Write-Host &quot;Watching for changes... Ctrl+C to stop.&quot;
+    while ($true) {
+        $result = $watcher.WaitForChanged([System.IO.WatcherChangeTypes]::All, 1000)
+        if ($result.TimedOut) { continue }
+        Write-Host &quot;Change detected: $($result.Name) - rebuilding...&quot;
+        &amp; &quot;$root/build.ps1&quot;
+    }
+}
+finally {
+    Stop-Job $serverJob
+    Remove-Job $serverJob
+}</code></pre>
+</details>
+<details>
+<summary>
+deploy.ps1
+</summary>
+<pre class="pwsh"><code>param([string]$additionalMessage) 
+
+&quot;Deploying updates for GitHub pages site&quot;
+$currentDirectory = Get-Location
+$today = Get-Date
+$message = &quot;Rebuilding site and publishing on $today&quot;
+if ($additionalMessage) {
+    $message = $message + &quot;: &quot; + $additionalMessage
+}
+
+$root = $PSScriptRoot
+Write-Host &quot;Running fresh build...&quot;
+&amp; &quot;$root/build.ps1&quot;
+
+&quot;Copying files from .\public into ..\nobleator.github.io&quot;
+if (-Not (Test-Path ..\nobleator.github.io)) {
+    throw &quot;..\nobleator.github.io must exist relative to this script!&quot;
+}
+
+Copy-Item -Path .\public\* -Destination ..\nobleator.github.io -Recurse -Force
+
+&quot;Navigating to ..\nobleator.github.io&quot;
+Set-Location ..\nobleator.github.io
+&quot;Adding changes&quot;
+git add .
+&quot;Committing changes&quot;
+git commit -m &quot;$message&quot;
+&quot;Pushing changes to master&quot;
+git push origin master
+&quot;Navigating to ${currentDirectory}&quot;
+Set-Location $currentDirectory
+
+&quot;Deployment complete&quot;</code></pre>
+</details>
+<p>And there you have it, a very simple static site built with
+Pandoc!</p></main>
+        </body>
+</html>
