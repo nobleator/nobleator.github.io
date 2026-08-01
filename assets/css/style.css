@@ -79,11 +79,13 @@ header.scrolled {
     margin-left: 20px;
 }
 
-.logo-hex-border, .logo-hex-core {
+.logo-hex-border,
+.logo-hex-core {
     fill: var(--heading);
 }
 
-.logo-hex-border, .logo-hex-core {
+.logo-hex-border,
+.logo-hex-core {
     fill: #a02424;
 }
 
@@ -107,7 +109,9 @@ nav a:last-child {
     margin-right: 20px;
 }
 
-button, .button, #theme-toggle-button button {
+button,
+.button,
+#theme-toggle-button button {
     font-family: inherit;
     font-size: 14px;
     color: var(--text);
@@ -119,17 +123,20 @@ button, .button, #theme-toggle-button button {
     transition: 0.2s;
 }
 
-button:hover, .button:hover {
+button:hover,
+.button:hover {
     color: var(--bg);
     background-color: var(--text);
     border-color: var(--text);
 }
 
-button:active, .button:active {
+button:active,
+.button:active {
     opacity: 0.8;
 }
 
-button:focus-visible, .button:focus-visible {
+button:focus-visible,
+.button:focus-visible {
     outline: 2px solid var(--link-hover);
     outline-offset: 2px;
 }
@@ -138,6 +145,7 @@ button:focus-visible, .button:focus-visible {
     display: flex;
     align-items: baseline;
 }
+
 .history-timeline {
     flex: 0 0 100px;
     font-size: 0.8em;
@@ -147,6 +155,7 @@ button:focus-visible, .button:focus-visible {
     border-right: 2px solid var(--helptext);
     align-self: stretch;
 }
+
 .history-detail {
     flex: 1;
     padding-left: 1em;
@@ -166,21 +175,46 @@ footer {
     text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6, strong, b {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
     color: var(--heading);
 }
 
 /* h1 is 25% larger than baseline, down to 5% larger for h6 */
-h1 { font-size: clamp(1.19rem, 1.17rem + 0.1vw,   1.25rem); }
-h2 { font-size: clamp(1.15rem, 1.13rem + 0.1vw,   1.21rem); }
-h3 { font-size: clamp(1.11rem, 1.09rem + 0.1vw,   1.17rem); }
-h4 { font-size: clamp(1.07rem, 1.05rem + 0.1vw,   1.13rem); }
-h5 { font-size: clamp(1.03rem, 1.01rem + 0.1vw,   1.09rem); }
-h6 { font-size: clamp(1.00rem, 0.98rem + 0.08vw,  1.05rem); }
+h1 {
+    font-size: clamp(1.19rem, 1.17rem + 0.1vw, 1.25rem);
+}
+
+h2 {
+    font-size: clamp(1.15rem, 1.13rem + 0.1vw, 1.21rem);
+}
+
+h3 {
+    font-size: clamp(1.11rem, 1.09rem + 0.1vw, 1.17rem);
+}
+
+h4 {
+    font-size: clamp(1.07rem, 1.05rem + 0.1vw, 1.13rem);
+}
+
+h5 {
+    font-size: clamp(1.03rem, 1.01rem + 0.1vw, 1.09rem);
+}
+
+h6 {
+    font-size: clamp(1.00rem, 0.98rem + 0.08vw, 1.05rem);
+}
 
 a {
     color: inherit;
 }
+
 a:hover {
     color: var(--link-hover);
     transition: 0.2s;
@@ -195,7 +229,8 @@ a:hover {
     font-weight: 400;
 }
 
-textarea, input {
+textarea,
+input {
     width: 100%;
     font-size: 16px;
     background-color: var(--input-bg);
@@ -314,10 +349,43 @@ a.tag:hover {
     transition: 0.2s;
 }
 
+.expandable .summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .4em;
+    list-style: none
+}
+
+.expandable .summary svg use.v {
+    transform-box: view-box;
+    transform-origin: 6px 6px;
+    transition: transform .5s ease
+}
+
+.expandable.open .summary svg use.v {
+    transform: rotate(90deg)
+}
+
+.expandable .expandable-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .5s ease
+}
+
+.expandable.open .expandable-content {
+    grid-template-rows: 1fr
+}
+
+.expandable .expandable-content>div {
+    overflow: hidden
+}
+
 @media (max-width: 600px) {
     header {
         position: static;
     }
+
     nav a {
         padding: 0 8px;
     }
@@ -342,7 +410,8 @@ a.tag:hover {
         margin-left: 0;
     }
 
-    main, footer {
+    main,
+    footer {
         padding: 16px;
     }
 }
