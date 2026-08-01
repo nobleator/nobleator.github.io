@@ -2,8 +2,8 @@ const root = document.documentElement;
 const stored = localStorage.getItem('theme');
 
 function toggleTheme() {
-    console.log("Toggling theme...");
-    const current = root.getAttribute('data-theme');
+    const darkThemeMediaQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    const current = root.getAttribute('data-theme') ?? (darkThemeMediaQuery ? 'dark' : 'light');
     const next = current === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
