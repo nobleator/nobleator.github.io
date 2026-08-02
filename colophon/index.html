@@ -128,10 +128,15 @@ server to test your changes as you go.</li>
 .html and asset files from <code>/public/</code> to a sibling GitHub
 Pages repo, then push that to master.</li>
 </ol>
-<details>
-<summary>
-build.ps1
-</summary>
+<div class="expandable">
+<div class="summary">
+<svg width="12" height="12" viewBox="0 0 12 12">
+<use href="#icon-h"/><use class="v" href="#icon-v"/>
+</svg>
+<p>build.ps1</p>
+</div>
+<div class="expandable-content">
+<div>
 <pre class="pwsh"><code>$root = $PSScriptRoot
 $out = &quot;$root/public&quot;
 $staticDir = &quot;$root/static&quot;
@@ -330,11 +335,18 @@ if (Test-Path &quot;$out/security.txt&quot;) {
     New-Item &quot;$out/.well-known&quot; -ItemType Directory -ErrorAction Stop | Out-Null
     Copy-Item &quot;$out/security.txt&quot; &quot;$out/.well-known/security.txt&quot; -Force
 }</code></pre>
-</details>
-<details>
-<summary>
-serve.ps1
-</summary>
+</div>
+</div>
+</div>
+<div class="expandable">
+<div class="summary">
+<svg width="12" height="12" viewBox="0 0 12 12">
+<use href="#icon-h"/><use class="v" href="#icon-v"/>
+</svg>
+<p>serve.ps1</p>
+</div>
+<div class="expandable-content">
+<div>
 <pre><code>$root = $PSScriptRoot
 
 Write-Host &quot;Running fresh build...&quot;
@@ -369,11 +381,18 @@ finally {
     Stop-Job $serverJob
     Remove-Job $serverJob
 }</code></pre>
-</details>
-<details>
-<summary>
-deploy.ps1
-</summary>
+</div>
+</div>
+</div>
+<div class="expandable">
+<div class="summary">
+<svg width="12" height="12" viewBox="0 0 12 12">
+<use href="#icon-h"/><use class="v" href="#icon-v"/>
+</svg>
+<p>deploy.ps1</p>
+</div>
+<div class="expandable-content">
+<div>
 <pre class="pwsh"><code>param([string]$additionalMessage) 
 
 &quot;Deploying updates for GitHub pages site&quot;
@@ -407,7 +426,9 @@ git push origin master
 Set-Location $currentDirectory
 
 &quot;Deployment complete&quot;</code></pre>
-</details>
+</div>
+</div>
+</div>
 <p>And there you have it, a very simple static site built with
 Pandoc!</p></main>
         </body>

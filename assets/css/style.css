@@ -357,6 +357,10 @@ a.tag:hover {
     list-style: none
 }
 
+.expandable .summary p {
+    margin: 0
+}
+
 .expandable .summary svg use.v {
     transform-box: view-box;
     transform-origin: 6px 6px;

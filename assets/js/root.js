@@ -9,8 +9,25 @@ function toggleTheme() {
     localStorage.setItem('theme', next);
 }
 
+async function injectIconSprite() {
+    const res = await fetch('/assets/img/expander.svg');
+    const div = document.createElement('div');
+    div.innerHTML = await res.text();
+    document.body.prepend(div.firstElementChild);
+}
+
+function registerExpandables() {
+    document.body.addEventListener('click', (e) => {
+        const summary = e.target.closest('.expandable > .summary');
+        if (summary) summary.parentElement.classList.toggle('open');
+    });
+}
+
 window.addEventListener("load", (event) => {
     if (stored) root.setAttribute('data-theme', stored);
+
+    injectIconSprite();
+    registerExpandables();
     
     const header = document.querySelector('header');
     function updateHeaderShadow() {
