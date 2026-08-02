@@ -1,0 +1,83 @@
+.location-map {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    height: 500px;
+    margin: 1.5em auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Score badge rendered inside each marker */
+.score-marker {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: bold 11px/1 sans-serif;
+    border: 2px solid #000;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+
+.score-marker.dim {
+    opacity: 0.5;
+}
+
+/* Threshold slider */
+#threshold-control {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: var(--bg);
+    color: var(--text);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    font: 13px/1.6 sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Popup tree */
+.score-popup {
+    font: 13px/1.5 monospace;
+    min-width: 280px;
+}
+
+.score-popup h3 {
+    font: bold 13px/1.4 sans-serif;
+    margin: 0 0 6px;
+}
+
+.score-popup .tree-row {
+    display: flex;
+    gap: 4px;
+}
+
+.score-popup .tree-label {
+    color: #374151;
+}
+
+.score-popup .tree-score {
+    margin-left: auto;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.score-popup .tree-score.zero {
+    color: #6b7280;
+}

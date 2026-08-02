@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Finding your home">
+<head>
+    <title>Artemis</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/root.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+<body>
+        <header>
+        <a href='/' id='logo' alt='nobleator logo, links to homepage'<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <svg
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="nobleator logo"
+           width="50px"
+           height="50px"
+           viewBox="0 0 215.9 279.4"
+           version="1.1"
+           id="svg92">
+          <g id="layer1">
+            <!-- center cell: stays fixed, no rotation applied -->
+            <g id="logo-center-cell">
+              <path class="logo-hex-border" d="M 142.95,139.7 L 125.45,170.0109 L 90.45,170.0109 L 72.95,139.7 L 90.45,109.3891 L 125.45,109.3891 Z" />
+              <path class="logo-hex-core" d="M 140.5,139.7 L 124.225,167.8891 L 91.675,167.8891 L 75.4,139.7 L 91.675,111.5109 L 124.225,111.5109 Z" />
+            </g>
+
+            <!-- outer ring: rotates as a rigid body about the shared center -->
+            <g id="logo-rotator" transform="rotate(0 107.95 139.7)">
+
+              <!-- black (border) hexagons, outer ring only -->
+              <path class="logo-hex-border" d="M 212.95,139.7 L 195.45,170.0109 L 160.45,170.0109 L 142.95,139.7 L 160.45,109.3891 L 195.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 177.95,200.3218 L 160.45,230.6327 L 125.45,230.6327 L 107.95,200.3218 L 125.45,170.0109 L 160.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 107.95,200.3218 L 90.45,230.6327 L 55.45,230.6327 L 37.95,200.3218 L 55.45,170.0109 L 90.45,170.0109 Z" />
+              <path class="logo-hex-border" d="M 72.95,139.7 L 55.45,170.0109 L 20.45,170.0109 L 2.95,139.7 L 20.45,109.3891 L 55.45,109.3891 Z" />
+              <path class="logo-hex-border" d="M 107.95,79.0782 L 90.45,109.3891 L 55.45,109.3891 L 37.95,79.0782 L 55.45,48.7673 L 90.45,48.7673 Z" />
+              <path class="logo-hex-border" d="M 177.95,79.0782 L 160.45,109.3891 L 125.45,109.3891 L 107.95,79.0782 L 125.45,48.7673 L 160.45,48.7673 Z" />
+
+              <!-- red (fill) hexagons, outer ring only -->
+              <path class="logo-hex-core" d="M 210.5,139.7 L 194.225,167.8891 L 161.675,167.8891 L 145.4,139.7 L 161.675,111.5109 L 194.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 175.5,200.3218 L 159.225,228.5109 L 126.675,228.5109 L 110.4,200.3218 L 126.675,172.1327 L 159.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 105.5,200.3218 L 89.225,228.5109 L 56.675,228.5109 L 40.4,200.3218 L 56.675,172.1327 L 89.225,172.1327 Z" />
+              <path class="logo-hex-core" d="M 70.5,139.7 L 54.225,167.8891 L 21.675,167.8891 L 5.4,139.7 L 21.675,111.5109 L 54.225,111.5109 Z" />
+              <path class="logo-hex-core" d="M 105.5,79.0782 L 89.225,107.2673 L 56.675,107.2673 L 40.4,79.0782 L 56.675,50.8891 L 89.225,50.8891 Z" />
+              <path class="logo-hex-core" d="M 175.5,79.0782 L 159.225,107.2673 L 126.675,107.2673 L 110.4,79.0782 L 126.675,50.8891 L 159.225,50.8891 Z" />
+            </g>
+          </g>
+        </svg></a>
+        <nav>
+        <a href='/'>Home</a>
+        <!--<a href='/projects/'>Projects</a>-->
+        <a href='/blog/'>Blog</a>
+        <a href='/colophon/'>Colophon</a>
+        <a href='/blogroll/'>Blogroll</a>
+        </nav>
+        <button id='theme-toggle-button' onclick="toggleTheme()">Theme</button>
+        </header>
+        <main><h1 id="the-problem">The Problem</h1>
+<p>Searching for a home is hard, and realtors are expensive. Everyone
+has preferences and requirements, but consistently applying those
+preferences is hard. Often consumers will compromise on their needs
+without full confidence that all they truly exhausted all of their
+options.</p>
+<h1 id="the-solution">The Solution</h1>
+<p>Enter Artemis (the name is up for debate, I just need to name the the
+directory something). The core concept is to explicitly break down all
+your criteria for a home into a structured “preference tree”. We can
+then evaluate individual homes against this tree, returning a normalized
+score to allow like-for-like comparisons between candidates. This
+enables users to locate homes that meet their precise requirements. The
+end result should be simple enough for your mom to use, but complex
+enough for the nerd who built it.</p>
+<p>As this project is still a work in progress, I want to start by
+clearly laying out a workflow with a couple of sample personas desribing
+my target audience.</p>
+<h2 id="workflow">Workflow</h2>
+<p>I open up Artemis and enter my criteria. For now, each criterion is
+equally weighted, but I will adjust that later.</p>
+<p>Now I need to populate candidate locations. One day this will be
+integrated with listing providers, but not yet. For now, I navigate to
+Zillow and search for homes in the local area meeting my minimum
+requirements. I copy-paste each URL into Artemis, which pulls the list
+price &amp; address, geocodes the address to a latitude/longitude pair,
+and saves it to my local Artemis database. I annotate each listing with
+with any additional personal notes, such as “Nice yard” or “Needs
+remodel”.</p>
+<p>Once I’ve added all promising listings, I open the “Analysis” tab in
+Artemis. This presents a pivot table with each listing, all criteria,
+and the corresponding scores. There is an additional calculated column
+price/score, and this is the default sort order for the table, showing
+the highest value (i.e. lowest cost per unit of score value). To further
+verify my results, I navigate to the “Visualize” tab, which displays a
+map with all my saved listings and all associated POI data, with a
+heatmap corresponding to the total scores. If I click on an individual
+listing, all associated POI data linked to the criteria are also
+displayed, not just the closest POI that was included in the score.</p>
+<h3 id="personas">Personas</h3>
+<h4 id="john-doe-family-man">John Doe: family man</h4>
+<p>John Doe is in the market for a new home. He currently has a job and
+a family and is looking for an upgrade in the local area. His criteria
+might look like this:</p>
+<pre><code>(
+    // Point of Interest (POI) proximity
+    Elementary School &lt; 0.1 mile AND
+    Park &lt; 0.2 mile AND
+    Library &lt; 0.5 mile AND
+    Airport &lt; 20 miles AND
+    (Whole Foods &lt; 5 miles OR Trader Joes &lt; 5 miles) AND
+    (Giant &lt; 1 mile OR Safeway &lt; 1 mile OR Harris Teeter &lt; 1 mile) AND
+    (
+        Job &lt; 0.5 mile OR
+        (Job &lt; 5 miles AND Bike Trail &lt; 1 mile) OR
+        (Job &lt; 10 miles AND Train Station &lt; 0.5 mile)
+    ) AND
+
+    // Location characteristics
+    Walk Score &gt; 50 AND
+    Weatherspark Comfortable Days &gt; 30% AND
+    Pollen &lt; 2 AND
+    Crime Rate &lt; 5% AND
+
+    // Building characteristics
+    Bedrooms &gt;= 4 AND
+    Bathrooms &gt;= 2 AND
+    Home Area &gt; 2000 ft^2 AND
+    Has Garage
+)</code></pre>
+<h4 id="alice-social-butterfly">Alice: social butterfly</h4>
+<p>Alice is a social butterfly, always looking to meet up with her
+friends in the neighborhood for dinner, movie, or a concert. Her
+criteria might look like this:</p>
+<pre><code>(
+    // Point of Interest (POI) proximity
+    Count of restaurants &lt; 0.5 mile AND
+    Movie theater &lt; 1 mile AND
+    (
+        Stadium &lt; 2 miles OR
+        (Stadium &lt; 10 miles AND Train Station &lt; 0.25 mile)
+    )
+    (Whole Foods &lt; 2.5 miles OR Trader Joes &lt; 2.5 miles) AND
+    (Giant &lt; 1 mile OR Safeway &lt; 1 mile OR Harris Teeter &lt; 1 mile) AND
+    (
+        Job &lt; 0.5 mile OR
+        (Job &lt; 5 miles AND Train Station &lt; 0.25 mile)
+    ) AND
+
+    // Location characteristics
+    Walk Score &gt; 70 AND
+    Weatherspark Comfortable Days &gt; 20% AND
+    Crime Rate &lt; 10% AND
+
+    // Building characteristics
+    Bedrooms &gt;= 2 AND
+    Bathrooms &gt;= 1 AND
+    Home Area &gt; 1200 ft^2
+)</code></pre>
+<h2 id="data-model">Data Model</h2>
+<p>Now that we have the overall vision for the tool laid out, let’s dig
+into how this would be represented in software.</p>
+<p>The core data model for this application is the
+<code>criterion</code>. Each criterion is part of a <code>term</code>
+node, which is grouped into a tree with a series of <code>group</code>
+node references. Groups may also be nested in other groups, allowing
+more complex preference sets, as seen in the personas above.</p>
+<p>Each <code>term node</code> takes a generic form like this:</p>
+<pre><code>[Type] [Category] [Operator] [Amount] [Unit]</code></pre>
+<p>Terms and groups are then combined like this:</p>
+<pre><code>group AND
+    term [POI] [Park] [&lt;] [2.5] [Miles]
+    term [Weatherspark] [Comfortable Days] [&gt;] [100] [Days/Year]</code></pre>
+<p>Type + Category is used to determine how to source comparable data
+points, and each pair must be configured within the analytics
+engine.</p>
+<p>Listings must have a latitude and longitude, which can be derived
+from an address. But you will also want to annotate additional details,
+such as the source and asking price. Listings are evaluated by the
+criteria tree against a dataset of points of interest, along with a
+evaluation mode. These evaluation modes can take several forms:</p>
+<ul>
+<li><p>Linear distance: Find the single closest matching POI and measure
+the distance between the POI and the listing. Scores are linear, so a
+grocery store 1 mile away is half as valuable as one 0.5 miles away.
+These scores are normalized such that the maximum distance specified by
+the user results in a score of 0. <span class="math display">\[
+\begin{gather*}
+c_k = \max\left(0,\; 1 - \frac{d_k}{d_{max,k}}\right) \\
+score = \sum_{k=1}^{n} w_k \cdot \max\left(0,\; 1 -
+\frac{d_k}{d_{max,k}}\right)
+\end{gather*}
+\]</span></p></li>
+<li><p>Distance with exponential decay: Find the single closest matching
+POI and measure the distance between the POI and the listing. Scores are
+exponential, so a grocery store 1 mile away is ~25% (depending on the
+<code>beta</code> selected) as valuable as one 0.5 miles away. This mode
+needs to be tuned so that an appropriate <code>beta</code> value can be
+used. <span class="math display">\[
+\begin{gather*}
+c_k = e^{-\beta_k d_k} \\
+score = \sum_{k=1}^{n} w_k \cdot e^{-\beta_k d_k}
+\end{gather*}
+\]</span></p></li>
+<li><p>Count of locations by distance: Count all matching POI within a
+specified distance. Score is linear, so 3 parks within a mile of a
+listing is 3 times as valuable as 1 park. <span class="math display">\[
+\begin{gather*}
+N_k = \left|\{\, p \in P_k : d(p,\, \text{listing}) \le d_{max,k}
+\,\}\right| \\
+score = \sum_{k=1}^{n} w_k \cdot N_k
+\end{gather*}
+\]</span></p></li>
+</ul>
+<h2 id="implementation-details">Implementation Details</h2>
+<p>My current iteration on this project is built in F#, with a simple
+console app that will take in user input at runtime, load data from
+pre-configured data sources, store everything in a local DuckDB
+database, and then generate a static HTML file for visualization.
+Long-term I would like this to be a full web application, but there are
+additional headaches around hosting and user account management that I
+don’t want to distract from the core project. If you want to run this
+yourself feel free to clone the project from GitHub and run the console
+app yourself.</p>
+<p>For the sake of this blog post, I have followed the <a
+href="https://feeds.simonwillison.net/2021/Jul/28/baked-data/">baked
+data</a> pattern here, pre-loading the data for a few samples. Below you
+can see an example of the final analysis &amp; visualization layer,
+which hopefully conveys the general spirit of the project:</p>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/artemis-map.css" />
+
+<div class="location-map">
+    <div id="threshold-control">
+        <label for="threshold">Threshold</label>
+        <input id="threshold" type="range" min="0" max="1" step="0.01" value="0.5">
+        <span id="threshold-val">0.50</span>
+    </div>
+    <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet/leaflet-maplibre-gl.js"></script>
+<script src="/assets/js/artemis/scores.js"></script>
+<script src="/assets/js/artemis/map.js"></script>
+<h1 id="conclusion">Conclusion</h1>
+<p>If you made it this far, thank you for your attention. Please feel
+free to drop a comment on GitHub if you have any thoughts on where this
+project should go in the future.</p></main>
+        </body>
+</html>
