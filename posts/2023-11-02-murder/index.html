@@ -8,6 +8,13 @@ murder?">
     <title>(Web) Paige Murder Mystery</title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const stored = localStorage.getItem('theme');
+            if (stored) root.setAttribute('data-theme', stored);
+        })();
+    </script>
     <script src="/assets/js/root.js"></script>
         </head>
 <body>

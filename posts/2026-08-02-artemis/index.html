@@ -7,6 +7,13 @@
     <title>Artemis</title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const stored = localStorage.getItem('theme');
+            if (stored) root.setAttribute('data-theme', stored);
+        })();
+    </script>
     <script src="/assets/js/root.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         </head>
@@ -66,14 +73,141 @@ preferences is hard. Often consumers will compromise on their needs
 without full confidence that all they truly exhausted all of their
 options.</p>
 <h1 id="the-solution">The Solution</h1>
-<p>Enter Artemis (the name is up for debate, I just need to name the the
-directory something). The core concept is to explicitly break down all
-your criteria for a home into a structured “preference tree”. We can
-then evaluate individual homes against this tree, returning a normalized
-score to allow like-for-like comparisons between candidates. This
-enables users to locate homes that meet their precise requirements. The
-end result should be simple enough for your mom to use, but complex
-enough for the nerd who built it.</p>
+<p>Enter <a href="https://github.com/nobleator/artemis">Artemis</a> (the
+name is up for debate, I just need to name the the directory something).
+The core concept is to explicitly break down all your criteria for a
+home into a structured “preference tree”. We can then evaluate
+individual homes against this tree, returning a normalized score to
+allow like-for-like comparisons between candidates. This enables users
+to locate homes that meet their precise requirements. The end result
+should be simple enough for your mom to use, but complex enough for the
+nerd who built it.</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="display: block; width: 100%; height: auto;" font-family="Verdana, sans-serif">
+
+  <style>
+    .box        { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+    .box-header { fill: var(--code-bg); stroke: var(--border); stroke-width: 1.5; }
+    .evaluate   { fill: var(--code-bg); stroke: var(--link-hover); stroke-width: 2; }
+    .title      { font-size: 14px; font-weight: bold; fill: var(--heading); }
+    .header     { font-size: 12px; font-weight: bold; fill: var(--heading); }
+    .cell       { font-size: 12px; fill: var(--text); }
+    .gridline   { stroke: var(--border); opacity: 0.4; }
+    .arrow      { stroke: var(--border); stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="var(--border)"/>
+    </marker>
+  </defs>
+
+  <g id="personal-criteria">
+    <text x="20" y="16" class="title">Personal criteria</text>
+    <rect x="20" y="24" width="260" height="100" class="box"/>
+    <text x="32" y="44"  class="cell">Park &lt; 1 mile and</text>
+    <text x="32" y="64"  class="cell">Library &lt; 2 miles and</text>
+    <text x="32" y="84"  class="cell">Airport &lt; 10 miles and</text>
+    <text x="32" y="104" class="cell">...</text>
+  </g>
+
+  <g id="poi-datasets">
+    <text x="20" y="180" class="title">Point of Interest (POI) datasets</text>
+
+    <rect x="20" y="188" width="260" height="24" class="box-header"/>
+    <text x="30"  y="204" class="header">POI</text>
+    <text x="120" y="204" class="header">Lat</text>
+    <text x="190" y="204" class="header">Lon</text>
+
+    <rect x="20" y="212" width="260" height="120" class="box"/>
+    <line x1="20" y1="236" x2="280" y2="236" class="gridline"/>
+    <line x1="20" y1="260" x2="280" y2="260" class="gridline"/>
+    <line x1="20" y1="284" x2="280" y2="284" class="gridline"/>
+    <line x1="20" y1="308" x2="280" y2="308" class="gridline"/>
+    <line x1="110" y1="212" x2="110" y2="332" class="gridline"/>
+    <line x1="180" y1="212" x2="180" y2="332" class="gridline"/>
+
+    <text x="30"  y="228" class="cell">Park</text>
+    <text x="120" y="228" class="cell">71.12</text>
+    <text x="190" y="228" class="cell">42.63</text>
+
+    <text x="30"  y="252" class="cell">Park</text>
+    <text x="120" y="252" class="cell">69.73</text>
+    <text x="190" y="252" class="cell">43.11</text>
+
+    <text x="30"  y="276" class="cell">Library</text>
+    <text x="120" y="276" class="cell">68.48</text>
+    <text x="190" y="276" class="cell">42.42</text>
+
+    <text x="30"  y="300" class="cell">Airport</text>
+    <text x="120" y="300" class="cell">71.08</text>
+    <text x="190" y="300" class="cell">41.68</text>
+
+    <text x="30"  y="324" class="cell">...</text>
+  </g>
+
+  <g id="listings">
+    <text x="20" y="374" class="title">Listings</text>
+
+    <rect x="20" y="382" width="260" height="24" class="box-header"/>
+    <text x="30"  y="398" class="header">Address</text>
+    <text x="170" y="398" class="header">Lat</text>
+    <text x="220" y="398" class="header">Lon</text>
+
+    <rect x="20" y="406" width="260" height="72" class="box"/>
+    <line x1="20" y1="430" x2="280" y2="430" class="gridline"/>
+    <line x1="20" y1="454" x2="280" y2="454" class="gridline"/>
+    <line x1="160" y1="406" x2="160" y2="478" class="gridline"/>
+    <line x1="210" y1="406" x2="210" y2="478" class="gridline"/>
+
+    <text x="30"  y="422" class="cell">123 Main St</text>
+    <text x="170" y="422" class="cell">70.12</text>
+    <text x="220" y="422" class="cell">42.23</text>
+
+    <text x="30"  y="446" class="cell">2nd First Dr</text>
+    <text x="170" y="446" class="cell">69.98</text>
+    <text x="220" y="446" class="cell">43.01</text>
+
+    <text x="30"  y="470" class="cell">...</text>
+  </g>
+
+  <g id="evaluate">
+    <rect x="420" y="230" width="120" height="60" rx="6" class="evaluate"/>
+    <text x="480" y="265" text-anchor="middle" class="title">Evaluate</text>
+  </g>
+
+  <g id="output">
+    <text x="640" y="180" class="title">Output</text>
+
+    <rect x="640" y="188" width="240" height="24" class="box-header"/>
+    <text x="650" y="204" class="header">Listing</text>
+    <text x="790" y="204" class="header">Score</text>
+
+    <rect x="640" y="212" width="240" height="72" class="box"/>
+    <line x1="640" y1="236" x2="880" y2="236" class="gridline"/>
+    <line x1="640" y1="260" x2="880" y2="260" class="gridline"/>
+    <line x1="775" y1="212" x2="775" y2="284" class="gridline"/>
+
+    <text x="650" y="228" class="cell">123 Main St</text>
+    <text x="790" y="228" class="cell">0.72</text>
+
+    <text x="650" y="252" class="cell">2nd First Dr</text>
+    <text x="790" y="252" class="cell">0.63</text>
+
+    <text x="650" y="276" class="cell">...</text>
+  </g>
+
+  <g id="arrows">
+    <!-- Personal criteria -> Evaluate -->
+    <path class="arrow" d="M 280,84 C 350,84 350,240 418,252"/>
+    <!-- POI datasets -> Evaluate -->
+    <path class="arrow" d="M 280,252 L 418,258"/>
+    <!-- Listings -> Evaluate -->
+    <path class="arrow" d="M 280,442 C 350,442 350,270 418,264"/>
+    <!-- Evaluate -> Output -->
+    <path class="arrow" d="M 540,260 L 636,258"/>
+  </g>
+
+</svg>
 <p>As this project is still a work in progress, I want to start by
 clearly laying out a workflow with a couple of sample personas
 describing my target audience.</p>

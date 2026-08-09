@@ -8,6 +8,13 @@ federal taxes">
     <title>Tax Invoice</title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const stored = localStorage.getItem('theme');
+            if (stored) root.setAttribute('data-theme', stored);
+        })();
+    </script>
     <script src="/assets/js/root.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         </head>

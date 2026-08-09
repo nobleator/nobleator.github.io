@@ -6,6 +6,13 @@
     <title></title>
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const stored = localStorage.getItem('theme');
+            if (stored) root.setAttribute('data-theme', stored);
+        })();
+    </script>
     <script src="/assets/js/root.js"></script>
         </head>
 <body>
@@ -72,7 +79,7 @@ class="tags"><a href='/tags/programming/' class='tag'>programming</a>
 <a href='/tags/board-games/' class='tag'>board games</a></span>
 </li>
 <li>
-<span><i><time datetime='2020-10-17'>2020-10-17</time></i></span><a href='/posts/2020-10-18-game-mechanics/'>Game
+<span><i><time datetime='2020-10-18'>2020-10-18</time></i></span><a href='/posts/2020-10-18-game-mechanics/'>Game
 Mechanics</a><span
 class="tags"><a href='/tags/writing/' class='tag'>writing</a>
 <a href='/tags/board-games/' class='tag'>board games</a></span>

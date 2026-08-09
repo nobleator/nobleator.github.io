@@ -1,5 +1,4 @@
 const root = document.documentElement;
-const stored = localStorage.getItem('theme');
 
 function toggleTheme() {
     const darkThemeMediaQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
@@ -24,8 +23,6 @@ function registerExpandables() {
 }
 
 window.addEventListener("load", (event) => {
-    if (stored) root.setAttribute('data-theme', stored);
-
     injectIconSprite();
     registerExpandables();
     

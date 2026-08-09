@@ -65,7 +65,10 @@ if (!locations.length) {
         bounds.push([loc.lat, loc.lon]);
     });
 
-    if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
+    if (bounds.length) {
+        map.fitBounds(bounds, { padding: [40, 40] });
+        map.setZoom(map.getZoom() + 2);
+    }
 
     const slider = document.getElementById('threshold');
     const sliderVal = document.getElementById('threshold-val');
