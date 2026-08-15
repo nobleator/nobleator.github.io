@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
 <title>nobleator</title>
 <link>https://nobleator.github.io</link>
 <description>nobleator's personal blog</description>
-<lastBuildDate>Sun, 09 Aug 2026 16:45:43 GMT</lastBuildDate>
+<lastBuildDate>Sat, 15 Aug 2026 18:16:57 GMT</lastBuildDate>
 <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://nobleator.github.io/feed.xml" rel="self" type="application/rss+xml" />
 <item>
 <title>Artemis</title>
@@ -32,7 +32,7 @@
 <link>https://nobleator.github.io/posts/2023-11-02-murder/</link>
 <guid isPermaLink='true'>https://nobleator.github.io/posts/2023-11-02-murder/</guid>
 <pubDate>Thu, 02 Nov 2023 00:00:00 GMT</pubDate>
-<description>Can you solve PaigeΓÇÖs mysterious murder?</description>
+<description>Can you solve Paige’s mysterious murder?</description>
 </item>
 <item>
 <title>Prompt Injection with Gandalf</title>
@@ -53,7 +53,7 @@
 <link>https://nobleator.github.io/posts/2023-06-09-chatgpt-writing-styles/</link>
 <guid isPermaLink='true'>https://nobleator.github.io/posts/2023-06-09-chatgpt-writing-styles/</guid>
 <pubDate>Fri, 09 Jun 2023 00:00:00 GMT</pubDate>
-<description>Match ChatGPT writing samples to an authorΓÇÖs style</description>
+<description>Match ChatGPT writing samples to an author’s style</description>
 </item>
 <item>
 <title>Secret Santa Assigner</title>

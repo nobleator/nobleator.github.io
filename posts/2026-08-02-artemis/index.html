@@ -361,7 +361,11 @@ app yourself.</p>
 href="https://feeds.simonwillison.net/2021/Jul/28/baked-data/">baked
 data</a> pattern here, pre-loading the data for a few samples. Below you
 can see an example of the final analysis &amp; visualization layer,
-which hopefully conveys the general spirit of the project:</p>
+which hopefully conveys the general spirit of the project. Also note the
+option to filter to <a
+href="https://en.wikipedia.org/wiki/Pareto_efficiency">Pareto
+efficient</a> solutions, which will display only the listings that are
+not fully dominated on every criterion by some other listing.</p>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/css/artemis-map.css" />
@@ -371,6 +375,11 @@ which hopefully conveys the general spirit of the project:</p>
         <label for="threshold">Threshold</label>
         <input id="threshold" type="range" min="0" max="1" step="0.01" value="0.5">
         <span id="threshold-val">0.50</span>
+        <div class="sep"></div>
+        <label id="pareto-toggle">
+            <input id="pareto-checkbox" type="checkbox">
+            <span>Pareto efficient only</span>
+        </label>
     </div>
     <div id="map"></div>
 </div>

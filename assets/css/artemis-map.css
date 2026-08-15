@@ -52,6 +52,28 @@
     gap: 10px;
 }
 
+#threshold-control .sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(0, 0, 0, .2);
+}
+
+#pareto-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+#pareto-toggle input {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
 /* Popup tree */
 .score-popup {
     font: 13px/1.5 monospace;

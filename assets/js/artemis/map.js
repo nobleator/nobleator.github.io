@@ -36,7 +36,7 @@ function buildPopup(loc) {
     }).join('');
 
     return `<div class="score-popup">
-        <h3>${escHtml(loc.name)}</h3>
+        <h3>${escHtml(loc.name)} (efficient: ${loc.paretoEfficient})</h3>
         ${rows}
     </div>`;
 }
@@ -53,37 +53,44 @@ if (!locations.length) {
     alert('No data found. Make sure scores.js is in the same folder and defines SCORES_DATA.');
 } else {
     const bounds = [];
-    const markers = []; // { marker, score }
+    const markers = []; // { marker, score, paretoEfficient }
 
     locations.forEach(loc => {
         if (loc.lat == null || loc.lon == null) return;
         const score = Number(loc.score ?? 0);
+        const paretoEfficient = !!loc.paretoEfficient;
         const marker = L.marker([loc.lat, loc.lon], { icon: makeIcon(score, false) })
             .bindPopup(buildPopup(loc), { maxWidth: 400 })
             .addTo(map);
-        markers.push({ marker, score });
+        markers.push({ marker, score, paretoEfficient });
         bounds.push([loc.lat, loc.lon]);
     });
 
-    if (bounds.length) {
-        map.fitBounds(bounds, { padding: [40, 40] });
-        map.setZoom(map.getZoom() + 2);
-    }
+    if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
 
     const slider = document.getElementById('threshold');
     const sliderVal = document.getElementById('threshold-val');
+    const paretoCheckbox = document.getElementById('pareto-checkbox');
 
-    function applyThreshold(t) {
-        markers.forEach(({ marker, score }) => {
-            marker.setIcon(makeIcon(score, score < t));
+    function applyFilters() {
+        const t = parseFloat(slider.value);
+        const paretoOnly = paretoCheckbox.checked;
+        markers.forEach(({ marker, score, paretoEfficient }) => {
+            if (paretoOnly && !paretoEfficient) {
+                map.removeLayer(marker);
+            } else {
+                marker.addTo(map);
+                marker.setIcon(makeIcon(score, score < t));
+            }
         });
     }
 
     slider.addEventListener('input', () => {
-        const t = parseFloat(slider.value);
-        sliderVal.textContent = t.toFixed(2);
-        applyThreshold(t);
+        sliderVal.textContent = parseFloat(slider.value).toFixed(2);
+        applyFilters();
     });
 
-    applyThreshold(parseFloat(slider.value));
+    paretoCheckbox.addEventListener('change', applyFilters);
+
+    applyFilters();
 }
