@@ -233,9 +233,17 @@ heatmap corresponding to the total scores. If I click on an individual
 listing, all associated POI data linked to the criteria are also
 displayed, not just the closest POI that was included in the score.</p>
 <h3 id="personas">Personas</h3>
-<h4 id="john-doe-family-man">John Doe: family man</h4>
-<p>John Doe is in the market for a new home. He currently has a job and
-a family and is looking for an upgrade in the local area. His criteria
+<h3 id="alice-simple-pleasures">Alice: simple pleasures</h3>
+<p>Alice is a simple woman. She likes to read a book in the park after
+dinner. Nothing fancy, that’s all she’s looking for. Her criteria look
+like this:</p>
+<pre><code>(
+    Park &lt; 0.25 mile AND
+    Library &lt; 0.5 mile
+)</code></pre>
+<h4 id="bob-family-man">Bob: family man</h4>
+<p>Bob is in the market for a new home. He currently has a job and a
+family and is looking for an upgrade in the local area. His criteria
 might look like this:</p>
 <pre><code>(
     // Point of Interest (POI) proximity
@@ -263,9 +271,9 @@ might look like this:</p>
     Home Area &gt; 2000 ft^2 AND
     Has Garage
 )</code></pre>
-<h4 id="alice-social-butterfly">Alice: social butterfly</h4>
-<p>Alice is a social butterfly, always looking to meet up with her
-friends in the neighborhood for dinner, movie, or a concert. Her
+<h4 id="charlie-social-butterfly">Charlie: social butterfly</h4>
+<p>Charlie is a social butterfly, always looking to meet up with his
+friends in the neighborhood for dinner, movie, or a concert. His
 criteria might look like this:</p>
 <pre><code>(
     // Point of Interest (POI) proximity
@@ -360,10 +368,11 @@ app yourself.</p>
 <p>For the sake of this blog post, I have followed the <a
 href="https://feeds.simonwillison.net/2021/Jul/28/baked-data/">baked
 data</a> pattern here, pre-loading the data for a few samples. Below you
-can see an example of the final analysis &amp; visualization layer,
-which hopefully conveys the general spirit of the project. Also note the
-option to filter to <a
-href="https://en.wikipedia.org/wiki/Pareto_efficiency">Pareto
+can see an example of the analysis &amp; visualization layer, which
+hopefully conveys the general spirit of the project. This version
+includes the criteria for Alice &amp; Bob listed above (Charlie is
+coming soon), but only the POI data. Also note the option to filter to
+<a href="https://en.wikipedia.org/wiki/Pareto_efficiency">Pareto
 efficient</a> solutions, which will display only the listings that are
 not fully dominated on every criterion by some other listing.</p>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -372,14 +381,14 @@ not fully dominated on every criterion by some other listing.</p>
 
 <div class="location-map">
     <div id="threshold-control">
-        <label for="threshold">Threshold</label>
-        <input id="threshold" type="range" min="0" max="1" step="0.01" value="0.5">
-        <span id="threshold-val">0.50</span>
-        <div class="sep"></div>
         <label id="pareto-toggle">
             <input id="pareto-checkbox" type="checkbox">
             <span>Pareto efficient only</span>
         </label>
+        <div class="sep"></div>
+        <label><input type="radio" name="score-set" value="/assets/js/artemis/scores-a.json" checked>Alice</label>
+        <label><input type="radio" name="score-set" value="/assets/js/artemis/scores-b.json">Bob</label>
+        <!-- <label><input type="radio" name="score-set" value="/assets/js/artemis/scores-c.json">Charlie</label> -->
     </div>
     <div id="map"></div>
 </div>
@@ -387,7 +396,6 @@ not fully dominated on every criterion by some other listing.</p>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet/leaflet-maplibre-gl.js"></script>
-<script src="/assets/js/artemis/scores.js"></script>
 <script src="/assets/js/artemis/map.js"></script>
 <h1 id="conclusion">Conclusion</h1>
 <p>If you made it this far, thank you for your attention. Please feel

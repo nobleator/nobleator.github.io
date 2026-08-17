@@ -11,13 +11,12 @@ function scoreColor(v) {
     return `rgb(${r},${g},${b})`;
 }
 
-function makeIcon(score, dim) {
+function makeIcon(score) {
     const bg = scoreColor(score);
     const fg = score > 0.55 ? '#000' : '#333'; // always dark text; bg stays light-to-green
-    const dimCls = dim ? 'dim' : '';
     return L.divIcon({
         className: '',
-        html: `<div class="score-marker ${dimCls}" style="background:${bg};color:${fg}">${score.toFixed(2)}</div>`,
+        html: `<div class="score-marker" style="background:${bg};color:${fg}">${score.toFixed(2)}</div>`,
         iconSize: [36, 36],
         iconAnchor: [18, 18],
         popupAnchor: [0, -20]
@@ -47,50 +46,74 @@ function escHtml(s) {
         .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// SCORES_DATA is defined in scores.js (var SCORES_DATA = [...])
-const locations = window.SCORES_DATA || [];
-if (!locations.length) {
-    alert('No data found. Make sure scores.js is in the same folder and defines SCORES_DATA.');
-} else {
-    const bounds = [];
-    const markers = []; // { marker, score, paretoEfficient }
+const paretoCheckbox = document.getElementById('pareto-checkbox');
+const scoreRadios = document.querySelectorAll('input[name="score-set"]');
 
-    locations.forEach(loc => {
-        if (loc.lat == null || loc.lon == null) return;
-        const score = Number(loc.score ?? 0);
-        const paretoEfficient = !!loc.paretoEfficient;
-        const marker = L.marker([loc.lat, loc.lon], { icon: makeIcon(score, false) })
-            .bindPopup(buildPopup(loc), { maxWidth: 400 })
-            .addTo(map);
-        markers.push({ marker, score, paretoEfficient });
-        bounds.push([loc.lat, loc.lon]);
+let markers = [];
+let hasFitBounds = false;
+
+function applyFilters() {
+    const paretoOnly = paretoCheckbox.checked;
+    markers.forEach(({ marker, score, paretoEfficient }) => {
+        if (paretoOnly && !paretoEfficient) {
+            map.removeLayer(marker);
+        } else {
+            marker.addTo(map);
+            marker.setIcon(makeIcon(score));
+        }
     });
-
-    if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
-
-    const slider = document.getElementById('threshold');
-    const sliderVal = document.getElementById('threshold-val');
-    const paretoCheckbox = document.getElementById('pareto-checkbox');
-
-    function applyFilters() {
-        const t = parseFloat(slider.value);
-        const paretoOnly = paretoCheckbox.checked;
-        markers.forEach(({ marker, score, paretoEfficient }) => {
-            if (paretoOnly && !paretoEfficient) {
-                map.removeLayer(marker);
-            } else {
-                marker.addTo(map);
-                marker.setIcon(makeIcon(score, score < t));
-            }
-        });
-    }
-
-    slider.addEventListener('input', () => {
-        sliderVal.textContent = parseFloat(slider.value).toFixed(2);
-        applyFilters();
-    });
-
-    paretoCheckbox.addEventListener('change', applyFilters);
-
-    applyFilters();
 }
+
+function clearMarkers() {
+    markers.forEach(({ marker }) => map.removeLayer(marker));
+    markers = [];
+}
+
+function loadScores(url) {
+    clearMarkers();
+
+    fetch(url)
+        .then(res => {
+            if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+            return res.json();
+        })
+        .then(locations => {
+            if (!locations.length) {
+                alert('No data found.');
+                return;
+            }
+
+            const bounds = [];
+
+            locations.forEach(loc => {
+                if (loc.lat == null || loc.lon == null) return;
+                const score = Number(loc.score ?? 0);
+                const paretoEfficient = !!loc.paretoEfficient;
+                const marker = L.marker([loc.lat, loc.lon], { icon: makeIcon(score) })
+                    .bindPopup(buildPopup(loc), { maxWidth: 400 })
+                    .addTo(map);
+                markers.push({ marker, score, paretoEfficient });
+                bounds.push([loc.lat, loc.lon]);
+            });
+
+            if (bounds.length && !hasFitBounds) {
+                map.fitBounds(bounds, { padding: [40, 40] });
+                map.zoomIn(2);
+                hasFitBounds = true;
+            }
+
+            applyFilters();
+        })
+        .catch(err => alert('Failed to load scores: ' + err.message));
+}
+
+paretoCheckbox.addEventListener('change', applyFilters);
+
+scoreRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (radio.checked) loadScores(radio.value);
+    });
+});
+
+const initialRadio = document.querySelector('input[name="score-set"]:checked');
+loadScores(initialRadio ? initialRadio.value : '/assets/js/artemis/scores-a.json');
